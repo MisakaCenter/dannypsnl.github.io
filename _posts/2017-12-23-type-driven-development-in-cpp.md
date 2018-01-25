@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "Test"
+title:  "Type driven development in C++"
 date:   2017-12-23 03:40
 categories: jekyll update
 ---
 
-Type driven development -- by C++
 Let's start from some code. And seems will be only code in this article.
 {% highlight C++ %}
 // Compile: clang++ main.cc
