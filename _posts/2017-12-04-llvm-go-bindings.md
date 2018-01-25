@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "llvm Go bindings"
-date:   2014-04-06 15:40:56
+date:   2017-12-04 08:09:00
 categories: llvm golang
 ---
 
