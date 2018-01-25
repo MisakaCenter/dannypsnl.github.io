@@ -31,4 +31,6 @@ A practice help friend learning react & redux.
 
 I am Danny Lin.<br>
 I am a software enigeer, especially love compiler.<br>
-Also interesting about system software & networking.
+Also interesting about system software & networking.<br>
+Tainan, Taiwan(09) 7582-2245, 10:00~19:00<br>
+ Line id: dannypsnl
