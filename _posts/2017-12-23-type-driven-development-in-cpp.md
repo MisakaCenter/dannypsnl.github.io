@@ -2,7 +2,7 @@
 layout: post
 title:  "Type driven development in C++"
 date:   2017-12-23 03:40
-categories: jekyll update
+categories: cpp
 ---
 
 Let's start from some code. And seems will be only code in this article.
