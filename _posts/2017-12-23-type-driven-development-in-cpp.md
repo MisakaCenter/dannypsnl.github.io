@@ -31,7 +31,7 @@ Few weeks ago, I study Idris and it's core concept: Type-Driven-Development.
 But what is TDD(T is Not test at here)?
 
 Matrix can show this concept clearly. Because we need some meta to make sure we are adding correctness Matrix together.
-We don't want something like [0 0] + [1 0 3] can work, because Matrix can't be that.
+We don't want something like `[0 0] + [1 0 3]` can work, because Matrix can't be that.
 So what will we do at first? Every programmer will check it(I thought, hope I am correct). And most of them will check it at: runtime. But runtime checking is danger. If I could, I always trying compile-time checking, because the chance that can be find out by editor is very big, almost 100%. But how to do that?
 
 In C++, template help we checking at compile-time.
