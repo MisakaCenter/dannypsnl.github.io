@@ -7,7 +7,7 @@ title: Dan's Blog
 - [redux](https://github.com/dannypsnl/redux)
 - [elz](https://github.com/elz-lang/elz)
 
-# Me
+# About Me
 I am Danny Lin.<br>
 I am a software enigeer, especially love compiler.<br>
 Also interesting about system software & networking.
