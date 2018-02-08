@@ -2,7 +2,9 @@
 layout: post
 title:  "C++ thread 基礎"
 date:   2017-06-26 02:25
-categories: cpp thread
+categories:
+  - cpp
+  - thread
 ---
 
 使用標準庫的thread非常容易

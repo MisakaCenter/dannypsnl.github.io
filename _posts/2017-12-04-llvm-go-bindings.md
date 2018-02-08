@@ -2,13 +2,15 @@
 layout: post
 title:  "llvm Go bindings"
 date:   2017-12-04 08:09:00
-categories: llvm golang
+categories: 
+  - llvm
+  - golang
 ---
 
-Use command  
-`$ go get -d llvm.org/llvm/bindings/go/llvm`  
+Use command<br>
+`$ go get -d llvm.org/llvm/bindings/go/llvm`<br>
 to get llvm project
-Then  
+Then<br>
 `$ cd $GOPATH/src/llvm.org/llvm/bindings/go/llvm `  
 Then  
 `$ mkdir workdir && cd workdir && mkdir llvm-build`  

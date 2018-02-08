@@ -2,7 +2,10 @@
 layout: post
 title:  "lexer 原理解釋"
 date:   2017-07-08 12:51
-categories: compiler lexer golang
+categories: 
+  - compiler
+  - lexer
+  - golang
 ---
 
 因為Elz實在是一個遠超我一開始的預想的語言(最開始只是想了解編譯器，乾脆就開始設計新語言了)

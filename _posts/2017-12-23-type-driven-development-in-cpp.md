@@ -2,11 +2,12 @@
 layout: post
 title:  "Type driven development in C++"
 date:   2017-12-23 03:40
-categories: cpp
+categories: 
+  - cpp
 ---
 
 Let's start from some code. And seems will be only code in this article.
-{% highlight C++ %}
+```c++
 // Compile: clang++ main.cc
 #include <iostream>
 
@@ -25,7 +26,7 @@ int main() {
   // This line never pass, interesting part.
   std::cout << Add(Matrix<3, 2>(), Matrix<2, 3>()).print() << std::endl;
 }
-{% endhighlight %}
+```
 Ok, some code be there, why I want to talk about these code?
 Few weeks ago, I study Idris and it's core concept: Type-Driven-Development.
 But what is TDD(T is Not test at here)?
