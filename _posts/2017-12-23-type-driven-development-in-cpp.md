@@ -8,6 +8,7 @@ tags:
 ---
 
 Let's start from some code. And seems will be only code in this article.
+
 ```c++
 // Compile: clang++ main.cc
 #include <iostream>
@@ -28,8 +29,9 @@ int main() {
   std::cout << Add(Matrix<3, 2>(), Matrix<2, 3>()).print() << std::endl;
 }
 ```
+
 Ok, some code be there, why I want to talk about these code?
-Few weeks ago, I study Idris and it's core concept: Type-Driven-Development.
+Few weeks ago, I study `Idris` and it's core concept: Type-Driven-Development.
 But what is TDD(T is Not test at here)?
 
 Matrix can show this concept clearly. Because we need some meta to make sure we are adding correctness Matrix together.
@@ -38,7 +40,7 @@ So what will we do at first? Every programmer will check it(I thought, hope I am
 
 In C++, template help we checking at compile-time.
 And almost no other language can template integer as template parameter. In Java, we have generic only. And a lot language only have generic too.
-But maybe some people can't understand idris, so let's use C++.
+But maybe some people can't understand `Idris`, so let's use `C++`.
 
 The point is: when we need Matrix add. Only those Matrix with correct X, Y can add together.
 With template check, second Add always can't pass compile.
