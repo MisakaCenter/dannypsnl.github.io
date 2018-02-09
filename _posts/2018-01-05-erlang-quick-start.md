@@ -5,8 +5,6 @@ date:   2018-01-05 20:50
 categories: erlang
 tags:
   - erlang
-comments: true
-comment: "Erlang"
 ---
 
 那麼今天就來介紹說很久但是一直沒有寫的Erlang吧!
