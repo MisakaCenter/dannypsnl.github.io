@@ -25,9 +25,9 @@ tags:
 
 每個設計都是一種抉擇，抉擇之後必然有其優勢與劣勢，問題在於如何善用優勢，而不是造成更多問題
 
-extension啊extension，你比都定義在class好？
+`extension`啊`extension`，你比都定義在`class`好？
 
-讓我們看看傳統的class如何做一個cm => m
+讓我們看看傳統的`class`如何做一個`cm => m`
 
 ```swift
 class Meter {
