@@ -3,6 +3,9 @@ layout: post
 title:  "Swift --extension概念入門"
 date:   2017-09-29 05:09
 categories: swift extension
+tags:
+  - swift
+  - extension
 ---
 
 雖然apple在`extension`的文件中註記了

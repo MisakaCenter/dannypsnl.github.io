@@ -3,6 +3,8 @@ layout: post
 title: "Vim replace"
 date: 2017-10-24 20:49
 categories: vim
+tags:
+  - vim
 ---
 
 在Vim中

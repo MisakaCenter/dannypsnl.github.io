@@ -3,6 +3,8 @@ layout: post
 title:  "Erlang Quick Start"
 date:   2018-01-05 20:50
 categories: erlang
+tags:
+  - erlang
 ---
 
 那麼今天就來介紹說很久但是一直沒有寫的Erlang吧!

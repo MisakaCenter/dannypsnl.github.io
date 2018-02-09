@@ -2,7 +2,8 @@
 layout: post
 title:  "llvm Go bindings"
 date:   2017-12-04 08:09:00
-categories: 
+categories: llvm golang
+tags:
   - llvm
   - golang
 ---

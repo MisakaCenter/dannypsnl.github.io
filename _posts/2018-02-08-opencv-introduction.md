@@ -2,6 +2,9 @@
 layout: post
 title: "OpenCV introduction"
 categories: openCV cpp
+tags:
+  - OpenCV 
+  - cpp
 ---
 
 ## Install(Unix Like system)
