@@ -20,7 +20,7 @@ A modern programming language I design and implement.
 - [呆呆](https://qr-official.line.me/M/JJgUuLg1zS.png)<br>
 A line-bot, it can execute JavaScript code if it's safety(Node.js).
 
-- [redux](https://github.com/dannypsnl/rocket)<br>
+- [rocket](https://github.com/dannypsnl/rocket)<br>
 A lightweight web framework for Go.
 
 - [todo-list](https://github.com/dannypsnl/todolist/tree/master/react-todo)<br>
