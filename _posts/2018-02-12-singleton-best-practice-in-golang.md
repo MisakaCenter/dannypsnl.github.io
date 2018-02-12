@@ -7,11 +7,11 @@ tags:
   - DesignPattern
 ---
 
-# How to implement singleton in Go?
+## How to implement singleton in Go?
 
 It's really a problem at there. And worth to think about it.
 
-## Start 
+### Start 
 
 Let's consider how to create a singleton?
 We need a reference can't be change by anyone at all the time except initialize.
