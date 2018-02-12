@@ -13,7 +13,7 @@ to get llvm project
 Then<br>
 `$ cd $GOPATH/src/llvm.org/llvm/bindings/go/llvm `  
 Then  
-`$ mkdir workdir && cd workdir && mkdir llvm-build`  
+`$ mkdir workdir && cd workdir && mkdir llvm_build`  
 Then go back to dir go/llvm  
 `$ ./build.sh -DCMAKE_BUILD_TYPE=Release`  
 I had installed Ninja, then build script use it to build system.
