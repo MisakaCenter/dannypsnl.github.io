@@ -15,7 +15,7 @@ Then<br>
 Then  
 `$ mkdir workdir && cd workdir && mkdir llvm_build`  
 Then go back to dir go/llvm  
-`$ ./build.sh -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host -DBUILD_SHARED_LIBS=ON`  
+`$ ./build.sh -DCMAKE_BUILD_TYPE=Release`
 I had installed Ninja, then build script use it to build system.
 I am not sure if you didn't install it, can compile or not.(Maybe will invoke make)
 
