@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "ANTLR v4--introduction"
-date:   2017-09-03 02:07:00
 categories: antlr4
 tags:
   - antlr4

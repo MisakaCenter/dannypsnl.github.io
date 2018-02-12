@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Erlang Quick Start"
-date:   2018-01-05 20:50
 categories: erlang
 tags:
   - erlang

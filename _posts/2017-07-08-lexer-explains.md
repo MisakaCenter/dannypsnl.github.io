@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "lexer 原理解釋"
-date:   2017-07-08 12:51
 categories: compiler lexer golang
 tags:
   - compiler

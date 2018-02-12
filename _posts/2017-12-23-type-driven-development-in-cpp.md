@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Type driven development in C++"
-date:   2017-12-23 03:40
 categories: cpp
 tags:
   - cpp

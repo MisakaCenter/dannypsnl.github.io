@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "C++ thread 基礎"
-date:   2017-06-26 02:25
 categories: cpp thread
 tags:
   - cpp
