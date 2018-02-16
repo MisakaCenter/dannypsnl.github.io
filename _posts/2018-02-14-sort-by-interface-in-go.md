@@ -1,6 +1,11 @@
 ---
 layout: post
 title:  "Sort by interface in Go"
+comments: true
+comment: "<h3>References:</h3>
+<p>- The Go programming language<br>
+Author: Alan A. A. Donovan & Brian W. Kernighan<br>
+ISBN: 978-986-476-133-3"
 categories: golang
 tags:
   - golang
