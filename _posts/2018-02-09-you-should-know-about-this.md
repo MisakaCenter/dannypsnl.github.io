@@ -1,6 +1,11 @@
 ---
 layout: post
 title: "You should know about `this`"
+comments: true
+comment: "<h3>References:</h3>
+<p>- You don't know JS<br>
+Author: Kyle Simpson<br>
+ISBN: 978-986-476-049-7"
 categories: javascript
 tags:
   - javascript

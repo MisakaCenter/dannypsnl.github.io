@@ -1,6 +1,11 @@
 ---
 layout: post
 title:  "Erlang Quick Start"
+comments: true
+comment: "<h3>References:</h3>
+<p>- Programming Erlang: 2ed<br>
+Author: Joe Armstrong<br>
+ISBN: 978-1-93778-553-6"
 categories: erlang
 tags:
   - erlang
