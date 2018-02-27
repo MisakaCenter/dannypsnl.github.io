@@ -1,6 +1,19 @@
 ---
 layout: post
 title: "Introduction Of Char Recognizing -- Lexer Tech"
+comments: true
+comment: "<h3>References:</h3>
+<p>
+- Engineering a compiler<br>
+Author: Keith D. Cooper & Linda Torczon<br>
+ISBN: 978-0-12-088478-0<br>
+- Programming Rust<br>
+Author: Jim Blandy & Jason Orendorff<br>
+ISBN: 978-1-491-92728-1<br>
+- Compilers: principles, techniques, and tools: 2E<br>
+Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman<br>
+ISBN: 978-986-154-936-1
+</p>"
 categories: compiler lexer rust
 tags:
   - compiler

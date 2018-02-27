@@ -3,12 +3,14 @@ layout: post
 title:  "Create a WaitGroup by yourself"
 comments: true
 comment: "<h3>References:</h3>
-<p>- The Go programming language<br>
+<p>
+- The Go programming language<br>
 Author: Alan A. A. Donovan & Brian W. Kernighan<br>
 ISBN: 978-986-476-133-3<br>
 - Concurrency in Go<br>
 Author: Katherine Cox-Buday<br>
-ISBN: 978-1-491-94119-5</p>"
+ISBN: 978-1-491-94119-5
+</p>"
 categories: golang concurrency
 tags:
   - golang
