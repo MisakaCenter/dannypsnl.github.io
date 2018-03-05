@@ -128,15 +128,17 @@ WORD: [a-zA-Z]+;
 
 ### References:
 
-1. - Engineering a compiler<br>
-   - Author: Keith D. Cooper & Linda Torczon<br>
-   - ISBN: 978-0-12-088478-0<br>
-2. - Programming Rust<br>
-   - Author: Jim Blandy & Jason Orendorff<br>
-   - ISBN: 978-1-491-92728-1<br>
-3. - Compilers: principles, techniques, and tools: 2E<br>
-   - Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman<br>
-   - ISBN: 978-986-154-936-1
+#### [Engineering a compiler](https://www.elsevier.com/books/engineering-a-compiler/cooper/978-0-12-088478-0)
+- Author: Keith D. Cooper & Linda Torczon
+- ISBN: 978-0-12-088478-0
+
+#### [Programming Rust](http://shop.oreilly.com/product/0636920040385.do)
+- Author: Jim Blandy & Jason Orendorff
+- ISBN: 978-1-491-92728-1
+
+#### [Compilers: principles, techniques, and tools: 2E](https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811)
+- Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman
+- ISBN: 978-986-154-936-1(Traditional Chinese Version)
 
 
 <script>

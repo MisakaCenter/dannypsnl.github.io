@@ -92,6 +92,6 @@ Thank for read.
 
 ### References:
 
-- The Go programming language
+#### [The Go programming language](http://www.gopl.io/)
 - Author: Alan A. A. Donovan & Brian W. Kernighan
 - ISBN: 978-986-476-133-3

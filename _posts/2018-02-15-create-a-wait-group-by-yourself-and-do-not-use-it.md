@@ -94,9 +94,10 @@ ps. In productive code, please still using the `sync.WaitGroup`, I do a test, `s
 
 ### References:
 
-1. - The Go programming language
-   - Author: Alan A. A. Donovan & Brian W. Kernighan
-   - ISBN: 978-986-476-133-3
-2. - Concurrency in Go
-   - Author: Katherine Cox-Buday
-   - ISBN: 978-1-491-94119-5
+#### [The Go programming language](http://www.gopl.io/)
+- Author: Alan A. A. Donovan & Brian W. Kernighan
+- ISBN: 978-986-476-133-3
+
+#### [Concurrency in Go](http://shop.oreilly.com/product/0636920046189.do)
+- Author: Katherine Cox-Buday
+- ISBN: 978-1-491-94119-5

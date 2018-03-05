@@ -204,6 +204,6 @@ User switch command
 
 ### References:
 
-- Programming Erlang: 2ed
+#### [Programming Erlang: 2ed](https://pragprog.com/book/jaerlang2/programming-erlang)
 - Author: Joe Armstrong
 - ISBN: 978-1-93778-553-6
