@@ -1,19 +1,6 @@
 ---
 layout: post
 title: "Introduction Of Char Recognizing -- Lexer Tech"
-comments: true
-comment: "<h3>References:</h3>
-<p>
-- Engineering a compiler<br>
-Author: Keith D. Cooper & Linda Torczon<br>
-ISBN: 978-0-12-088478-0<br>
-- Programming Rust<br>
-Author: Jim Blandy & Jason Orendorff<br>
-ISBN: 978-1-491-92728-1<br>
-- Compilers: principles, techniques, and tools: 2E<br>
-Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman<br>
-ISBN: 978-986-154-936-1
-</p>"
 categories: compiler lexer rust
 tags:
   - compiler
@@ -137,6 +124,20 @@ WORD: [a-zA-Z]+;
 關於Lexer，可以算是告一段落，哪天應該會寫一下Parser那的技術
 
 總結一下，我們今天學到的是狀態機的概念與各種常見實作，如果真的弄懂的話，手刻一個自己的Lexer應該不是難事，如果有任何疑難，都可以寄信到我的信箱，我會盡量回答
+
+
+### References:
+
+1. - Engineering a compiler<br>
+   - Author: Keith D. Cooper & Linda Torczon<br>
+   - ISBN: 978-0-12-088478-0<br>
+2. - Programming Rust<br>
+   - Author: Jim Blandy & Jason Orendorff<br>
+   - ISBN: 978-1-491-92728-1<br>
+3. - Compilers: principles, techniques, and tools: 2E<br>
+   - Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman<br>
+   - ISBN: 978-986-154-936-1
+
 
 <script>
 
