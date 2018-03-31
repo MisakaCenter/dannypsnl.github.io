@@ -30,7 +30,7 @@ $ mix phx.new hello
 預設的資料庫 Database 是 專案名稱_dev ，所以現在用 ecto 創建一個 db 吧
 
 ```
-$ mix ecto.create hello_dev
+$ mix ecto.create hello _ dev
 ```
 
 > p.s. 這裡有個問題是你必須現在 `port: 5432` 上跑一個 postgre ，否則會跑出一連串的錯誤，因為 phoenix 會不斷嘗試連接資料庫
@@ -54,3 +54,8 @@ $ mix phx.server
 到 `http://localhost:4000` 看你的網頁
 
 之後再深入研究 Phoenix 的其他特性，XD
+
+### References:
+
+- [Postgre Docker](https://docs.docker.com/samples/library/postgres/)
+- [Phoenix Doc](https://hexdocs.pm/phoenix/overview.html)
