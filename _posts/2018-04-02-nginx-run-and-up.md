@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Nginx 安裝與啟動"
-categories: nginx
+categories: nginx web
 tags:
   - nginx
+  - web
 ---
 
 這篇只是隨便紀錄一下好不容易終於弄懂的 Nginx ，首先各個平台安裝方式應該直接上網查詢
