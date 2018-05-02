@@ -34,7 +34,7 @@ $ mix phx.new hello
 $ mix ecto.create hello_dev
 ```
 
-> p.s. 這裡有個問題是你必須現在 `port: 5432` 上跑一個 postgre ，否則會跑出一連串的錯誤，因為 phoenix 會不斷嘗試連接資料庫
+> p.s. 這裡有個問題是你必須先在 `port: 5432` 上跑一個 postgre ，否則會跑出一連串的錯誤，因為 phoenix 會不斷嘗試連接資料庫
 
 > 我的做法是用 Docker 跑起一個開發用的 Postgre 資料庫
 
