@@ -208,6 +208,7 @@ This is how concurrency looks like in Go.
 In Go, an executable required two things.
 - In package `main`
 - `func main()`
+
 The simplest file is:
 ```go
 package main
