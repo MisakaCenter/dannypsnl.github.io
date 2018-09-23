@@ -4,7 +4,7 @@ title: "gRPC quick start in Go"
 categories: networking gRPC golang
 tags:
   - networking
-  - gRPC 
+  - gRPC
   - golang
 ---
 
