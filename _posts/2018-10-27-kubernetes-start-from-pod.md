@@ -112,4 +112,5 @@ The debugger is running
 #### [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action)
 - Author: Marko Lukša
 - ISBN: 978-1-617-29372-6
+
 #### [Offical Pod Document](https://kubernetes.io/docs/concepts/workloads/pods/pod/)
