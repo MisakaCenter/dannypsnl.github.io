@@ -16,12 +16,16 @@ To start your first test with Go is an easy task.
 
 Example(we would test the following function under directory `add`)
 ```go
+package add
+
 func Add(x, y int) int { return x + y }
 ```
 
 1. create a file contains suffix `_test`, it would be a test file, e.g. `add_test.go`
 2. create a function in test file has prefix `Test`, use `t *testing.T` as it's parameter
 	```go
+	package add
+
 	import "testing"
 	func TestAdd(t *testing.T) {
 		if Add(1, 2) != 3 {
