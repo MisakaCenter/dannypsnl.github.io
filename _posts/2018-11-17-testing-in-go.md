@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Testing in Go"
-categories: go testing debug
+categories: golang testing debug
 tags:
-  - go
+  - golang
   - testing
   - debug
 ---
