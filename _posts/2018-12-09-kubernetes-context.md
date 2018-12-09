@@ -94,7 +94,7 @@ Then add setting credentail for them
 ```bash
 $ kubectl --kubeconfig config_demo config set-credentials backend-developer --username=danny --password=danny
 User "backend-developer" set.
-$ k --kubeconfig config_demo config set-credentials frontend-developer --username=notme --password=notme
+$ kubectl --kubeconfig config_demo config set-credentials frontend-developer --username=notme --password=notme
 User "frontend-developer" set.
 ```
 
