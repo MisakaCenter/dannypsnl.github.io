@@ -8,7 +8,7 @@ tags:
 ---
 
 Whole thing is started from __Ingress__ this feature of __Kubernetes__.
-But today I'm not going to talk about too much about it, basically just I have to let __Ingress Controller__
+But today I'm not going to talk too much about it, basically just I have to let __Ingress Controller__
 will send packets to our __Router__ so that we could do the thing we want,
 if you are interested in our __Router__, you can more infos from [our blog](https://glasnostic.com/blog) and
 demo by just login to play with it.
