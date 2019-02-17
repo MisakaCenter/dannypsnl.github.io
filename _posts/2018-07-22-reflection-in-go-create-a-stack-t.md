@@ -13,7 +13,7 @@ Whatever you had use it or not. Understanding it is not a bad thing.
 
 A well known thing is Go don't have generic, I'm not going to tell you we have generic, I'm going to tell you some basic trick to have the result like generic.
 
-Real world example: [elz-lang/collection/stack](https://github.com/elz-lang/elz/blob/master/collection/stack/stack.go)
+Real world example: [elz-lang/collection/stack](https://github.com/elz-lang/elz-go-backup/tree/master/collection/stack/stack.go)
 
 Elz is a language I'm developing, but that's not the point. Point is this collection/stack using the trick I'm going to talk about.
 
