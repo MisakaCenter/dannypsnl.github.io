@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Make googletest-like test framework from scratch"
-categories: metaprogramming c++
+categories: metaprogramming cpp
 tags:
   - metaprogramming
-  - c++
+  - cpp
 ---
 
 Back to 2016, I learned [googletest](https://github.com/google/googletest) how improving my C++ project. From that, I always want to know how it.
