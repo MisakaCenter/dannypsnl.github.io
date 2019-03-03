@@ -10,7 +10,7 @@ tags:
 Back to 2016, I learned [googletest](https://github.com/google/googletest) how improving my C++ project. From that, I always want to know how it.
 
 Let's take a look at some basic example of it.
-```c++
+```cpp
 TEST(Arithmetic, Integer) {
   ASSERT_EQ(1 + 2, 3);
 }
@@ -19,7 +19,7 @@ TEST(Arithmetic, Integer) {
 I think that's pretty easy to understanding for anyone ever wrote a unit test.
 
 In the googletest context, you would get a lot of `TEST` there like:
-```c++
+```cpp
 TEST(Suit1, test1) {
   // ...
 }
@@ -48,7 +48,7 @@ As everyone knows, C macro just expands codes inside of it. So the question chan
 The answer to this also it easy: a function(or a method implementation because we're using C++).
 
 After so many words, let's start coding! Create a file `unittest.hpp`, code:
-```c++
+```cpp
 #ifndef UNITTEST
 #define UNITTEST
 
@@ -89,7 +89,7 @@ Let's fix it. In your `unittest.hpp`, typed:
 This time, compiler very happy without any complains. So we have to go to the next step: How to executing these tests automatically?
 
 To do that, we must have a place that stores(or reference to) our tests. So we create a global variable.
-```c++
+```cpp
 #include <functional> // for std::function
 #include <vector> // for std::vector
 
@@ -97,7 +97,7 @@ std::vector<std::function<void()>> all_test;
 ```
 
 And add an insertion call in macro `TEST`:
-```c++
+```cpp
 #define TEST(suit, test)                                                       \
   void foo();                                                                  \
   all_test.push_back(foo);                                                     \
@@ -121,7 +121,7 @@ main.cpp:3:1: error: cannot use dot operator on a type
 But it won't work, let's see what happened here. The error message is about compiler expects there is a type `all_test` but didn't, then it complains a type name can't contain `.`.
 
 To bypass the error and get expected insertion call we need some interesting trick. It's all about C++ constructor promised to be called while the structure is created.
-```c++
+```cpp
 struct unittest_insert {
   unittest_insert(std::function<void()> &&f);
 };
@@ -137,7 +137,7 @@ unittest_insert::unittest_insert(std::function<void()> &&f) {
 ```
 
 Now, let's add some print statement into our test and implements run all tests to prove what have we done is workable. The content of `main.cpp`:
-```c++
+```cpp
 #include <iostream>
 
 #include "./unittest.hpp"
@@ -154,7 +154,7 @@ int main() {
 ```
 
 Implementation of `run_all_tests`:
-```c++
+```cpp
 void run_all_tests() {
   for (auto test : all_test) {
     test();
@@ -164,12 +164,12 @@ void run_all_tests() {
 
 Now we knew how to run tests. We need to know how to determine a fail.
 That's why we need assertion macros. Here is an example of testing:
-```c++
+```cpp
 TEST(Arithmetic, Integer) { ASSERT_EQ(1, 1); }
 ```
 
 Then see how `ASSERT_EQ` be made.
-```c++
+```cpp
 #define ASSERT_EQ(le, re)                                                      \
   if (le != re) {                                                              \
     throw "assert equal failed";                                               \
@@ -185,7 +185,7 @@ libc++abi.dylib: terminating with uncaught exception of type char const*
 But before going to improving our error reporting, we should think about a problem: Can we create the second one test? The answer is __NO__.
 
 You can have a try then get a list of redefinition errors from the compiler. To solve the problem we need to get some help from the macro.
-```c++
+```cpp
 #define TEST(suit, test)                                                       \
   void utf_suit##test();                                                       \
   unittest_insert ut_suit##test{utf_suit##test};                               \
@@ -200,7 +200,7 @@ At now, we just `throw` a `char const *`, and we didn't catch the exception, so 
 - And users don't know what exception been throw actually.
 
 To solve the problem, what the thing we should do is catch the exception, report and keep going on. Here is the code:
-```c++
+```cpp
 #include <exception>
 
 void run_all_tests() {
