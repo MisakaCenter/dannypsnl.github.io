@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "gRPC proxy: approach & panic"
+title: "gRPC proxy: approach & pain"
 categories: gRPC
 tags:
   - gRPC
