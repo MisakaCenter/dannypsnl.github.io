@@ -13,7 +13,9 @@ We usually have to transfer files between two computers, such as config, log, im
 - copy from your local to a remote
 - copy from a remote to your local system
 - copy between two remotes from your local
+
 When scp transferring data, both password and files are encrypted so anyone could see the packet can't get any sensitive.
+
 #### command line syntax
 The format of the command is:
 `scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2`
