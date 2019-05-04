@@ -23,11 +23,12 @@ The answer is yes, but we have to check the version of kubernetes first.
 
 According to [feature-gates](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/) description. If your kubernetes version >= 1.10, then HugePages default on, else you have to enable it by yourself.
 
-Log in to your kubernetes node machine. Open and edit `/etc/default/kubelet` this file, find `—feature-gates=` these texts, add some text to make it looks like `—feature-gates=HugePages=true`.
+Log in to your kubernetes node machine. Open and edit `/etc/default/kubelet` this file, find `-—feature-gates=` these texts, add some text to make it looks like `-—feature-gates=HugePages=true`.
 
-> p.s. If you want to add more than one feature, use `,` separate the option ,e.g. `--feature-gates="...,DynamicKubeletConfig=true"`
+> p.s. If you want to add more than one feature, use `,` separate the option, e.g. `--feature-gates="...,DynamicKubeletConfig=true"`
 
 Save and close editor, now run the following commands:
+
 ```bash
 # according to your environment, this is optional
 $ systemctl daemon-reload
