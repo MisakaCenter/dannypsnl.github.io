@@ -177,7 +177,7 @@ tcpdump: listening on br0, link-type EN10MB (Ethernet), capture size 262144 byte
 As you thought, `br0` would get the traffic from `net0` to `net1`, now we have topology looks like:
 
 ##### Figure 1
-![](https://imgur.com/yLkdVqg)
+![](http://i.imgur.com/tdMpnjF.png)
 
 At the final of the output of `tcpdump` we can see some ARP request/reply, we would talk about it in the next section.
 
@@ -200,7 +200,7 @@ The working process is:
 > NOTE: others endpoint would ignore non-interested ARP request
 
 ##### Figure 2
-![](https://imgur.com/n7feuk0)
+![](https://i.imgur.com/wVD755s.jpg)
 
 At the previous section, we can see both sides send ARP request to get another IP's information.
 
