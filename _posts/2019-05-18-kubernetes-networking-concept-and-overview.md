@@ -210,12 +210,11 @@ To get more info:
 
 ### TODO
 
-3. Bridge mode
-4. Pod to Pod
+3. Pod to Pod
     - CNI/CNM
-5. Pod to Service
+4. Pod to Service
     - iptables
-6. Internet to Service
+5. Internet to Service
     1. Egress
     2. Ingress
         - ingress controller
