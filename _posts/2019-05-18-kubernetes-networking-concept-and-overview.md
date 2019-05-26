@@ -208,10 +208,58 @@ To get more info:
 - [RFC 826](https://tools.ietf.org/html/rfc826)
 - [wiki: ARP](https://en.wikipedia.org/wiki/Address_Resolution_Protocol)
 
+### 3 Pod to Pod
+
+**Pod** is the unit of kubernetes, so the most basic networking is how to connect from PodA to PodB.
+We would get two situation:
+
+1. two **Pod** at the same **Node**
+2. two **Pod** at the different **Node**
+
+> **Node** can is a VM or machine which owned by kubernetes cluster.
+
+In the following discussion we are all based on [Kubenet](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet)
+this implementation. **Kubelet** would need to set `--network-plugin=kubenet`.
+
+#### 3.1 Pods at the same Node
+
+In this case, it just as the first section, Pods would connect to the same bridge, in case called: `cbr0`.
+
+> Kubenet creates a Linux bridge named `cbr0` and creates a veth pair for each pod with the host end of each pair connected to `cbr0`.
+
+Since we already talk about this way, we don't spend more time at here, the interesting part is,
+how to allow Pods on
+
+##### Firgure 3.1 two pods at the same node
+![](/assets/pod_to_pod_at_the_same_node.svg)
+
+#### 3.2 Pods at the different Node
+
+When container networking have to work with other host of container, the problem would show.
+At the tranditional environment we do not care the cluster consist of serveral host of container.
+In old networking model we thought any container have to connect to outside world must using a host port to do that.
+But in cluster world, port is a limited resource which would cause we can't scale the cluster well!
+That's why we have [CNM](https://github.com/docker/libnetwork/blob/master/docs/design.md) and [CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md) these models.
+We aren't going to discuss their detail, but mention the possible approach of real world networking topology.
+
+Two **Pod** at the different **Node** won't be able to using the same bridge, which means we can't directly let packet pass through between them.
+
+##### Firgure 3.2 concept of nodes
+![](/assets/concept_of_nodes.svg)
+
+The whole packet flow would like:
+1. PodA send ARP
+2. ARP will fail, then Bridge `cbr0` would send the packet out the default route: `eth0` of host
+3. routing send the packet to **default gateway**
+4. **default gateway** send packet to correct host via CIDR, e.g. `10.0.2.101` to `10.10.0.3`
+5. the VM owned PodB CIDR would judge this packet should send to itself `cbr0`
+6. `cbr0` send the packet to PodB finally
+
+##### Firgure 3.3 CIDR nodes with default gateway
+![](/assets/pod_to_pod_at_different_node_via_default_gateway.svg)
+
 ### TODO
 
-3. Pod to Pod
-    - CNI/CNM
 4. Pod to Service
     - iptables
 5. Internet to Service
