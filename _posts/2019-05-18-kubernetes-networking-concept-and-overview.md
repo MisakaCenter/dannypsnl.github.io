@@ -231,7 +231,7 @@ Since we already talk about this way, we don't spend more time at here, the inte
 how to allow Pods on
 
 ##### Firgure 3.1 two pods at the same node
-![](/assets/pod_to_pod_at_the_same_node.svg)
+![](/assets/img/kube-networking/pod_to_pod_at_the_same_node.svg)
 
 #### 3.2 Pods at the different Node
 
@@ -245,7 +245,7 @@ We aren't going to discuss their detail, but mention the possible approach of re
 Two **Pod** at the different **Node** won't be able to using the same bridge, which means we can't directly let packet pass through between them.
 
 ##### Firgure 3.2 concept of nodes
-![](/assets/concept_of_nodes.svg)
+![](/assets/img/kube-networking/concept_of_nodes.svg)
 
 The whole packet flow would like:
 1. PodA send ARP
@@ -256,7 +256,7 @@ The whole packet flow would like:
 6. `cbr0` send the packet to PodB finally
 
 ##### Firgure 3.3 CIDR nodes with default gateway
-![](/assets/pod_to_pod_at_different_node_via_default_gateway.svg)
+![](/assets/img/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg)
 
 ### TODO
 
