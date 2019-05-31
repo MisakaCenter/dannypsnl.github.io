@@ -200,7 +200,7 @@ The working process is:
 > NOTE: others endpoint would ignore non-interested ARP request
 
 ##### Figure 2
-![](https://i.imgur.com/wVD755s.jpg)
+![](/assets/img/kube-networking/arp_request_and_reply.svg)
 
 At the previous section, we can see both sides send ARP request to get another IP's information.
 
