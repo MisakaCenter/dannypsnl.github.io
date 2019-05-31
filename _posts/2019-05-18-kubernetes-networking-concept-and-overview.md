@@ -177,7 +177,7 @@ tcpdump: listening on br0, link-type EN10MB (Ethernet), capture size 262144 byte
 As you thought, `br0` would get the traffic from `net0` to `net1`, now we have topology looks like:
 
 ##### Figure 1
-![](http://i.imgur.com/tdMpnjF.png)
+![](/assets/img/kube-networking/bridge_mode_and_namespace.svg)
 
 At the final of the output of `tcpdump` we can see some ARP request/reply, we would talk about it in the next section.
 
@@ -230,7 +230,7 @@ In this case, it just as the first section, Pods would connect to the same bridg
 Since we already talk about this way, we don't spend more time at here, the interesting part is,
 how to allow Pods on
 
-##### Firgure 3.1 two pods at the same node
+##### Figure 3.1 two pods at the same node
 ![](/assets/img/kube-networking/pod_to_pod_at_the_same_node.svg)
 
 #### 3.2 Pods at the different Node
@@ -244,7 +244,7 @@ We aren't going to discuss their detail, but mention the possible approach of re
 
 Two **Pod** at the different **Node** won't be able to using the same bridge, which means we can't directly let packet pass through between them.
 
-##### Firgure 3.2 concept of nodes
+##### Figure 3.2 concept of nodes
 ![](/assets/img/kube-networking/concept_of_nodes.svg)
 
 The whole packet flow would like:
