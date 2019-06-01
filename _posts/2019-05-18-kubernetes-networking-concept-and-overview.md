@@ -191,7 +191,7 @@ tcpdump: listening on br0, link-type EN10MB (Ethernet), capture size 262144 byte
 
 As you thought, `br0` would get the traffic from `net0` to `net1`, now we have topology looks like:
 
-##### Figure 1
+##### Figure 1.1
 
 ![](/assets/img/kube-networking/bridge_mode_and_namespace.svg)
 
@@ -217,7 +217,7 @@ The working process is:
 
 > NOTE: others endpoint would ignore non-interested ARP request
 
-##### Figure 2
+##### Figure 2.1
 
 ![](/assets/img/kube-networking/arp_request_and_reply.svg)
 
@@ -282,10 +282,130 @@ The whole packet flow would like:
 
 ![](/assets/img/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg)
 
+### 4 Pod to Service
+
+We show how to route traffic between **Pods** and their IP addresses. The model works good until we have to scale the **Pod**. To make **Kubernetes** be a great system, we need to have the ability to add/delete resource automatically, which is the main feature of **Kubernetes**, now problem comes, because we could remove the **Pod**, we couldn't trust it's IP, since the new **Pod** won't get the same IP mostly.
+
+To solve the problem, **Kubernetes** provide an abstraction called **Service**. A **Service** would be a group of selector and a group of port mapping with a cluster IP, which means it would select **Pods** as it's backend by selector and to loadbalancing for them and forward packets by port mappings. So whatever how **Pods** been created or deleted, **Service** would find those **Pods** with labels matched selectors, and we only have to know the IP of **Service** than know all IPs of **Pods**.
+
+Now, let's take a look at how it works.
+
+#### 4.1 iptables and netfilter
+
+**Kubernetes** relies on `netfilter` -- the networking framework bulit-in to **Linux**.
+
+To get more info about `netfilter` please take a look at:
+
+- [wiki: netfilter](https://en.wikipedia.org/wiki/Netfilter)
+- [netfilter project](https://www.netfilter.org/)
+
+`iptables` is one of userspace tools based on the `netfilter` providing a table-based system for defining rules for manipulating and transforming packets. In **Kubernetes**, `kube-proxy` controller would config `iptables` rules by watching the changes from API server. The rule monitoring the traffic to the cluster IP of **Service** and picking a IP from IPs of **Pods** then forwarding the traffic to the picked IP by updating the destination IP from the cluster IP to the picked IP. This rule would be updated by cluster IP changed, **Pod** ADDED, **Pod** DELETED. Which means loadbalancing already been done on the machine to take traffic directed to cluster IP to an actual IP of **Pod**.
+
+##### Figure 4.1 Pod to Service topology
+
+![](/assets/img/kube-networking/pod_to_service.svg)
+
+After the destination IP be updated, the networking model would fall back to the **Pod to Pod** model.
+
+You can get more details of `iptables` via:
+
+- [wiki: iptables](https://en.wikipedia.org/wiki/Iptables)
+- [man: iptables](https://linux.die.net/man/8/iptables)
+
+#### 4.2 loadbalancing
+
+Now I would create some `iptables` rules to mock a **Service** for static IPs. Assuming we have three IPs are: `10.244.1.2`, `10.244.1.3`, `10.244.1.4` and a cluster IP: `10.0.0.2`
+
+##### Add one IP after the cluster IP
+
+```bash
+$ iptables \
+  -t nat # nat table
+  -A PREROUTING # Append to PREROUTING chain
+  -p tcp # protocol TCP
+  -d 10.0.0.2 # only for the packet to 10.0.0.2
+  --dport 80 # only for port 80
+  -j DNAT # DNAT target
+  --to-destination 10.244.1.2:8080 # change destination to 10.244.1.2:8080
+```
+
+Unfortunately, we can't just apply this command on to each IPs we want to loadbalance, because the first rule would take all the jobs from others(but our work won't be, damn). That's why `iptables` provides a module called `statistic` can work with two different modes:
+
+- `random`: probability
+- `nth`: round robin algorithm
+
+> Note: loadbalancing only works during the connection phase of the TCP protocol. Once the connection has been established, the connection would be routed to the same server.
+
+We only introduce round robin here, since it's quite easy to understand and we want to talk about loadbalancing than how loadbalancing works.
+
+```bash
+$ export CLUSTER_IP=10.0.0.2
+$ export SERVICE_PORT=80
+$ iptables \
+  -A PREROUTING \
+  -p tcp \
+  -t nat -d $CLUSTER_IP \
+  --dport $SERVICE_PORT \
+  -m statistic --mode nth \
+  --every 3 --packet 0 \
+  -j DNAT \
+  --to-destination 10.244.1.2:8080
+
+$ iptables \
+  -A PREROUTING \
+  -p tcp \
+  -t nat -d $CLUSTER_IP \
+  --dport $SERVICE_PORT \
+  -m statistic --mode nth \
+  --every 2 --packet 0 \
+  -j DNAT \
+  --to-destination 10.244.1.3:8080
+
+$ iptables \
+  -A PREROUTING \
+  -p tcp \
+  -t nat -d $CLUSTER_IP \
+  --dport $SERVICE_PORT \
+  -j DNAT \
+  --to-destination 10.244.1.4:8080
+```
+
+Now we would have a problem, we send the packet to cluster IP to the **Pod** directly, but since the source IP is the client **Pod** IP, target **Pod** would send reply back to the client **Pod** would wrong source IP(not cluster IP). Let's simplify these words:
+
+```
+# request send
+podA -> clusterIP
+# After iptables
+podA -> podB
+# reply send
+podB -> podA
+```
+
+We can find that connection would be dropped because the destination IP is not what `podA` expected!
+
+So we also have to change the source IP for reply packet:
+
+```bash
+$ iptables \
+  -t nat \
+  -A POSTROUTING \
+  -p tcp \
+  -s 10.244.1.2 \
+  --sport 8080 \
+  -j SNAT \
+  --to-source 10.0.0.2:80
+```
+
+Now you finally get a complete connection, but now if you try to send request from this server **Pod**, you would find you can't send the packet correctly now, because we do not do the enough work on these rules. In fact, **Kubernetes** using `MARK` for packets to regonize the packet is for replying the request of **Service** or a pure request. But for now, the operating here are enough, to totally explain **Kubernetes** iptables control might have to write a **Kubernetes** :). And the implementation can have a lots of approach, we only mention part of them.
+
+To get more info about loadbalacing & NAT(network address translation):
+
+- [wiki: DNAT](https://en.wikipedia.org/wiki/Network_address_translation#DNAT)
+- [wiki: SNAT](https://en.wikipedia.org/wiki/Network_address_translation#SNAT)
+- [wiki: round robin](https://en.wikipedia.org/wiki/Round-robin_scheduling)
+
 ### TODO
 
-4. Pod to Service
-   - iptables
 5. Internet to Service
    1. Egress
    2. Ingress
