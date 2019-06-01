@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HugePages on Kubernetes"
-categories: workrecord, hugepages, kubernetes, linux
+categories: workrecord hugepages kubernetes linux
 tags:
   - workrecord
   - hugepages
