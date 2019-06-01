@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kubernetes Networking: concept and overview from underlying perspective"
-categories: networking, kubernetes, linux
+categories: networking kubernetes linux
 tags:
   - networking
   - kubernetes
