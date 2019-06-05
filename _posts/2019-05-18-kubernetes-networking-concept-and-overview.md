@@ -396,7 +396,7 @@ $ iptables \
   --to-source 10.0.0.2:80
 ```
 
-Now you finally get a complete connection, but now if you try to send request from this server **Pod**, you would find you can't send the packet correctly now, because we do not do the enough work on these rules. In fact, **Kubernetes** using `MARK` for packets to regonize the packet is for replying the request of **Service** or a pure request. But for now, the operating here are enough, to totally explain **Kubernetes** iptables control might have to write a **Kubernetes** :). And the implementation can have a lots of approach, we only mention part of them.
+Now you finally get a complete connection.
 
 To get more info about loadbalacing & NAT(network address translation):
 
