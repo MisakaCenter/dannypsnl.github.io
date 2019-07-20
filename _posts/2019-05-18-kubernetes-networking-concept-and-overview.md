@@ -404,9 +404,50 @@ To get more info about loadbalacing & NAT(network address translation):
 - [wiki: SNAT](https://en.wikipedia.org/wiki/Network_address_translation#SNAT)
 - [wiki: round robin](https://en.wikipedia.org/wiki/Round-robin_scheduling)
 
-### TODO
+### 5 Internet to Service
 
-5. Internet to Service
-   1. Egress
-   2. Ingress
-      - ingress controller
+#### 5.1 Egress
+
+Egress is the traffic from Pod to internet, consider a packet from Pod to any external service.
+e.g. `10.244.1.10 -> 8.8.8.8`
+
+However, the thing is not so easy since that `8.8.8.8` has no idea who is `10.244.1.10`, because they are not in the same network. So anyway we would need a global IP, it calls masquerading. Now assuming we have an IP `219.140.7.218`, our target is changing `10.244.1.10` to `219.140.7.218` before it reach `8.8.8.8`. And then when `8.8.8.8` send reply packets, we would change `219.140.7.218` to `10.244.1.10` to complete the whole connection.
+
+But we have another problem here, what if we have several Pods such outgoing request? How to know which Pod should get the reply packet? A simple way(not going to introduce all NAT way) is allocate a port to each connection, so every Pod outgoing request would get a port, for example: `10.244.1.10:8080 -> 8.8.8.8:53` would be rewrote as `219.140.7.218:61234`, so `8.8.8.8` would send reply to `219.140.7.218:61234`. If at the same time `10.244.1.11:8080 -> 8.8.8.8:53` rewrite as `219.140.7.218:61235 -> 8.8.8.8:53` got reply packet, the packet would send to `61235`, so we can rewrite the packet correct back to `10.244.1.10` and `10.244.1.11`.
+
+#### 5.2 Ingress
+
+##### 5.2.1 Load balancer
+
+Load balancer is quite easy to understand since it just provide an IP for your service, and do totally the same thing as internal service IP rewritting then send to correct Pod.
+
+##### 5.2.2 Ingress controller
+
+Ingress controller is an application layer load balancer.
+
+Example(see [https://github.com/dannypsnl/k8s-test-deploys/tree/master/ingress](https://github.com/dannypsnl/k8s-test-deploys/tree/master/ingress) to get full example):
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /hello
+        backend:
+          serviceName: hello-svc
+          servicePort: 80
+      - path: /world
+        backend:
+          serviceName: world-svc
+          servicePort: 80
+```
+
+See example yaml can find that we define `http.path`: `/hello` and `/world`, basically ingress controller would handle the root path `/` of http request, and send packet to **hello-svc** when path has prefix `/hello`, and send packet to **world-svc** when path has prefix `/world`(ideally, ingress-nginx do pod selection inside of their code, at least v0.20.0 still acting like that).
