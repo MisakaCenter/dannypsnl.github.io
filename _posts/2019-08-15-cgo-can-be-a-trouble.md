@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "cgo can be a trouble"
-categories: go cgo
+categories: golang cgo
 tags:
-  - go
+  - golang
   - cgo
 ---
 
