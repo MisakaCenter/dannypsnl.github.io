@@ -1,10 +1,11 @@
 ---
-layout: default
+layout: page
 ---
 
-<header>
-  <h1 class="page-title"><label for="search-bar">{{ page.title }}</label></h1>
-</header>
-<div class="content">
-  {% include search-form.html %}
-</div>
+{{ content }}
+
+<form onsubmit="return false;">
+  <input type="input" id="search" class="search-input" placeholder="{{ site.data.text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" autofocus>
+</form>
+
+<div id="results"></div>
