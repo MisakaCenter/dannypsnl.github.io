@@ -16,7 +16,7 @@
 remote_theme: mmistakes/so-simple-theme
 locale: en-US
 title: "Dan's Blog"
-description: "Compiler . System Porgramming"
+description: "Programming Language Theory . System Programming"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: "https://dannypsnl.github.io"
 logo: /assets/images/author.png
