@@ -3,7 +3,7 @@ layout: post
 title: "Weird behavior in Go: encoding/gob"
 tags:
   - gob
-  - go
+  - golang
   - workrecord
 ---
 
