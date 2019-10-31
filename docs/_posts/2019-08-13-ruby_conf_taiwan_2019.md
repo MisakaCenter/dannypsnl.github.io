@@ -1,6 +1,9 @@
 ---
 layout: post
-title:  "Notes: Ruby Conf Taiwan 2019"
+title: "Notes: Ruby Conf Taiwan 2019"
+image:
+  path: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
+  thumbnail: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
 tags:
   - language
   - gc
@@ -23,12 +26,11 @@ Basically, I understand what Matz(creator of Ruby) want is a type inferer genera
 
 Few questions I have are:
 
-- what if I regenerate the type definition file after I modified it?
-	- seems like would be replaced right now
+- what if I regenerate the type definition file after I modified it? - seems like would be replaced right now
 - how it avoids Hindley Milner type system limit?
 
-	For example, a mutable cell holding a list of values of unspecified type.
-	p.s. What we can do is [value restriction](http://users.cs.fiu.edu/~smithg/cop4555/valrestr.html) here. Anyway, we need some extension for the type system.
+      	For example, a mutable cell holding a list of values of unspecified type.
+      	p.s. What we can do is [value restriction](http://users.cs.fiu.edu/~smithg/cop4555/valrestr.html) here. Anyway, we need some extension for the type system.
 
 #### [steep](https://github.com/soutaro/steep)
 
@@ -95,7 +97,7 @@ arr[0] = 2
 arr[0, 2] = 9
 ```
 
-If `arr[0, 2] = ` didn't follow a right hand side expression, it actually represents the same type as `arr[0] = 2` which is obviously wrong. So we can depend on this extra semantic and redefine the type of `[]=` operator to:
+If `arr[0, 2] =` didn't follow a right hand side expression, it actually represents the same type as `arr[0] = 2` which is obviously wrong. So we can depend on this extra semantic and redefine the type of `[]=` operator to:
 
 ```ruby
 class Array<T>
@@ -176,16 +178,16 @@ Following things are related to how to allow movement in C
 
 - compaction callback
 
-	GC calls the C callback function after compaction is done, give C a chance to update its reference.
+      	GC calls the C callback function after compaction is done, give C a chance to update its reference.
 
 - No Pin marking
 
-	use no pin function for reference object, so GC can manage the object.
+      	use no pin function for reference object, so GC can manage the object.
 
 - new location function
 
-	`rb_gc_location` would return the new location of the object.
-	
+      	`rb_gc_location` would return the new location of the object.
+
 #### Known issue
 
 ```
