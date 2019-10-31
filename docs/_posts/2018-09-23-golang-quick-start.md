@@ -3,6 +3,7 @@ layout: post
 title: "Go quick start"
 image:
   path: /images/golang/gopher.png
+  thumbnail: /images/golang/gopher.png
 tags:
   - golang
 ---
