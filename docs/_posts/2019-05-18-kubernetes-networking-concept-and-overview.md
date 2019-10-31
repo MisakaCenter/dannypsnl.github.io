@@ -1,6 +1,9 @@
 ---
 layout: post
 title: "Kubernetes Networking: concept and overview from underlying perspective"
+image:
+  path: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
+  thumbnail: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
 tags:
   - networking
   - kubernetes
@@ -437,16 +440,16 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - http:
-      paths:
-      - path: /hello
-        backend:
-          serviceName: hello-svc
-          servicePort: 80
-      - path: /world
-        backend:
-          serviceName: world-svc
-          servicePort: 80
+    - http:
+        paths:
+          - path: /hello
+            backend:
+              serviceName: hello-svc
+              servicePort: 80
+          - path: /world
+            backend:
+              serviceName: world-svc
+              servicePort: 80
 ```
 
 See example yaml can find that we define `http.path`: `/hello` and `/world`, basically ingress controller would handle the root path `/` of http request, and send packet to **hello-svc** when path has prefix `/hello`, and send packet to **world-svc** when path has prefix `/world`(ideally, ingress-nginx do pod selection inside of their code, at least v0.20.0 still acting like that).
