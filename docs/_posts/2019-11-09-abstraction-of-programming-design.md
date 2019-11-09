@@ -73,13 +73,13 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
 (define (check-balances)
   [let (
     [sum (lambda (left right)
-	   (cond
-	     [(equal? (car left) 'withdraw) (- right (cdr left))]
-	     [(equal? (car left) 'deposit) (+ right (cdr left))]
-	     ; 遇到不在意的 transaction 我們就跳過
-	     [else right]
-	   ))
-	 ]
+      (cond
+        [(equal? (car left) 'withdraw) (- right (cdr left))]
+        [(equal? (car left) 'deposit) (+ right (cdr left))]
+        ; 遇到不在意的 transaction 我們就跳過
+        [else right]
+      ))
+    ]
   )
   (foldr sum 0 list-of-transaction)])
 (define (query-record)
@@ -216,7 +216,7 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
         [(equal? (car left) 'withdraw) (- right (cdr left))]
         [(equal? (car left) 'deposit) (+ right (cdr left))]
         ; 遇到不在意的 transaction 我們就跳過
-        [#t right]
+        [else right]
       ))
     ]
   )
