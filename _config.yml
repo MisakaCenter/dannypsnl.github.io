@@ -19,7 +19,7 @@ title: "Dan's Blog"
 description: "Programming Language Theory . System Programming"
 baseurl: # the subpath of your site, e.g. "/blog"
 url: "https://dannypsnl.github.io"
-logo: #/assets/images/author.png
+logo:
 date_format: "%B %-d, %Y"
 read_time: true
 words_per_minute: 200
