@@ -29,6 +29,7 @@ For example, a Go project can use following:
 ```
 # .gitignore
 *
+!.gitignore
 !*.c
 !*.go
 !*.sum
