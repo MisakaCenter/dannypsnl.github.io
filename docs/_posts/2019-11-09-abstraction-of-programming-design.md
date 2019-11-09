@@ -5,7 +5,9 @@ image:
   path: /assets/images/racket/racket-logo.jpg
   thumbnail: /assets/images/racket/racket-logo.jpg
 tags:
-  - git
+  - programming
+  - beginner
+  - racket
 ---
 
 這是一篇重看 2017 年發的系列文 (這裡是第一篇 [routedan.blogspot.com/2017/02/atm-ps.html](https://routedan.blogspot.com/2017/02/atm-ps.html)) 之後決定重寫的文章
