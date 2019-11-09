@@ -178,7 +178,7 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
 接著我們要建立一個簡單的測試框架作為接下來測試所使用的工具
 
 ```racket
-(require  "atm.rkt")
+(require "atm.rkt")
 (define list-of-test-failure '())
 (define (assert-eq actual expect)
   (if (equal? actual expect)
