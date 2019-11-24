@@ -24,7 +24,7 @@ Keep going on, at chapter 1 author compares reasons we update the code.
 
 And when changing code, most of the features are we don't want to change.
 
-TODO: Figure 1
+![](/assets/images/working-effectively-with-legacy-code/figure1.png)
 
 Question: How can we sure features are working as usual?
 
