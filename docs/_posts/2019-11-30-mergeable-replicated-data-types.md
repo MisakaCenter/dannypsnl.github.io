@@ -85,7 +85,7 @@ An implementation strategy of the queue state from relations $$R_{mem}$$ and $$R
 
 ![](/assets/images/mergeable-replicate-data-type/mrdts-fig-7.jpeg)
 
-> We have generalized the aforementioned graph-based approach for concretizing ordering relations and abstracted it away as a library function $$\gamma_ord$$. Give ord, an arbitration order the function $$\gamma_ord$$ concretizes an ordering relation of a data structure (not necessarily a total order) as a graph isomorphic to that structure, using the arbitration order to break ties…
+> We have generalized the aforementioned graph-based approach for concretizing ordering relations and abstracted it away as a library function $$\gamma_{ord}$$. Give ord, an arbitration order the function $$\gamma_{ord}$$ concretizes an ordering relation of a data structure (not necessarily a total order) as a graph isomorphic to that structure, using the arbitration order to break ties…
 
 Now we are getting closer to the general MRDT approach now. For each data type can define characteristic relations that define representation in the relational domain(like $$R_{mem}$$ and $$R_{ob}$$ in the queue), The following table shows the characteristic relations for a range of data types.
 
