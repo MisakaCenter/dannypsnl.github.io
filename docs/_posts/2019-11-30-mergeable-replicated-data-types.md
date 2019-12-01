@@ -56,7 +56,7 @@ Consider LCA of queue Q and two concurrent versions v1 and v2 to be merged. What
 1. A queue element that was never popped in either version should still present in v.
 2. For every element in Q, if it is popped in either v1 or v2 then it should not present in v. Note that `[2;2]` has two different elements, the same value didn't mean they are the same element.
 3. If an element is not in Q and it is newly pushed into v1 or v2 then should in v.
-4. Partial ordering is preserved: for every element e1 and e2 in Q(or v1, or v2) then if e1 and e2 are not deleted then e1 also occurs before e2 in v. With these, we can map queue state to relations using two relations: $$R*{mem}$$ is a set containing all the members of a queue, and $$R*{ob}$$ is an occurs-before relation relating every pair of elements e1 and e2 in the queue such that if e1 occurs before e2 in the queue, then $$(e1, e2) \in R\_{ob}$$.
+4. Partial ordering is preserved: for every element e1 and e2 in Q(or v1, or v2) then if e1 and e2 are not deleted then e1 also occurs before e2 in v. With these, we can map queue state to relations using two relations: $$R^mem$$ is a set containing all the members of a queue, and $$R^ob$$ is an occurs-before relation relating every pair of elements e1 and e2 in the queue such that if e1 occurs before e2 in the queue, then $$(e1, e2) \in R^ob$$.
 
 Now that we know how to map queues to the relational domain, we define the three-way merge operation in that domain as:
 
@@ -81,13 +81,13 @@ let rec Rob = function
   | x :: xs -> ({ x } × Rmem ( xs ) ) ∪ Rob ( xs )
 ```
 
-An implementation strategy of the queue state from relations $$R*{mem}$$ and $$R*{ob}$$ is constructing a directed graph with vertices $$R*{mem}(v)$$ and edges $$R*{ob}(v)$$, and ties broken with additional arbitration edges. A topological ordering of the graph then yields the queue.
+An implementation strategy of the queue state from relations $$R^mem$$ and $$R^ob$$ is constructing a directed graph with vertices $$R^mem(v)$$ and edges $$R^ob(v)$$, and ties broken with additional arbitration edges. A topological ordering of the graph then yields the queue.
 
 ![](/assets/images/mergeable-replicate-data-type/mrdts-fig-7.jpeg)
 
-> We have generalized the aforementioned graph-based approach for concretizing ordering relations and abstracted it away as a library function $$\gamma*{ord}$$. Give ord, an arbitration order the function $$\gamma*{ord}$$ concretizes an ordering relation of a data structure (not necessarily a total order) as a graph isomorphic to that structure, using the arbitration order to break ties…
+> We have generalized the aforementioned graph-based approach for concretizing ordering relations and abstracted it away as a library function $$\gamma^ord$$. Give ord, an arbitration order the function $$\gamma^ord$$ concretizes an ordering relation of a data structure (not necessarily a total order) as a graph isomorphic to that structure, using the arbitration order to break ties…
 
-Now we are getting closer to the general MRDT approach now. For each data type can define characteristic relations that define representation in the relational domain(like $$R*{mem}$$ and $$R*{ob}$$ in the queue), The following table shows the characteristic relations for a range of data types.
+Now we are getting closer to the general MRDT approach now. For each data type can define characteristic relations that define representation in the relational domain(like $$R^mem$$ and $$R^ob$$ in the queue), The following table shows the characteristic relations for a range of data types.
 
 ![](/assets/images/mergeable-replicate-data-type/mrdts-table-1.jpeg)
 
