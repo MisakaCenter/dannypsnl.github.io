@@ -53,7 +53,7 @@ There are many reasons make a lengthy modification:
 
 Facing legacy code, one of the most important considerations was the most code didn't have tests. Even worse, we can't simply put the test in. So most teams would fall back to the technologies described in chapter 6. Sure we can use them to add more code into legacy code but that's with danger. First, when using sprouting and wrapping we didn't do explicit change code, so we can't say the design was improved! Repeated code is another danger factor. If new code(with test) and old code have duplicate, and we didn't try to merge them, then the old code would never get tested. Furthermore, we could scare and don't want to touch the legacy code anymore since code didn't become better.
 
-Facing the problem is better than escape. Here the author shows some TDD examples if you don't know what is TDD, take a look at https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/
+Facing the problem is better than escape. Here the author shows some TDD examples if you don't know what is TDD, take a look at [https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/](https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/)
 
 The important thing here was **programming by difference**.
 
