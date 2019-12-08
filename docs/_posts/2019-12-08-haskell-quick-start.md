@@ -73,7 +73,7 @@ main = do
 
 I really don't like this idea, at the beginning it sounds like a good idea: Let compiler inferences and tells us what is the type of binding. This is a trap when the compiler does inference, it has to rely on the using case to guess the type of binding. We have a trivial example:
 
-```
+```hs
 id x = x
 ```
 
@@ -120,7 +120,7 @@ p.s. `--` is the comment in **Haskell**
 
 Well, `MakePosition` makes a new question: Can we use `pos` in the branch of `MakePosition`? Yes, by `@` pattern, we can get the constructors:
 
-```
+```hs
 case pos of
   p1@MakePosition x y -> -- ...
 ```
@@ -141,13 +141,13 @@ What is `Maybe` for? In **Haskell**, we do not have the bottom type. What's the 
 
 So we actually need a type to represent `nothing`, that is `Maybe`, `Maybe` has two constructors, for has value: `Just a` and no value: `Nothing`. But doing operations on `Maybe` is annoying, if without `Control.Applicative`. We can see how it work with `Applicative`:
 
-```
+```hs
 import Control.Applicative
 
 (+) <$> Just 2 <*> Just 3
-> 5
+-- 5
 (*) <$> Just 2 <*> Just 3
-> 6
+-- 6
 ```
 
 You can understand `Applicative` like this: `+` takes two parameters, `<$>`  means we start to give it arguments, use `<*>` join more arguments if there is more than one argument.
