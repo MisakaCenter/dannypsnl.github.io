@@ -145,9 +145,11 @@ So we actually need a type to represent `nothing`, that is `Maybe`, `Maybe` has 
 import Control.Applicative
 
 (+) <$> Just 2 <*> Just 3
--- 5
+-- Just 5
 (*) <$> Just 2 <*> Just 3
--- 6
+-- Just 6
+(+) <$> Just 2 <*> Nothing
+-- Nothing
 ```
 
 You can understand `Applicative` like this: `+` takes two parameters, `<$>`  means we start to give it arguments, use `<*>` join more arguments if there is more than one argument.
