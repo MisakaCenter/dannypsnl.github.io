@@ -136,7 +136,16 @@ trait Functor[a] {
 }
 
 class Option[T] <: Functor[T] {
-  fmap[b](self: Option[T], func: (T): b): Option[b];
+  fmap[b](self: Option[T], func: (T): b): Option[b] {
+    match self {
+      Some(v) => {
+        return func(v);
+      }
+      None => {
+        return None;
+      }
+    }
+  }
 }
 ```
 
