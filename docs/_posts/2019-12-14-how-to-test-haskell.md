@@ -14,7 +14,7 @@ Before you start to read, ensure you're using Cabal >= 3.0 to manage your projec
 
 For a **Haskell** project, I usually use Cabal, do not have any special reason. In the `xxx.cabal` file, we can define some common dependencies by `common` block:
 
-```cabal
+```
 -- just let you know how does the file should look like
 -- with full content people can understand the structure better
 cabal-version:       3.0
@@ -40,8 +40,8 @@ common shared-properties
 
 Then we can add `test-suite` block like this:
 
-```cabal
-# common block at here
+```
+-- common block at here
 library
   import: shared-properties
   exposed-modules:     YourModule
