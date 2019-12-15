@@ -88,7 +88,7 @@ import YourModule
 spec :: Spec
 spec = describe "Your module" $ do
   context "has a function add can add two nature numbers" $ do
-    add(1, 2) `shouldBe` 3
+    (add 1 2) `shouldBe` 3
 
 main :: IO ()
 main = hspec spec
