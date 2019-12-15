@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "If we write kubernetes client in Rust"
+title: "NOTE: If we write kubernetes client in Rust"
 tags:
   - note
   - programming
