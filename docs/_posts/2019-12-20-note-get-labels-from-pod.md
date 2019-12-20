@@ -6,7 +6,7 @@ tags:
   - kubernetes
 ---
 
-This week our company wants to improve one of our projects which is based on Istio, exchanging weight in different checker instances, make the traffic distribution fairer. My co-worker provides a nice idea: We watching Pods by the [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/). Code looks like:
+This week our company wants to improve one of our projects which is based on Istio, exchanging weight in different checker instances, make the traffic distribution fairer. My co-worker provides a nice idea: We watching Pods by the [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) to discover others instance. Code looks like:
 
 ```go
 watcher, err := client.CoreV1().Pods("istio-system").Watch(meta.ListOptions{
