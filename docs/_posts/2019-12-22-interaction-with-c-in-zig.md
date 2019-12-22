@@ -69,13 +69,14 @@ We make many tools and define many rules to avoid to make those errors in **C**.
 What I'm going to introduce is **Zig**. The first language which I really think it can be a replacement of **C**. The reason I think **Zig** is better is the concept of **compile-time** in **Zig**. Which means we can get the benefit from pre/post-condition checking. Let's have an example to know what's that means:
 
 ```zig
-fn check_upper_case_name(comptime str: []const u8) {
+fn check_upper_case_name(comptime str: []const u8) void {
     comptime {
         var i = 0;
-        while (i < str.len) : (i += 1): void {
+        while (i < str.len) {
             if (str[i] >= 'a' and str[i] <= 'z') {
                 @compileError("must be all uppercase");
             }
+            i += 1;
         }
     }
 }
