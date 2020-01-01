@@ -20,9 +20,9 @@ term ::=                                              terms
 
 A variable `x` by itself is a term; an abstraction of a variable `x` from a term `t1`, written `λx.t1`, is a term; an application of a term `t1` to another term `t2`, written as `t1 t2`, is a term.
 
-### $\beta$-reduction
+### $$\beta$$-reduction
 
-If an expression of the form `(λx. M) N` is a term, then we can rewrite it to `M[x := N]`, i.e. The expression `M` in which every `x` has been replaced with `N`. We call this process $\beta$-reduction[2] of `(λx. M) N` to `M[x := N]`. For example `(λx. (x + 1)) 2`(assume that we add numbers into lambda-calculus), where `M` is `x + 1` and `N` is `2`, `(x+1)[x := 2]` would produce `2 + 1` as the result. BTW, we also use
+If an expression of the form `(λx. M) N` is a term, then we can rewrite it to `M[x := N]`, i.e. The expression `M` in which every `x` has been replaced with `N`. We call this process $$\beta$$-reduction[2] of `(λx. M) N` to `M[x := N]`. For example `(λx. (x + 1)) 2`(assume that we add numbers into lambda-calculus), where `M` is `x + 1` and `N` is `2`, `(x+1)[x := 2]` would produce `2 + 1` as the result. BTW, we also use
 
 $$
 (\lambda x.M)N \longrightarrow [x \to N]M
@@ -108,7 +108,7 @@ mult := \lambda m. \lambda n. \lambda f.m\; (n\; f) \\
 | \; mult := λm.λn.m\; (add\; n)\; 0
 $$
 
-### Evaluation Rules ($t \to t'$)
+### Evaluation Rules ($$t \to t'$$)
 
 $$
 \frac{t_1 \to t_1'}{t_1\; t_2 \to t_1'\; t_2} \;\;\;\; {E-APP1}\\
@@ -119,7 +119,7 @@ $$
 ### References
 
 1. BNF(Backus–Naur form) [https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form)
-2. $\beta$-reduction [https://en.wikipedia.org/wiki/Beta_normal_form](https://en.wikipedia.org/wiki/Beta_normal_form)
+2. $$\beta$$-reduction [https://en.wikipedia.org/wiki/Beta_normal_form](https://en.wikipedia.org/wiki/Beta_normal_form)
 3. Currying [https://en.wikipedia.org/wiki/Currying](https://en.wikipedia.org/wiki/Currying)
 
 #### [Types and Programming Languages](https://www.cis.upenn.edu/~bcpierce/tapl/)
