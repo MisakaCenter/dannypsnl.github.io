@@ -4,6 +4,8 @@ title: "Kubernetes Networking: concept and overview from underlying perspective"
 image:
   path: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
   thumbnail: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
+categories:
+  - cs
 tags:
   - networking
   - kubernetes

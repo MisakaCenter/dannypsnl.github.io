@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "The Go concurrency bug I made"
+categories:
+  - cs
 tags:
   - golang
   - concurrency
@@ -42,6 +44,7 @@ We using a common generator pattern here, and `select` also is quite normal case
 This loop would create new channel for every `case` statement! And leaving infinite go-routine that nobody care!
 
 To avoid the problem, you have to using `range`:
+
 ```go
 func main() {
     for i := range events() {
@@ -54,74 +57,77 @@ But if you want to stop this looping, which means you still need to use `select`
 There are many ways to do that:
 
 - In structure:
-    ```go
-    type eventGenerator struct {
-        eventCh chan int
-        ctx     context.Context
-        cancel  context.CancelFunc
-    }
 
-    func NewEventGenerator(ctx context.Context) *eventGenerator {
-        // better to get context from others place, even this is a most up level controller
-        // because you can use `context.Background()` as argument if this is the most up level one
-        ctx, cancel := context.WithCancel(ctx)
-        return &eventGenerator{
-            // don't forget to `make` a channel,
-            // if you skip it, Go won't give you any warning
-            // And anything you try to send to it would be ignored!
-            // No Warning!
-            eventCh: make(chan int),
-            ctx: ctx,
-            cancel: cancel,
-        }
-    }
+  ```go
+  type eventGenerator struct {
+      eventCh chan int
+      ctx     context.Context
+      cancel  context.CancelFunc
+  }
 
-    func (e *eventGenerator) Start() {
-        go func() {
-            defer close(e.eventCh)
-            for {
-                select {
-                case _, closed := <- e.ctx.Done():
-                    if closed {
-                        return
-                    }
-                default:
-                    e.eventCh <- 1
-                }
-            }
-        }()
-    }
-    func (e *eventGenerator) Events() <-chan int { return e.eventCh }
-    func (e *eventGenerator) Close() { e.cancel() }
-    ```
-    Now you can write `case <-eg.Events():` as you want after calling `eg.Start()` and stop it by `eg.Close()`
+  func NewEventGenerator(ctx context.Context) *eventGenerator {
+      // better to get context from others place, even this is a most up level controller
+      // because you can use `context.Background()` as argument if this is the most up level one
+      ctx, cancel := context.WithCancel(ctx)
+      return &eventGenerator{
+          // don't forget to `make` a channel,
+          // if you skip it, Go won't give you any warning
+          // And anything you try to send to it would be ignored!
+          // No Warning!
+          eventCh: make(chan int),
+          ctx: ctx,
+          cancel: cancel,
+      }
+  }
+
+  func (e *eventGenerator) Start() {
+      go func() {
+          defer close(e.eventCh)
+          for {
+              select {
+              case _, closed := <- e.ctx.Done():
+                  if closed {
+                      return
+                  }
+              default:
+                  e.eventCh <- 1
+              }
+          }
+      }()
+  }
+  func (e *eventGenerator) Events() <-chan int { return e.eventCh }
+  func (e *eventGenerator) Close() { e.cancel() }
+  ```
+
+  Now you can write `case <-eg.Events():` as you want after calling `eg.Start()` and stop it by `eg.Close()`
+
 - generator with outside channel
-    ```go
-    func genEvents(ch chan int) {
-        go func() {
-            for {
-                ch <- 1
-            }
-        }()
-    }
-    func main() {
-        d := time.Now().Add(50 * time.Millisecond)
-        ctx, cancel := context.WithDeadline(ctx, d)
-        defer cancel()
-        ch := make(chan int)
-        genEvents(ch)
-        for {
-            select {
-            case i := <-ch:
-                println("i=", i)
-            case <-ctx.Done():
-                println("main:", ctx.Err().Error())
-                close(ch)
-                return
-            }
-        }
-    }
-    ```
+  ```go
+  func genEvents(ch chan int) {
+      go func() {
+          for {
+              ch <- 1
+          }
+      }()
+  }
+  func main() {
+      d := time.Now().Add(50 * time.Millisecond)
+      ctx, cancel := context.WithDeadline(ctx, d)
+      defer cancel()
+      ch := make(chan int)
+      genEvents(ch)
+      for {
+          select {
+          case i := <-ch:
+              println("i=", i)
+          case <-ctx.Done():
+              println("main:", ctx.Err().Error())
+              close(ch)
+              return
+          }
+      }
+  }
+  ```
 
 ### 2 misuse context.Done()
 

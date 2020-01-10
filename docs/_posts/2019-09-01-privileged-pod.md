@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "Privileged Pod -- Debug kubernetes node"
+title: "Privileged Pod -- Debug kubernetes node"
+categories:
+  - cs
 tags:
   - kubernetes
   - debug

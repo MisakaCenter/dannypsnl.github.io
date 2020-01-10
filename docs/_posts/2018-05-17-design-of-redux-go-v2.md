@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Design of Redux-go v2"
+categories:
+  - cs
 tags:
   - golang
   - redux

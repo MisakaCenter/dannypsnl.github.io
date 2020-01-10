@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Nginx 安裝與啟動"
+categories:
+  - cs
 tags:
   - nginx
   - web

@@ -1,16 +1,18 @@
 ---
 layout: post
 title: "Go Channels 入門"
+categories:
+  - cs
 tags:
   - golang
   - concurrency
 ---
 
-> 閱讀此篇之前，我假設讀者已具備 `Go` 知識，一點CS常識，和一些讓子彈飛的技巧(師爺？師爺？)
+> 閱讀此篇之前，我假設讀者已具備 `Go` 知識，一點 CS 常識，和一些讓子彈飛的技巧(師爺？師爺？)
 
 說起 `Go` 的 `channel`，要從[CSP](http://www.usingcsp.com/cspbook.pdf)(Communicating Sequential Process)模型說起
 
-在電腦科學中，CSP是一種形式語言，描述非同步系統中各種[interaction](https://en.wikipedia.org/wiki/Interaction)的模式
+在電腦科學中，CSP 是一種形式語言，描述非同步系統中各種[interaction](https://en.wikipedia.org/wiki/Interaction)的模式
 
 interaction 是指影響兩個以上物件的動作(action)
 
@@ -34,7 +36,7 @@ func main() {
 
 這支程式通常是不會有問題的，但是這只是通常，也就是說有不通常的時候(子彈可能飛不起來)，而 Concurrency 之所以難搞，問題恰恰出在他通常沒有問題
 
-以上面的程式為例，我實際測試過：大約1000次只會出現3次的驚喜，然而這少少的3次給除錯帶來了巨大的麻煩，更不幸的是，現實世界中的錯誤往往並沒有這麼顯而易見
+以上面的程式為例，我實際測試過：大約 1000 次只會出現 3 次的驚喜，然而這少少的 3 次給除錯帶來了巨大的麻煩，更不幸的是，現實世界中的錯誤往往並沒有這麼顯而易見
 
 現在假設我們想讓子彈飛，有幾種技術可以達到，讓我們從最糟糕的方式開始解決這個問題，有趣的是這也是同步問題的演進史
 ，可見程式思想總是一貫的以簡單為上，致使一直以來的思考都有相似之處
@@ -76,7 +78,7 @@ if i == 1 {
 func main() {
     done := make(chan struct{})
     i := 0
-    go func() { 
+    go func() {
         i++
         close(done)
     }()
@@ -105,7 +107,7 @@ go 關鍵字會啟動一個 goroutine 處理這些程序，而至此我們將失
 
 而 `close($channel)` 就是拆掉電話線，線路斷掉大家自然就無法使用這支電話了
 
-特別重要的是，即便 `channel` 已死，有事燒紙，你還是能聽到它剩下的訊息紀錄(後面我們稱之為default value)，當然它已無法再寫入(不然是關心酸的喔)
+特別重要的是，即便 `channel` 已死，有事燒紙，你還是能聽到它剩下的訊息紀錄(後面我們稱之為 default value)，當然它已無法再寫入(不然是關心酸的喔)
 
 而對電話講話(寫入)就是 `$channel <- $data` ，聽取(讀取)則是 `<- $channel`，聽取是一個運算式，你可以承接它的值
 
@@ -121,23 +123,23 @@ go 關鍵字會啟動一個 goroutine 處理這些程序，而至此我們將失
 
 那麼到這裡我們整理一下 `channel` 的行為
 
-operation | channel state | result
-----------|---------------|--------
-Read      | nil | Block
-          | open and not empty | Value
-          | open and empty | Block
-          | Closed | default value, false
-          | Write Only | Compilation Error
-Write     | nil | Block
-          | Open and full | Block
-          | Open and not full | Write Value
-          | Closed | panic
-          | Receive Only | Compilation Error
-close     | nil | panic
-          | Open and not empty | closed channel, can read until it's drained
-          | Open and empty | closed channel, read false
-          | Closed | panic
-          | Receive Only | Compilation Error
+| operation          | channel state                               | result |
+| ------------------ | ------------------------------------------- | ------ |
+| Read               | nil                                         | Block  |
+| open and not empty | Value                                       |
+| open and empty     | Block                                       |
+| Closed             | default value, false                        |
+| Write Only         | Compilation Error                           |
+| Write              | nil                                         | Block  |
+| Open and full      | Block                                       |
+| Open and not full  | Write Value                                 |
+| Closed             | panic                                       |
+| Receive Only       | Compilation Error                           |
+| close              | nil                                         | panic  |
+| Open and not empty | closed channel, can read until it's drained |
+| Open and empty     | closed channel, read false                  |
+| Closed             | panic                                       |
+| Receive Only       | Compilation Error                           |
 
 你會發現一個有趣的地方，`channel` 有所謂的 full !?沒錯，`channel` 可以設定長度給它，通常我們可以利用這個特性限制一次可執行任務的數量 etc
 

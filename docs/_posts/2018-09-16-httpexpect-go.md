@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Use httpexpect to test server"
+categories:
+  - cs
 tags:
   - http
   - testing
@@ -15,6 +17,7 @@ Of course, we will create a abstraction to reduce this panic.
 But if we already have a mature solution? That is [httpexpect](https://github.com/gavv/httpexpect)
 
 We have two options about import:
+
 - `import "github.com/gavv/httpexpect.v1"`
 - `import "github.com/gavv/httpexpect"`
 
@@ -23,6 +26,7 @@ The different is `v1` is stable branch, another is `master` branch on github.
 I suggest pick stable one for company project, but it's fine to use `master` branch at side project.
 
 `httpexpect` works pretty good with `httptest`. A simple example:
+
 ```go
 type fakeHandler struct {
 }

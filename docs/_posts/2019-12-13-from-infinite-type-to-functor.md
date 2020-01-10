@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "From Infinite Type to Functor"
+categories:
+  - cs
 tags:
   - plt
   - language
   - haskell
 ---
 
-At [infinite type](https://dannypsnl.github.io/docs/infinite-type/) I mention a way(recursive abstract data type) to make we use `Option[T]` just like `T`. However, such modeling is not enough. Consider the following example(with the same pseudo syntax takes from [infinite type](https://dannypsnl.github.io/docs/infinite-type/)):
+At [infinite type](https://dannypsnl.github.io/docs/cs/infinite-type/) I mention a way(recursive abstract data type) to make we use `Option[T]` just like `T`. However, such modeling is not enough. Consider the following example(with the same pseudo syntax takes from [infinite type](https://dannypsnl.github.io/docs/cs/infinite-type/)):
 
 ```
 class Foo {

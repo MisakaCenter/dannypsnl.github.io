@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Magic in redux-go v2.1: package rematch"
+categories:
+  - cs
 tags:
   - golang
   - redux

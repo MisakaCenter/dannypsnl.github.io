@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "Sort by interface in Go"
+title: "Sort by interface in Go"
+categories:
+  - cs
 tags:
   - golang
 ---
@@ -29,6 +31,7 @@ Let's start it.
 <script src="https://gist.github.com/dannypsnl/1f4a59834aae245d3a9bc1613a26650b.js"></script>
 
 Let me explain it.
+
 - `Len` mean size of the target
 - `Less` provide a common way to compare two elements in target
 - `Swap` provide a common way to swap two elements
@@ -92,5 +95,6 @@ Thank for read.
 ### References:
 
 #### [The Go programming language](http://www.gopl.io/)
+
 - Author: Alan A. A. Donovan & Brian W. Kernighan
 - ISBN: 978-986-476-133-3

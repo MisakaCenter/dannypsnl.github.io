@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "ANTLR v4--introduction"
+title: "ANTLR v4--introduction"
+categories:
+  - cs
 tags:
   - antlr4
 ---
 
 今天我想介紹一個強大有趣的工具--ANTLR
 
-這個工具根據我們定義的文法產生處理原始碼的parser，當然不只是處理程式語言，你也可以用來處理其他資料
+這個工具根據我們定義的文法產生處理原始碼的 parser，當然不只是處理程式語言，你也可以用來處理其他資料
 
 ## 安裝
 
@@ -21,11 +23,11 @@ alias grun='java org.antlr.v4.gui.TestRig'
 
 之後會用到的通常是`antlr4`這支程式
 
-因為它用來產生parser
+因為它用來產生 parser
 
 ## 開始
 
-我們需要建立一個檔案叫`xxx.g4`，而裡頭的grammar就必須是`grammar xxx;`
+我們需要建立一個檔案叫`xxx.g4`，而裡頭的 grammar 就必須是`grammar xxx;`
 
 舉例來說`JSON.g4`就會是
 
@@ -47,7 +49,7 @@ grammar JSON;
 
 ## 約定
 
-ANTLR要求`Token`使用大寫英文字母開頭，`grammar`則使用小寫
+ANTLR 要求`Token`使用大寫英文字母開頭，`grammar`則使用小寫
 
 例如:
 
@@ -108,7 +110,7 @@ antlr4 -Dlanguage=Cpp JSON.g4
 
 儘管選擇你習慣的那個
 
-為什麼要學Antlr?
+為什麼要學 Antlr?
 
 事實上編譯技術在很多地方都有用途
 

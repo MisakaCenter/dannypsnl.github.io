@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "cgo can be a trouble"
+title: "cgo can be a trouble"
+categories:
+  - cs
 tags:
   - golang
   - cgo

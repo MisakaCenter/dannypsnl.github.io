@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  "Swift --extension概念入門"
+title: "Swift --extension概念入門"
+categories:
+  - cs
 tags:
   - swift
   - extension
 ---
 
-雖然apple在`extension`的文件中註記了
+雖然 apple 在`extension`的文件中註記了
 
 > NOTE<br>
 > If you define an extension to add new functionality to an existing type, the new functionality will be available on all existing instances of that type, even if they were created before the extension was defined.
@@ -15,9 +17,9 @@ tags:
 
 你仍然不應該在不是定義`extension`的地方使用該屬性，這樣的分散性會導致未來的維護困難重重
 
-- 在goto被視作優良設計的年代，我們問「所以究竟是從哪裡來？是執行了a區塊還是b區塊再執行我？」
+- 在 goto 被視作優良設計的年代，我們問「所以究竟是從哪裡來？是執行了 a 區塊還是 b 區塊再執行我？」
 
-- 在callback盛行的時候，我們問「究竟什麼時後執行了callback？」
+- 在 callback 盛行的時候，我們問「究竟什麼時後執行了 callback？」
 
 - 在共時的世界，我們問「是誰改變了狀態？」
 
@@ -39,7 +41,7 @@ class Meter {
 let onehundredCm = Meter(100).cm
 ```
 
-這個實作語意不明，究竟是100公尺轉換成公分，還是公分變公尺？
+這個實作語意不明，究竟是 100 公尺轉換成公分，還是公分變公尺？
 
 如果我們想要更加明確的語意，就需要定義大量的輔助類別
 
@@ -62,7 +64,7 @@ let oneMeter = Meter(1).toCM().cm
 
 不但複雜，而且可讀性依然有限
 
-那`extension`呢？(以下做法來自apple developer網站的簡化)
+那`extension`呢？(以下做法來自 apple developer 網站的簡化)
 
 ```swift
 extension Double {
@@ -83,15 +85,15 @@ let n = 100.0.cm.cm
 
 `extension`讓我們能對原生型別進行改動，但也使客戶端需要有更好的意志克制自己亂用的衝動
 
-在effective C++中，Scott Meyer提到，類別的所有介面都應該是透過方法
+在 effective C++中，Scott Meyer 提到，類別的所有介面都應該是透過方法
 
 他的論點如下：
 
-> 如果你的介面有一個變數，那麼使用者可以對它進行改動，而這個改動可能並非你設計此型別時考慮過的使用順序(這也是C語言的弱點所在，它仰仗使用者知道自己在幹嘛，雖然通常不是那樣)，進而導致無解的bug，而這個bug導致使用者不用你的程式庫了！即便這不是你的問題，然而你仍要為此負責
+> 如果你的介面有一個變數，那麼使用者可以對它進行改動，而這個改動可能並非你設計此型別時考慮過的使用順序(這也是 C 語言的弱點所在，它仰仗使用者知道自己在幹嘛，雖然通常不是那樣)，進而導致無解的 bug，而這個 bug 導致使用者不用你的程式庫了！即便這不是你的問題，然而你仍要為此負責
 
 而方法的更多優點是，你可能會驗證傳入的值，再進行對值的改動，而使用方法做為介面者，可以在完全不影響客戶端程式碼的情況下完成新設計，此論點確實值得一試
 
-回到extension
+回到 extension
 
 ```swift
 let IWalk = 30.0.km + 20.0.m
@@ -140,4 +142,4 @@ let onehundredCm = 100.cm.toM()
 
 當然不是，只是其他地方用上的時候，把`extension`移到型別定義的檔案中就好
 
-這時就變成了3的情況啦
+這時就變成了 3 的情況啦

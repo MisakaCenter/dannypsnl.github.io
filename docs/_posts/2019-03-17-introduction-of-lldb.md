@@ -1,11 +1,13 @@
 ---
 layout: post
 title: "Introduction of LLDB"
+categories:
+  - cs
 tags:
   - debugger
 ---
 
-Seriously, I'm not a  big fan of the debugger since I never have a try at before. But this time I take a few hours to work with it and the experience is amazed. The debugger provides a way to peeking all stuff inside the program by different input, and this way is almost perfer for debugging something you don't have any idea. But on the other hands, we should create a sufficient example to determine the problem which is not so easy.
+Seriously, I'm not a big fan of the debugger since I never have a try at before. But this time I take a few hours to work with it and the experience is amazed. The debugger provides a way to peeking all stuff inside the program by different input, and this way is almost perfer for debugging something you don't have any idea. But on the other hands, we should create a sufficient example to determine the problem which is not so easy.
 
 Anyway, to have another tool in the toolbox is nice, so let's start to see how LLDB work with `C`.
 
@@ -31,7 +33,7 @@ Then we compile it, the point here is you should make sure the compiler provides
 
 Type: `lldb` and enter.
 
-Now we are in the interactive environment of __LLDB__.
+Now we are in the interactive environment of **LLDB**.
 
 The first step is creating a target. Type and enter `target create a.out`, and type `target list` to ensure you just create a target. You can create multiple targets at the same time and use `target select <target-index>` to change the target you're going to debug.
 
@@ -63,6 +65,7 @@ The process stops at the entry of the main function. LLDB allows you to dump fra
 ```
 
 And you also could show a certain variable, for example:
+
 ```
 (lldb) print argc
 (int) $0 = 2
@@ -78,9 +81,11 @@ But if you want to know the value of a variable by different inputs, type `print
 Now, we know a lot about how to get the state of the process, but don't forget we still at the first breakpoint, we need to know how to move to forward. The commands for this are `step` and `continue`, the difference between them was `step` would move one instruction(as small as possible), and `continue` would move to next breakpoint. And the shortcut of them are `s` and `c`, you can have a try to feel the difference.
 
 About breakpoint, we have more ways to set a breakpoint, we use function name to set one, we also can use the location to set one, e.g.
+
 ```
 (lldb) breakpoint set -l 7
 ```
+
 This would add a breakpoint at line 7, and we can use `breakpoint delete <breakpoint-index>` to remove them.
 
 To get more information, you should take a look at [https://lldb.llvm.org/tutorial.html](https://lldb.llvm.org/tutorial.html), thanks for reading.

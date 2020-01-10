@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "tcpdump cheat sheet"
+title: "tcpdump cheat sheet"
+categories:
+  - cs
 tags:
   - tcpdump
   - networking

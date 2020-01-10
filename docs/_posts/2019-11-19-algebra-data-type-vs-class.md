@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Algebra data type vs Class"
+categories:
+  - cs
 tags:
   - plt
   - scala

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Mergeable replicated data types"
+categories:
+  - cs
 tags:
   - paper
   - data-structure

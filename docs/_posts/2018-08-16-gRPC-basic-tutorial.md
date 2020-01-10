@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "gRPC quick start in Go"
+categories:
+  - cs
 tags:
   - networking
   - gRPC

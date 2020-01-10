@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "DPDK -- EAL Input/output error"
+categories:
+  - cs
 tags:
   - dpdk
   - networking

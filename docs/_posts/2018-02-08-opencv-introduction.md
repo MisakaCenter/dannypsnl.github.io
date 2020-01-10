@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "OpenCV introduction"
+categories:
+  - cs
 tags:
   - OpenCV
   - cpp
@@ -57,6 +59,7 @@ int main(int argc, char** argv) {
 ```
 
 Compile & Run it.<br>
+
 ```bash
 $ clang++ -std=c++14 main.cc -lopencv_core -lopencv_highgui -lopencv_imgcodecs
 ```

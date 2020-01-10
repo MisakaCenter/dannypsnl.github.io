@@ -4,6 +4,8 @@ title: "Notes: Ruby Conf Taiwan 2019"
 image:
   path: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
   thumbnail: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
+categories:
+  - cs
 tags:
   - language
   - gc

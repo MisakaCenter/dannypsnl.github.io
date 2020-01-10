@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Testing in Go"
+categories:
+  - cs
 tags:
   - golang
   - testing
@@ -14,6 +16,7 @@ Basically we use `testing` this built-in lib to testing
 To start your first test with Go is an easy task.
 
 Example(we would test the following function under directory `add`)
+
 ```go
 package add
 
@@ -22,16 +25,18 @@ func Add(x, y int) int { return x + y }
 
 1. create a file contains suffix `_test`, it would be a test file, e.g. `add_test.go`
 2. create a function in test file has prefix `Test`, use `t *testing.T` as it's parameter
-	```go
-	package add
 
-	import "testing"
-	func TestAdd(t *testing.T) {
-		if Add(1, 2) != 3 {
-			t.Errorf("Add(1, 2) should be 3 but: %d", Add(1, 2))
-		}
-	}
-	```
+   ```go
+   package add
+
+   import "testing"
+   func TestAdd(t *testing.T) {
+   	if Add(1, 2) != 3 {
+   		t.Errorf("Add(1, 2) should be 3 but: %d", Add(1, 2))
+   	}
+   }
+   ```
+
 3. type `go test` & execute it in terminal
 
 Ok, now we got a test, if you see the error message then must something wrong about your implementation of `Add`
@@ -60,6 +65,7 @@ or like me, just use it represents the test structure.
 A practical problem is sometime we extract a test helper out of the test function.
 
 For example:
+
 ```go
 func assertNoError(t *testing.T, err error) {
 	if err != nil {
@@ -93,6 +99,7 @@ func BenchmarkAdd(b *testing.B) {
 To run benchmark needs argument `-bench`, it would like `go test -bench .`
 
 Output:
+
 ```
 goos: darwin
 goarch: amd64
@@ -109,6 +116,7 @@ To get the nice analysis of program, you can use `go test -bench . -cpuprofile c
 Then use `go tool pprof -http=127.0.0.1:5000 cpu.out` to see the result on browser(if you are familiar with CLI mode, you can remove `-http` flag)
 
 You can see something like:
+
 ```
 ----------------------------------------------------------+-------------
                                             1130ms   100% |   testing.(*B).launch /usr/local/Cellar/go/1.11.2/libexec/src/testing/benchmark.go:290
@@ -122,6 +130,7 @@ At here example is too easy so nothing to show, in a real world code it would be
 > p.s. At profile example, `-bench` can't be omit, because we want something run a lots of time to detect it's real performance.
 
 If you want to get the performance under real usage, you can import pprof into program:
+
 ```go
 import (
 	_ "net/http/pprof"
@@ -129,6 +138,7 @@ import (
 ```
 
 If your program is not a HTTP server, then you have to start one like:
+
 ```go
 go func() {
 	log.Println(http.ListenAndServe("0.0.0.0:6060", nil))

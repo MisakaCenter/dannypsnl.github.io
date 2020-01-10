@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Reflection on Working effectively with legacy code --- chapter 11 to 19"
+categories:
+  - cs
 tags:
   - programming
   - testing
 ---
 
-At [ch6-10](https://dannypsnl.github.io/docs/reflection-on-working-effectively-with-legacy-code-ch-6-10/) we know why adding test is so hard, and how to get over it. As usual, we overview what is going to be mentioned in this article:
+At [ch6-10](https://dannypsnl.github.io/docs/cs/reflection-on-working-effectively-with-legacy-code-ch-6-10/) we know why adding test is so hard, and how to get over it. As usual, we overview what is going to be mentioned in this article:
 
 - Chapter 11: I Need to Make a Change. What Methods Should I Test?
 - Chapter 12: I Need to Make Many Changes in One Area. Do I Have to Break Dependencies for All the Classes Involved?

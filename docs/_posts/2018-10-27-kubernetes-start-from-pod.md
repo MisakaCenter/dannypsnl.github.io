@@ -1,30 +1,32 @@
 ---
 layout: post
 title: "Kubernetes 從 Pod 開始"
+categories:
+  - cs
 tags:
   - kubernetes
 ---
 
 > 欲閱讀本篇文章至少需要知道何為 container，由於範例將採用 Docker 為例，所以也預設讀者已經具備操作 Docker 的能力；且讀過 kubernetes 的[基礎概念](https://kubernetes.io/docs/concepts/)只是還沒開始用而已
 
-Kubernetes 最小部署的單位為 Pod，一個 Pod 是1至N個 container 的群組，它們共享了網路(Network)和儲存空間(Storage)
+Kubernetes 最小部署的單位為 Pod，一個 Pod 是 1 至 N 個 container 的群組，它們共享了網路(Network)和儲存空間(Storage)
 
 這麼設計的好處之一是某些本來就耦合的比較嚴重的元件可以被封裝起來，而不需要硬是重寫成一個元件
 
-雖然 Pod 是一組 container，對外部而言，那裡只有 Pod 而已，而通常我們還會再用 Service(Kubernetes的另一種Resource)包裝一群 Pod
+雖然 Pod 是一組 container，對外部而言，那裡只有 Pod 而已，而通常我們還會再用 Service(Kubernetes 的另一種 Resource)包裝一群 Pod
 
 > 比起是誰在服務，更重要的是有沒有服務
 
-Pod 在 Kubernetes 中會被配給一個邏輯IP(值得注意的是，這個IP是跨namespace的)，這即是其他內部(Kubernetes cluster內)元件連結該 Pod 的通道
+Pod 在 Kubernetes 中會被配給一個邏輯 IP(值得注意的是，這個 IP 是跨 namespace 的)，這即是其他內部(Kubernetes cluster 內)元件連結該 Pod 的通道
 
 不過在其他東西之前，我想先提有哪些工具可以用來 debug 一個 Pod
 
-> p.s. 在接下來的指令中，我都會直接用 `k` 替代 `kubectl`(想知道怎弄就去google)，`$` 的變數開頭表示是你要按情況修改的參數
+> p.s. 在接下來的指令中，我都會直接用 `k` 替代 `kubectl`(想知道怎弄就去 google)，`$` 的變數開頭表示是你要按情況修改的參數
 
 Auto completion 的一些討論: [https://discuss.kubernetes.io/t/kubectl-tips-and-tricks/192/10](https://discuss.kubernetes.io/t/kubectl-tips-and-tricks/192/10)
 
-- `k get po`: 這是列出pods的意思
-  注意是一個namespace(預設是deault這個namespace)底下的所有，但反正現在講這個就扯太遠，有興趣請參考 [Namespace Doc](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+- `k get po`: 這是列出 pods 的意思
+  注意是一個 namespace(預設是 deault 這個 namespace)底下的所有，但反正現在講這個就扯太遠，有興趣請參考 [Namespace Doc](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 - `k logs $pod-name`: 要用這個指令之前你通常會需要上一個指令，因為 `logs` 吃的參數是 Pod 的名稱
   e.g.
   ```bash
@@ -53,13 +55,13 @@ metadata:
   namespace: default
 spec:
   containers:
-  - name: alpine
-    image: alpine
-    command: ['sh', '-c', 'echo The debugger is running && sleep 3600']
+    - name: alpine
+      image: alpine
+      command: ["sh", "-c", "echo The debugger is running && sleep 3600"]
   restartPolicy: Always
 ```
 
-選擇這個樣板作為開始是因為我經常用這玩意來debug跟測試，所以推薦各位建立兩個這樣的 Pod 作為除錯/測試之用
+選擇這個樣板作為開始是因為我經常用這玩意來 debug 跟測試，所以推薦各位建立兩個這樣的 Pod 作為除錯/測試之用
 
 接著我解釋一下這個設定檔:
 
@@ -68,7 +70,7 @@ spec:
 - `metadata`: Pod 的一些資訊，這個設定檔有寫的是 `name` 跟 `namespace`，`name` 基本就是你 `get po` 看到的名字，`namespace` 則強制了只能部署在哪個 namespace 底下
 - `spec`: 內容
   - `containers`: container 的列表，如開頭所言，Pod 是一群 container
-    - `name`: container 的名字(多個container時可以用上)
+    - `name`: container 的名字(多個 container 時可以用上)
     - `image`: 所使用的 container 映像檔
     - `command`: 啟動時執行的命令
   - `restartPolicy`: 設定 kubernetes 該如何決定何時/是否重啟 Pod，這裡是永遠重啟
@@ -89,7 +91,7 @@ restartPolicy 可以為
 
 在 [Pod lifecycle#example-states](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#example-states) 中有更詳盡的舉例可以學習
 
-現在我們可以使用這個設定檔建立我們的Pod了，指令是 `k apply -f alpine.yaml`
+現在我們可以使用這個設定檔建立我們的 Pod 了，指令是 `k apply -f alpine.yaml`
 
 `apply -f` 會套用你給的設定檔建立 Resource，同時也會檢查該設定檔的錯誤，如有錯誤是不會建立資源的
 
@@ -109,6 +111,7 @@ The debugger is running
 ### References:
 
 #### [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action)
+
 - Author: Marko Lukša
 - ISBN: 978-1-617-29372-6
 

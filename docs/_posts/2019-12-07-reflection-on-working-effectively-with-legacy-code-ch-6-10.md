@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Reflection on Working effectively with legacy code --- chapter 6 to 10"
+categories:
+  - cs
 tags:
   - programming
   - testing
 ---
 
-At [part I](https://dannypsnl.github.io/docs/reflection-on-working-effectively-with-legacy-code-part-one/) we basically understand why we need to test, how to test legacy code and what tools can we use. Chapter 6 to 10 mentions more practicing issues that would face in real jobs.
+At [part I](https://dannypsnl.github.io/docs/cs/reflection-on-working-effectively-with-legacy-code-part-one/) we basically understand why we need to test, how to test legacy code and what tools can we use. Chapter 6 to 10 mentions more practicing issues that would face in real jobs.
 
 First, we quickly overview all content:
 

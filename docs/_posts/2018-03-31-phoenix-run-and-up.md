@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Phoneix 安裝與啟動"
+categories:
+  - cs
 tags:
   - phoenix
   - elixir

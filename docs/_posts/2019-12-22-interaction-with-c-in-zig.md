@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Interaction with C in Zig"
+categories:
+  - cs
 tags:
   - zig
   - c
@@ -84,7 +86,7 @@ fn check_upper_case_name(comptime str: []const u8) void {
 // would cause a compile error
 ```
 
-This is a very powerful feature, but it's not enough to be a replacement of **C**. **Rust** has more features than **C** in the programming language designing view. It's not about performance, many languages can be faster than **C**(depends on the field of CS). The **Go** even as simple as **C**. But they cannot be a replacement of **C**. Because the interaction way is not simple enough, even have limitations (this is quite normal, it's caused by different languages design, I have mentioned [how cgo makes trouble](https://dannypsnl.github.io/docs/cgo-can-be-a-trouble/),
+This is a very powerful feature, but it's not enough to be a replacement of **C**. **Rust** has more features than **C** in the programming language designing view. It's not about performance, many languages can be faster than **C**(depends on the field of CS). The **Go** even as simple as **C**. But they cannot be a replacement of **C**. Because the interaction way is not simple enough, even have limitations (this is quite normal, it's caused by different languages design, I have mentioned [how cgo makes trouble](https://dannypsnl.github.io/docs/cs/cgo-can-be-a-trouble/),
 cgo helps we link binary multiple times and must set up the linker flags multiple times, what a good idea!). Others language use FFI, in **Rust** we have to write:
 
 > From https://doc.rust-lang.org/nomicon/ffi.html

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "How to getting start with Rust"
+categories:
+  - cs
 tags:
   - rust
 ---
@@ -122,20 +124,25 @@ It's reference showtime!
 Rust's reference has some points.
 
 1. explicitly using thing it point to
+
 ```rust
 let a = 1;
 let r = &a;
 assert!(*r == 1);
 ```
+
 2. mutable reference to mutable ownership
+
 ```rust
 let mut num = 15;
 let r = &mut num;
 *r += 10;
 assert!(*r == 25);
 ```
+
 3. references are never null
 4. you can't borrow a value will outlive when you still alive
+
 ```rust
 let r;
 {
@@ -143,7 +150,9 @@ let r;
     r = &x;
 }
 ```
-  Error message:
+
+Error message:
+
 ```
 error[E0597]: `x` does not live long enough
  --> main.rs:5:14
@@ -155,8 +164,9 @@ error[E0597]: `x` does not live long enough
 7 | }
   | - borrowed value needs to live until here
 ```
-  The problem is `r` can be access after `x` already be dropped!
-  That mean a dangling pointer. Rust disallowed it.
+
+The problem is `r` can be access after `x` already be dropped!
+That mean a dangling pointer. Rust disallowed it.
 
 ## Conclusion
 
@@ -171,5 +181,6 @@ Hope you like it & can get some help from this.
 ### References:
 
 #### [Programming Rust](http://shop.oreilly.com/product/0636920040385.do)
+
 - Author: Jim Blandy & Jason Orendorff
 - ISBN: 978-1-491-92728-1

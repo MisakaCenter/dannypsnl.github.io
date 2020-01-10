@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "C++ thread 基礎"
+categories:
+  - cs
 tags:
   - cpp
   - thread
 ---
 
-使用標準庫的thread非常容易
+使用標準庫的 thread 非常容易
 
 ```c++
 #include <thread>
@@ -57,7 +59,7 @@ std::thread t(hello(2));
 std::thread t(hello, 2);
 ```
 
-可以輕鬆的從這個實作(Mingw版本)中看出參數怎麼傳進去的
+可以輕鬆的從這個實作(Mingw 版本)中看出參數怎麼傳進去的
 
 ```c++
 template<class Function, class... Args>
@@ -76,9 +78,9 @@ explicit thread(Function&& f, Args&&... args)
 }
 ```
 
-事實上，我們不只能傳入函數給Thread，我們可以傳任何可呼叫(callable)物件進去
+事實上，我們不只能傳入函數給 Thread，我們可以傳任何可呼叫(callable)物件進去
 
-用法非常簡單，就是定義一個具有operator()的class，然後用這個class產生物件
+用法非常簡單，就是定義一個具有 operator()的 class，然後用這個 class 產生物件
 
 ```c++
 class Ya {
@@ -133,7 +135,7 @@ std::thread t3([] {
 
 2.讓它自己旁邊玩沙(`deatch`)
 
-如果沒有在thread物件被清除之前決定，那程式就會終止
+如果沒有在 thread 物件被清除之前決定，那程式就會終止
 
 因為
 
@@ -147,12 +149,11 @@ std::thread t3([] {
 
 解構子會呼叫`std::terminate()`讓程式掛掉(如果沒有改變可連結狀態)
 
-
 ```c++
 bool joinable() const {return mHandle != _STD_THREAD_INVALID_HANDLE;}
 ```
 
-這是`joinable`的實作，因為名稱取的很好，所以可以看出只要thread狀態沒有被合法的處理(上面兩個狀況，`join`與`detach`)，就會回傳`true`，在適當的時候引發`terminate`
+這是`joinable`的實作，因為名稱取的很好，所以可以看出只要 thread 狀態沒有被合法的處理(上面兩個狀況，`join`與`detach`)，就會回傳`true`，在適當的時候引發`terminate`
 
 所以即使發生例外，也要確保執行緒成功被決定要怎樣處理
 
@@ -186,9 +187,9 @@ t.join();
 
 看，就是寫兩次而已，這真的很糟糕
 
-因為我們很可能會忘記寫某一個`join`，然後沒看到，或是當下看不出來，最後trace bug還看到`terminate`然後想----我為什麼會呼叫terminate?恩，因為你沒有呼叫，最後憤怒的找到thread函式庫
+因為我們很可能會忘記寫某一個`join`，然後沒看到，或是當下看不出來，最後 trace bug 還看到`terminate`然後想----我為什麼會呼叫 terminate?恩，因為你沒有呼叫，最後憤怒的找到 thread 函式庫
 
-第二種辦法是RAII
+第二種辦法是 RAII
 
 ```c++
 class Thread_guard {
@@ -212,7 +213,7 @@ Thread_guard& operator=(Thread_guard const&) = delete;
 
 因為兩種操作對這個物件而言都異常危險，我們將無法預測會發生什麼事
 
-宣告為delete之後，試圖做上述操作都會直接被編譯器擋下
+宣告為 delete 之後，試圖做上述操作都會直接被編譯器擋下
 
 用法非常明確
 
@@ -223,7 +224,7 @@ Thread_guard tg{t}
 // do something ...
 ```
 
-這樣一來，只要離開資源，tg的解構式被啟動，就會決定怎麼處理thread物件(這仰賴c++對解構的保證)
+這樣一來，只要離開資源，tg 的解構式被啟動，就會決定怎麼處理 thread 物件(這仰賴 c++對解構的保證)
 
 最後，注意`cout`其實不能那樣用，你可以試試使用迴圈讓執行緒印更多東西，然後你會發現文字會不按順序的亂印，這是正常的，因為它們交錯的使用`cout`，而沒有一個資源管理的方式
 

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Reflection in Go: create a stack[T]"
+categories:
+  - cs
 tags:
   - golang
   - reflection

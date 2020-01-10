@@ -1,20 +1,22 @@
 ---
 layout: post
 title: "Tracing source code of Kubernetes client-go"
+categories:
+  - cs
 tags:
   - kubernetes
   - golang
 ---
 
-Whole thing is started from __Ingress__ this feature of __Kubernetes__.
-But today I'm not going to talk too much about it, basically just I have to let __Ingress Controller__
-will send packets to our __Router__ so that we could do the thing we want,
-if you are interested in our __Router__, you can more infos from [our blog](https://glasnostic.com/blog) and
+Whole thing is started from **Ingress** this feature of **Kubernetes**.
+But today I'm not going to talk too much about it, basically just I have to let **Ingress Controller**
+will send packets to our **Router** so that we could do the thing we want,
+if you are interested in our **Router**, you can more infos from [our blog](https://glasnostic.com/blog) and
 demo by just login to play with it.
 
 Anyway, the thing I'm going to do for this is I have to create a proxy for real kubernetes API server,
 and modify the real data to what we want. To do that, I have to understand how [client-go](https://github.com/kubernetes/client-go)
-(__Ingress__ use client-go to get info, of course) send requests and what it expected. Let's start!
+(**Ingress** use client-go to get info, of course) send requests and what it expected. Let's start!
 
 > NOTE: I just mention some part of codes, not explaining whole big piture
 
@@ -53,11 +55,13 @@ to generate nginx configuration for load balancing these pods.
 
 Ok, so where we use `epEventHandler`? We would see it be passed into `store.informers.Endpoint` at
 the same function, line `519`
+
 ```go
 store.informers.Endpoint.AddEventHandler(epEventHandler)
 ```
 
 Here we should care two things
+
 - what is `Endpoint`?
 - how it use the functions sent into `AddEventHandler`?
 
@@ -67,6 +71,7 @@ yes, we just talk about it, now we see it. `SharedInformer` is defined under `k8
 
 The only implementor of `SharedInformer` is `sharedIndexInformer`(still at same file),
 it's a structure, here is the real code of `AddEventHandler`
+
 ```go
 func (s *sharedIndexInformer) AddEventHandler(handler ResourceEventHandler) {
 	s.AddEventHandlerWithResyncPeriod(handler, s.defaultEventHandlerResyncPeriod)
@@ -99,6 +104,7 @@ So I go back to how to use `sharedIndexInformer`
 
 I found type of `store.informers` have a method `Run` that would be called by store,
 that's mean what it call is the point we care, that's `store.informers.Endpoint`
+
 ```go
 func (i *Informer) Run(stopCh chan struct{}) {
 	// this is *sharedIndexInformer.Run
@@ -113,6 +119,7 @@ func (s *sharedIndexInformer) Run(stopCh <-chan struct{}) {
 ```
 
 Then I take a look at how controller works
+
 ```go
 // Run begins processing items, and will continue until a value is sent down stopCh.
 // It's an error to call Run more than once.
@@ -147,6 +154,7 @@ func (c *controller) Run(stopCh <-chan struct{}) {
 
 The point is `wg.StartWithChannel(stopCh, r.Run)`, in `reflector.Run`,
 it call `r.ListAndWatch(stopCh)`, and `ListAndWatch` is based on `listWatcher`
+
 ```go
 list, err := r.listerWatcher.List(options)
 if err != nil {
@@ -160,6 +168,7 @@ We set `store.informers.Endpoint` by this `store.informers.Endpoint = infFactory
 `internal/ingress/controller/store/store.go:L264`
 
 Then we see `infFactory`, line `257`
+
 ```go
 infFactory := informers.NewSharedInformerFactoryWithOptions(client, resyncPeriod,
 	informers.WithNamespace(namespace),
@@ -167,6 +176,7 @@ infFactory := informers.NewSharedInformerFactoryWithOptions(client, resyncPeriod
 ```
 
 `informer`:
+
 ```go
 func (f *endpointsInformer) Informer() cache.SharedIndexInformer {
 	return f.factory.InformerFor(&corev1.Endpoints{}, f.defaultInformer)
@@ -206,6 +216,7 @@ Now we can back to `ListAndWatch`, let's take a look at the details of it.
 In fact, I'm more focused on watch API, because it's a little bit weird.
 I found it's server with keep sending data until client part close the connection.
 How it did it? At `k8s.io/client-go/tools/cache/reflector.go:L226`
+
 ```go
 	for {
 		// give the stopCh a chance to stop the loop, even in case of continue statements further down on errors
@@ -294,6 +305,7 @@ If you trace back then you would find it's from `*RESTClient.serializers`,
 at `k8s.io/client-go/rest/client.go`, line `225` and `227` send this into `NewRequest`
 
 And you found it's created at line `108` in same file, `serializers, err := createSerializers(config)`
+
 ```go
 func createSerializers(config ContentConfig) (*Serializers, error) {
 	// ignore, we don't care them since we just use `StreamSerializer` of `Serializers`
@@ -308,6 +320,7 @@ func createSerializers(config ContentConfig) (*Serializers, error) {
 
 We would see the type of `StreamSerializer` is `runtime.Serializer`, it's an interface, and since we are sending JSON data,
 so we go to the JSON one implementor of it to see it's `Decode`
+
 ```go
 import (
 	jsoniter "github.com/json-iterator/go"

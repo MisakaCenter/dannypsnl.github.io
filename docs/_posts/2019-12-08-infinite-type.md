@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Infinite Type"
+categories:
+  - cs
 tags:
   - plt
   - language

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Mark Sweep GC"
+categories:
+  - cs
 tags:
   - gc
 ---
@@ -49,4 +51,3 @@ obj3
 ```
 
 Now when we run `collection`, `obj3` is unreachable from `root`, so it won't be marked! When running to `sweep`, it will be dropped.
-

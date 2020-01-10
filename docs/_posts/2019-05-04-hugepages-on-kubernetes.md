@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "HugePages on Kubernetes"
+categories:
+  - cs
 tags:
   - workrecord
   - hugepages
@@ -43,6 +45,7 @@ The previous setting is for kubernetes 1.8 and 1.9, 1.7 and below do not support
 Now lets into the next section, how to mount huge page on to node.
 
 Commands are easy:
+
 ```bash
 $ mkdir -p /mnt/huge
 $ mount -t hugetlbfs nodev /mnt/huge
@@ -69,7 +72,7 @@ status:
   allocatable:
     memory: 9Gi
     hugepages-2Mi: 1Gi
-# ignore...  
+# ignore...
 ```
 
 An example pod:
@@ -81,19 +84,19 @@ metadata:
   name: example
 spec:
   containers:
-# use the image you like
+    # use the image you like
     volumeMounts:
-    - mountPath: /hugepages
-      name: hugepage
+      - mountPath: /hugepages
+        name: hugepage
     resources:
       requests:
         hugepages-2Mi: 1Gi
       limits:
         hugepages-2Mi: 1Gi
   volumes:
-  - name: hugepage
-    emptyDir:
-      medium: HugePages
+    - name: hugepage
+      emptyDir:
+        medium: HugePages
 ```
 
 ### Could we setting hugepages in Pod?

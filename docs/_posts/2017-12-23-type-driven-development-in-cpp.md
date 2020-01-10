@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "Type driven development in C++"
+title: "Type driven development in C++"
+categories:
+  - cs
 tags:
   - cpp
 ---
@@ -43,6 +45,6 @@ But maybe some people can't understand `Idris`, so let's use `C++`.
 The point is: when we need Matrix add. Only those Matrix with correct X, Y can add together.
 With template check, second Add always can't pass compile.
 Hope you already got the point of TDD.
-That is  define type for certain usage, you can get the help from Type System.
+That is define type for certain usage, you can get the help from Type System.
 It can limit error into a narrow part.
 Thanks for read.

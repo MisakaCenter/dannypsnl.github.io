@@ -4,6 +4,8 @@ title: "How to use .gitignore"
 image:
   path: /assets/images/git/gitignore.png
   thumbnail: /assets/images/git/gitignore.png
+categories:
+  - cs
 tags:
   - git
 ---

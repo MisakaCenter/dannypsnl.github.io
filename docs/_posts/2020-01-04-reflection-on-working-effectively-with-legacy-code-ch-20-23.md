@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Reflection on Working effectively with legacy code --- chapter 20 to 23"
+categories:
+  - cs
 tags:
   - programming
   - testing

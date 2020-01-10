@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "nix report"
+categories:
+  - cs
 tags:
   - nix
   - shell

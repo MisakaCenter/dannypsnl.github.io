@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Write a hashmap in Go"
+categories:
+  - cs
 tags:
   - data-structure
   - golang
@@ -11,6 +13,7 @@ tags:
 Hash map is a data structure that helps you associate a key type to a value type. For example, a string map to the boolean value.
 
 I choose an easy way to create one, that's an array to a list. The type definition was:
+
 ```go
 type Node struct {
     key   string

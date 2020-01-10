@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "How trait with lifetime can be a trouble and how to fix it"
+title: "How trait with lifetime can be a trouble and how to fix it"
+categories:
+  - cs
 tags:
   - rust
 ---
-
 
 In my case, I have a trait called `Resource` for deserialize from bytes. Now I want to reuse a struct called `List` for others `Resource` so I write done:
 

@@ -1,24 +1,26 @@
 ---
 layout: post
 title: "Introduction Of Char Recognizing -- Lexer Tech"
+categories:
+  - cs
 tags:
   - compiler
   - lexer
   - rust
 ---
 
-> 此篇使用Rust作為演示實際程式碼的語言
+> 此篇使用 Rust 作為演示實際程式碼的語言
 
-說到Lexer技術，大家應該都會想到正規表達式，但是為什麼是正規表達式呢？
+說到 Lexer 技術，大家應該都會想到正規表達式，但是為什麼是正規表達式呢？
 所以我們要介紹整個掃描並辨識字詞的技術與原理
 
-最簡單的辨識單字技術是大家都能直接想出來的方法，就是character-by-character演算法
+最簡單的辨識單字技術是大家都能直接想出來的方法，就是 character-by-character 演算法
 
 其技術原理非常簡潔，如果要辨識`new`，我們會怎麼做呢？
 
 <script src="https://gist.github.com/dannypsnl/53e8b814c7407e8621fbe05d45e7cb67.js"></script>
 
-可以看出為什麼每個人都想得出來吧！因為整個CBC的邏輯就是完全符合的字串就是我們要的字串
+可以看出為什麼每個人都想得出來吧！因為整個 CBC 的邏輯就是完全符合的字串就是我們要的字串
 
 但是問題來了，如果我們想要辨識`night`怎麼辦呢？每個我們想要的字串都寫一個辨識程式的話，那不是很浪費空間跟時間嗎？
 所以我們需要縮減程式，如何縮減？
@@ -92,7 +94,7 @@ S = {s0, s1, s2, s3, se}
 ∂ = {
      n
   s0 -> s1,
-     e 
+     e
   s1 -> s2,
      w
   s2 -> s3,
@@ -101,7 +103,7 @@ s0 = s0
 Sª = {s3}
 ```
 
-很明顯的，FA的表示法非常麻煩，那麼就回到大家熟悉的正規表達式了。
+很明顯的，FA 的表示法非常麻煩，那麼就回到大家熟悉的正規表達式了。
 我不贅述怎麼寫正規表達式，有很多專門介紹正規表達式的文章了
 
 以`Antlr`的`new`為例：
@@ -118,26 +120,28 @@ NEW: 'new';
 WORD: [a-zA-Z]+;
 ```
 
-`[]`中是字元集，`+`表示至少match一個
+`[]`中是字元集，`+`表示至少 match 一個
 
-關於Lexer，可以算是告一段落，哪天應該會寫一下Parser那的技術
+關於 Lexer，可以算是告一段落，哪天應該會寫一下 Parser 那的技術
 
-總結一下，我們今天學到的是狀態機的概念與各種常見實作，如果真的弄懂的話，手刻一個自己的Lexer應該不是難事，如果有任何疑難都可以在下面留言，我會盡力回答
+總結一下，我們今天學到的是狀態機的概念與各種常見實作，如果真的弄懂的話，手刻一個自己的 Lexer 應該不是難事，如果有任何疑難都可以在下面留言，我會盡力回答
 
 ### References:
 
 #### [Engineering a compiler](https://www.elsevier.com/books/engineering-a-compiler/cooper/978-0-12-088478-0)
+
 - Author: Keith D. Cooper & Linda Torczon
 - ISBN: 978-0-12-088478-0
 
 #### [Programming Rust](http://shop.oreilly.com/product/0636920040385.do)
+
 - Author: Jim Blandy & Jason Orendorff
 - ISBN: 978-1-491-92728-1
 
 #### [Compilers: principles, techniques, and tools: 2E](https://www.amazon.com/Compilers-Principles-Techniques-Tools-2nd/dp/0321486811)
+
 - Author: Alfred V. Aho & Monica S. Lam & Ravi Sethi & Jeffrey D. Ullman
 - ISBN: 978-986-154-936-1(Traditional Chinese Version)
-
 
 <script>
 

@@ -4,6 +4,8 @@ title: "How to test in Haskell: HSpec setup"
 image:
   path: /assets/images/haskell/haskell.png
   thumbnail: /assets/images/haskell/haskell.png
+categories:
+  - cs
 tags:
   - haskell
   - beginner

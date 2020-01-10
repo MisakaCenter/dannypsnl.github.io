@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "XDP some note"
+categories:
+  - cs
 tags:
   - networking
   - xdp
@@ -9,6 +11,7 @@ tags:
 What is XDP? XDP is eXpress Data Path, it's a technology about putting a BPF code virtual machine on the NIC(network interface controller) driver before kernel network stack so that we can filter the packet before kernel, it would make processing speed greater.
 
 We can do following things on the packet:
+
 - `XDP_PASS`: allow the packet to pass through
 - `XDP_DROP`: drop the packet
 - `XDP_TX`: bounce the packet back on the same interface

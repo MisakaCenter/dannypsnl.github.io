@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "How to compare Go benchmark in TravisCI"
+categories:
+  - cs
 tags:
   - golang
   - testing
@@ -10,6 +12,7 @@ tags:
 Although the article is for Go, but you still can use concept part for others language.
 
 Frist we create a script called `bench_compare.sh`:
+
 ```bash
 if [ "${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}" != "master" ]; then
 	REMOTE_URL="$(git config --get remote.origin.url)";
@@ -27,6 +30,7 @@ fi
 
 Then I usually would execute it at `after_success` this section,
 `.travis.yml`:
+
 ```
 script:
   # testing part

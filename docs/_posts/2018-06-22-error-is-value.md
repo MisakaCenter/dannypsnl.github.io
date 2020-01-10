@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Error is Value"
+categories:
+  - cs
 tags:
   - golang
   - errors

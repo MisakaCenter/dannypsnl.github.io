@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Practical issue about DNS -- EDNS0"
+categories:
+  - cs
 tags:
   - networking
   - dns
@@ -45,9 +47,10 @@ But our config stream is too big to over the limit of UDP! And we must get it.
 After researching, I find we can extend DNS packet size by EDNS0.
 
 **RFC 6891**:
+
 > EDNS(0) specifies a way to advertise additional features such as
 > larger response size capability, which is intended to help avoid
-> truncated UDP responses, which in turn cause retry over TCP.  It
+> truncated UDP responses, which in turn cause retry over TCP. It
 > therefore provides support for transporting these larger packet sizes
 > without needing to resort to TCP for transport.
 

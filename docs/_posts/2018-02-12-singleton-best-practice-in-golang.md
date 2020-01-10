@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "The best practice of Singleton in Golang"
+title: "The best practice of Singleton in Golang"
+categories:
+  - cs
 tags:
   - golang
   - DesignPattern
@@ -10,7 +12,7 @@ tags:
 
 It's really a problem at there. And worth to think about it.
 
-### Start 
+### Start
 
 Let's consider how to create a singleton?
 We need a reference can't be change by anyone at all the time except initialize.
