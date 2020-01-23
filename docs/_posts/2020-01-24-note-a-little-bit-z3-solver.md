@@ -6,6 +6,7 @@ categories:
 tags:
   - smt
   - z3
+last_modified_at: 2020-01-24T03:59:01+08:00
 ---
 
 > Satisfiability Modulo Theories(SMT) problem is a decision problem for logical formulas with respect to combinations of background theories such as arithmetic, bit-vectors, arrays, and uninterpreted functions. Z3 is an efficient SMT solver with specialized algorithms for solving background theories.

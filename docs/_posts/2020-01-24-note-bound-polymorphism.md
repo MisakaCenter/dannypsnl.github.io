@@ -7,6 +7,7 @@ tags:
   - plt
   - language
   - haskell
+last_modified_at: 2020-01-24T03:37:01+08:00
 ---
 
 Bounded polymorphism refers to existential quantifiers($$\exists$$), restricted to range over types of bound type. To understand it only needs a few examples. Let's start! Take a look at the following program:
