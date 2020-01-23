@@ -9,7 +9,7 @@ tags:
   - haskell
 ---
 
-Bounded polymorphism refers to existential quantifiers($$\exist$$), restricted to range over types of bound type. To understand it only needs a few examples. Let's start! Take a look at the following program:
+Bounded polymorphism refers to existential quantifiers($$\exists$$), restricted to range over types of bound type. To understand it only needs a few examples. Let's start! Take a look at the following program:
 
 ```hs
 numSort :: Num a => [a] -> [a]
