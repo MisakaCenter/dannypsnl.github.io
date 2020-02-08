@@ -4,4 +4,19 @@ layout: page
 permalink: /projects/
 ---
 
+### Code
+
+- [elz](https://github.com/dannypsnl/elz)
+
+#### Contribution
+
+- [llir/llvm](https://github.com/llir/llvm)
+
+#### Archived
+
+- [rocket](https://dannypsnl.github.io/rocket/): Light Go web framework
+- [redux-go](https://github.com/dannypsnl/redux): redux in Go
+
+### NOTE
+
 - [NOTE: the little typer](https://dannypsnl.github.io/plt-researchs/the-little-typer-note/note.html)
