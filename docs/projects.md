@@ -7,6 +7,7 @@ permalink: /projects/
 ### Code
 
 - [elz](https://github.com/dannypsnl/elz)
+- [little-scheme](https://github.com/dannypsnl/little-scheme)
 
 #### Contribution
 
