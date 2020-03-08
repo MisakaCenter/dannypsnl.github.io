@@ -71,7 +71,7 @@ $$
 ifThenElse := \lambda a. \lambda b. \lambda c. a\;b\;c
 $$
 
-### Church Numberals
+### Church Numerals
 
 Represent Numbers by lambda-calculus is only slightly more intricate than Booleans. First, we define successor function(called `suc`) and some numbers:
 
