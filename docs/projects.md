@@ -21,3 +21,4 @@ permalink: /projects/
 ### NOTE
 
 - [NOTE: the little typer](https://dannypsnl.github.io/plt-researchs/the-little-typer-note/note.html)
+- [STLC](https://dannypsnl.github.io/plt-researchs/stlc/stlc.html)
