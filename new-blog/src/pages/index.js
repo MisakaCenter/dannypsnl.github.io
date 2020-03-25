@@ -2,7 +2,10 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import BlogPost from "../components/blogPost"
+
+import "katex/dist/katex.min.css"
 
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges.sort(
@@ -15,20 +18,13 @@ const IndexPage = ({ data }) => {
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {edges.map(({ node }) => (
           <div key={node.id}>
-            <Link
-              to={node.fields.slug}
-              style={{
-                color: `#99197b`,
-                textDecoration: `none`,
-              }}
-            >
-              <h3>{node.frontmatter.title}</h3>
-            </Link>
-            <span>
-              {node.timeToRead} {" min read • "}
-              {nameToYYYYMMDD(node.parent.name)}
-            </span>
-            <p>{node.excerpt}</p>
+            <BlogPost
+              blogURL={node.fields.slug}
+              title={node.frontmatter.title}
+              timeToRead={node.timeToRead}
+              fileName={node.parent.name}
+              excerpt={node.excerpt}
+            />
           </div>
         ))}
       </div>
