@@ -13,7 +13,10 @@ const IndexPage = ({ data }) => {
   )
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+      />
       <div>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {edges.map(({ node }) => (
@@ -39,6 +42,12 @@ export default IndexPage
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
     allMarkdownRemark {
       totalCount
       edges {
