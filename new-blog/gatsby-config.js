@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Dan's Blog`,
     description: `Programming Language Theory • System Programming`,
-    author: `@gatsbyjs`,
+    author: `@dannypsnl`,
     siteUrl: `https://dannypsnl.github.io`,
   },
   plugins: [
