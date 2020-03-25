@@ -11,7 +11,7 @@ tags:
 
 使用標準庫的 thread 非常容易
 
-```c++
+```cpp
 #include <thread>
 #include <iostream>
 
@@ -38,7 +38,7 @@ int main()
 
 很好，程式應該會運作，可是我們想要知道如何傳入參數，對吧!
 
-```c++
+```cpp
 void hello(int i) {
     cout << "hello, " << i << '\n';
 }
@@ -48,7 +48,7 @@ void hello(int i) {
 
 但是我們不能直接寫
 
-```c++
+```cpp
 std::thread t(hello(2));
 ```
 
@@ -56,13 +56,13 @@ std::thread t(hello(2));
 
 正確的寫法是
 
-```c++
+```cpp
 std::thread t(hello, 2);
 ```
 
 可以輕鬆的從這個實作(Mingw 版本)中看出參數怎麼傳進去的
 
-```c++
+```cpp
 template<class Function, class... Args>
 explicit thread(Function&& f, Args&&... args)
 {
@@ -83,7 +83,7 @@ explicit thread(Function&& f, Args&&... args)
 
 用法非常簡單，就是定義一個具有 operator()的 class，然後用這個 class 產生物件
 
-```c++
+```cpp
 class Ya {
 public:
     void operator()() const {
@@ -94,7 +94,7 @@ public:
 
 就像這樣
 
-```c++
+```cpp
 std::thread t( Ya() );
 ```
 
@@ -104,13 +104,13 @@ std::thread t( Ya() );
 
 第一種作法:加上括號
 
-```c++
+```cpp
 std::thread t( (Ya()) );
 ```
 
 第二種作法:用大括號初始運算子
 
-```c++
+```cpp
 std::thread t{ Ya() };
 ```
 
@@ -120,7 +120,7 @@ std::thread t{ Ya() };
 
 再介紹一種作法
 
-```c++
+```cpp
 std::thread t3([] {
     cout << "lambda" << '\n';
 });
@@ -140,7 +140,7 @@ std::thread t3([] {
 
 因為
 
-```c++
+```cpp
 ~thread()
 {
     if (joinable())
@@ -150,7 +150,7 @@ std::thread t3([] {
 
 解構子會呼叫`std::terminate()`讓程式掛掉(如果沒有改變可連結狀態)
 
-```c++
+```cpp
 bool joinable() const {return mHandle != _STD_THREAD_INVALID_HANDLE;}
 ```
 
@@ -162,7 +162,7 @@ bool joinable() const {return mHandle != _STD_THREAD_INVALID_HANDLE;}
 
 要讓程式掛掉真的很容易
 
-```c++
+```cpp
 std::thread t( hello, i );
 ```
 
@@ -176,7 +176,7 @@ std::thread t( hello, i );
 
 第一種辦法很土，不過反正能解決問題就是了
 
-```c++
+```cpp
 std::thread t(hello);
 try {
     // ...
@@ -192,7 +192,7 @@ t.join();
 
 第二種辦法是 RAII
 
-```c++
+```cpp
 class Thread_guard {
     std::thread t;
 public:
@@ -207,7 +207,7 @@ public:
 
 現在我們把`thread`放進去就好了，值得一提的是，這種物件最好移除複製建構子和複製指派運算子
 
-```c++
+```cpp
 Thread_guard(Thread_guard const&) = delete;
 Thread_guard& operator=(Thread_guard const&) = delete;
 ```
@@ -218,7 +218,7 @@ Thread_guard& operator=(Thread_guard const&) = delete;
 
 用法非常明確
 
-```c++
+```cpp
 std::thread t{func}
 Thread_guard tg{t}
 

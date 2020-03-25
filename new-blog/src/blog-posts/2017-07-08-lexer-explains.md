@@ -27,7 +27,7 @@ run 之中放著 State Function 迴圈
 
 `stateFn`定義如下:
 
-```golang
+```go
 type stateFn func(*Lexer) stateFn
 ```
 
@@ -57,7 +57,7 @@ void LexAll(int state) {
 
 這就是 State Function 所想要表達的意思
 
-```golang
+```go
 func lexWhiteSpace(l *Lexer) stateFn {
     for r := l.next(); isSpace(r) || r=='\n'; l.next() {
         r = l.peek()
@@ -91,7 +91,7 @@ func lexWhiteSpace(l *Lexer) stateFn {
 
 再看`lexNumber`
 
-```golang
+```go
 func lexNumber(l *Lexer) stateFn {
     firstDot := true
     for r := l.next(); ( '0' <= r && r <= '9' ) || r == '.'; r = l.next() {
@@ -118,7 +118,7 @@ func lexNumber(l *Lexer) stateFn {
 
 看看它有多麼的簡單
 
-```golang
+```go
 func (l *Lexer) run() {
     for l.state = lexWhiteSpace; l.state != nil; {
         l.state = l.state(l)

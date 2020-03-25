@@ -24,7 +24,7 @@ After those steps.
 You can create a main.go
 package main
 
-```golang
+```go
 import (
     "fmt"
     "llvm.org/llvm/bindings/go/llvm"

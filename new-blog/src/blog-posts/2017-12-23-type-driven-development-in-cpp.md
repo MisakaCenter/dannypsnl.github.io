@@ -9,7 +9,7 @@ tags:
 
 Let's start from some code. And seems will be only code in this article.
 
-```c++
+```cpp
 // Compile: clang++ main.cc
 #include <iostream>
 

@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 import "katex/dist/katex.min.css"
+import "prismjs/themes/prism-okaidia.css"
 
 export default ({ data }) => {
   const post = data.markdownRemark

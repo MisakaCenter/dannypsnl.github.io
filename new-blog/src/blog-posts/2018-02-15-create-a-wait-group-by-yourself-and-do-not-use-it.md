@@ -16,7 +16,7 @@ How?
 
 First you need a channel without buffer.
 
-```golang
+```go
 func main() {
     wait := make(chan struct{})
 }
@@ -26,7 +26,7 @@ Then get something from it so if there has no value in `wait`, process keep goin
 But if just trying to get something from a empty channel. You will get block and cause deadlock.
 Then go will panic it. So we have to change the code a little bit but also be more extendable for next iteration.
 
-```golang
+```go
 // ...
 n := 0
 wait := make(chan struct{})
@@ -39,7 +39,7 @@ for i := 0; i < n; i++ {
 
 Now let's create works loop.
 
-```golang
+```go
 import (
     "time"
 )
@@ -82,7 +82,7 @@ And `Wait` is read amount of things equal final `n`.
 The end let's say what happened in previous code. You should closing the `channel` always.
 So the code will be:
 
-```golang
+```go
 // ...
 wait := make(chan interface{})
 defer close(wait)

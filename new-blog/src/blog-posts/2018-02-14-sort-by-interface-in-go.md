@@ -16,7 +16,7 @@ Unlike most language do, it's no association with type or data structure.
 Function `sort.Sort` do not have any expected to it's target.
 It use `sort.Interface` to detect how to work.
 
-```golang
+```go
 package sort
 
 type Interface {
@@ -38,7 +38,7 @@ Let me explain it.
 
 It just a concept. So let's dig into golang implementation.
 
-```golang
+```go
 package sort
 // 上省５００行...
 func Sort(data Interface) {
@@ -53,7 +53,7 @@ func Sort(data Interface) {
 
 From this, we know have to go into `quicksort`.
 
-```golang
+```go
 package sort
 // 上省５００行...
 func quickSort(data Interface, a, b, maxDepth int) {

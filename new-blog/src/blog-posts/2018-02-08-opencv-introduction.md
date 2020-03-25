@@ -36,7 +36,7 @@ $ sudo make install
 
 ### Show Image
 
-```c++
+```cpp
 // main.cc
 #include <opencv2/opencv.hpp> // All OpenCV function's include file
 

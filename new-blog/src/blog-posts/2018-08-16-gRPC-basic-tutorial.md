@@ -26,7 +26,7 @@ In gRPC, you define a `*.proto` file for your service.
 
 At here, we will create one named `UserService`
 
-```protobuffer
+```protobuf
 syntax = "proto3";
 
 package user;
