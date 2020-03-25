@@ -434,14 +434,16 @@ fieldset {
   margin-bottom: 1.45rem;
 }
 blockquote {
-  margin-left: 1.45rem;
-  margin-right: 1.45rem;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
+  font-size: 1.1em;
+  margin: 1.2em auto;
+  font-family: JetBrains Mono, monospace;
+  font-style: italic;
+  color: #555555;
+  padding: 1.2em 1.2em 1.2em 3em;
+  border-left: 8px solid #32311e;
+  line-height: 1.1;
+  position: relative;
+  background: #EDEDED;
 }
 form {
   margin-left: 0;
