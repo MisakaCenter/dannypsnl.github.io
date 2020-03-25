@@ -3,6 +3,7 @@ module.exports = {
     title: `Dan's Blog`,
     description: `Programming Language Theory • System Programming`,
     author: `@gatsbyjs`,
+    siteUrl: `https://dannypsnl.github.io`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -33,6 +34,7 @@ module.exports = {
       options: {
         plugins: [
           {
+            // for LaTeX formula
             resolve: `gatsby-remark-katex`,
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
@@ -50,5 +52,7 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+    // for rss feed
+    `gatsby-plugin-feed`,
   ],
 }
