@@ -12,8 +12,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({ node, getNode })
     const value = `/blog/${node.frontmatter.categories.join(`/`)}/${slug
       .split(`-`)
-      .slice(3, -1)
-      .join(`-`)}/`
+      .slice(3)
+      .join(`-`)}`
     createNodeField({
       node,
       name: `slug`,
