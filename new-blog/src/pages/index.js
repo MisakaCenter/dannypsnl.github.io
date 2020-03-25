@@ -19,6 +19,7 @@ const IndexPage = ({ data }) => {
               to={node.fields.slug}
               style={{
                 color: `#99197b`,
+                textDecoration: `none`,
               }}
             >
               <h3>{node.frontmatter.title}</h3>
