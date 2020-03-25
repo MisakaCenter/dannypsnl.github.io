@@ -71,5 +71,11 @@ module.exports = {
     },
     // for rss feed
     `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `https-dannypsnl-github-io`,
+      },
+    },
   ],
 }
