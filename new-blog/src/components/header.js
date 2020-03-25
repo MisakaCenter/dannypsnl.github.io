@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteMetadata }) => (
   <header
     style={{
       background: `#0f7199`,
@@ -24,9 +24,17 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          {siteMetadata.title}
         </Link>
       </h1>
+      <h4
+        style={{
+          color: `#aba4a4`,
+          marginTop: 20,
+        }}
+      >
+        {siteMetadata.description}
+      </h4>
     </div>
   </header>
 )

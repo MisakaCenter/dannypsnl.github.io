@@ -2,53 +2,41 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home" />
-    <h1
-      css={css`
-        display: inline-block;
-        border-bottom: 1px solid;
-      `}
-    >
-      Dan's Blog
-    </h1>
-    <div>Programming Language Theory . System Programming</div>
-    <p />
-    <div>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link
-            to={node.fields.slug}
-            css={css`
-              text-decoration: none;
-              color: inherit;
-            `}
-          >
-            <h3>
-              {node.frontmatter.title}
-              <span>
-                — {node.timeToRead}
-                {" min read "} {nameToYYYYMMDD(node.parent.name)}
-              </span>
-            </h3>
+const IndexPage = ({ data }) => {
+  const edges = data.allMarkdownRemark.edges.sort(
+    (a, b) => nameToDate(b.node.parent.name) - nameToDate(a.node.parent.name)
+  )
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div>
+        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+        {edges.map(({ node }) => (
+          <div key={node.id}>
+            <Link
+              to={node.fields.slug}
+              style={{
+                color: `#99197b`,
+              }}
+            >
+              <h3>{node.frontmatter.title}</h3>
+            </Link>
+            <span>
+              {node.timeToRead} {" min read • "}
+              {nameToYYYYMMDD(node.parent.name)}
+            </span>
             <p>{node.excerpt}</p>
-          </Link>
-        </div>
-      ))}
-    </div>
-  </Layout>
-)
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
 
-const nameToYYYYMMDD = name =>
-  name
-    .split(`-`)
-    .slice(0, 3)
-    .join(`-`)
+const nameToDate = (name) => Date.parse(nameToYYYYMMDD(name))
+const nameToYYYYMMDD = (name) => name.split(`-`).slice(0, 3).join(`-`)
 
 export default IndexPage
 
