@@ -18,7 +18,9 @@ const IndexPage = ({ data }) => {
         description={data.site.siteMetadata.description}
       />
       <div>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+        <h4 style={{ textAlign: `center` }}>
+          {data.allMarkdownRemark.totalCount} Posts
+        </h4>
         {edges.map(({ node }) => (
           <div key={node.id}>
             <BlogPost
