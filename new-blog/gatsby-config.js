@@ -42,6 +42,7 @@ module.exports = {
             },
           },
           {
+            // for code block highlighting
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
