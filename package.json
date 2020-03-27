@@ -1,41 +1,54 @@
 {
-  "name": "jekyll-theme-so-simple",
-  "description": "A simple Jekyll theme for words and pictures.",
-  "version": "3.1.3",
-  "author": "Michael Rose",
-  "homepage": "http://mmistakes.github.io/so-simple-theme/",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mmistakes/so-simple-theme.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mmistakes/so-simple-theme/issues"
-  },
+  "name": "dannypsnl.github.io",
+  "private": true,
+  "description": "Dan's Blog",
+  "version": "0.1.0",
+  "author": "dannypsnl <dannypsnl@gmail.com>",
   "keywords": [
-    "jekyll",
-    "theme",
-    "minimal",
-    "responsive"
+    "gatsby"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">= 0.10.0"
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@pathofdev/react-tag-input": "^1.0.7",
+    "gatsby": "^2.19.45",
+    "gatsby-image": "^2.2.44",
+    "gatsby-plugin-disqus": "^1.1.4",
+    "gatsby-plugin-feed": "^2.4.1",
+    "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-offline": "^3.0.41",
+    "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-remark-images": "^3.2.1",
+    "gatsby-remark-katex": "^3.2.1",
+    "gatsby-remark-prismjs": "^3.4.1",
+    "gatsby-remark-relative-images": "^0.3.0",
+    "gatsby-remark-static-images": "^1.0.1",
+    "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.3.19",
+    "katex": "^0.11.1",
+    "prismjs": "^1.19.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "onchange": "^6.0.0",
-    "uglify-js": "^3.4.9"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 5%",
-    "IE 9"
-  ],
-  "scripts": {
-    "uglify": "uglifyjs assets/js/plugins/lity.js assets/js/plugins/jquery.smooth-scroll.js assets/js/plugins/table-of-contents.js assets/js/main.js -c -m -o assets/js/main.min.js",
-    "add-banner": "node banner.js",
-    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify && npm run add-banner"
-  },
-  "dependencies": {}
+    "gh-pages": "^2.2.0",
+    "prettier": "^2.0.2"
+  }
 }
