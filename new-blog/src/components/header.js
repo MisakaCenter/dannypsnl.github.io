@@ -36,7 +36,8 @@ const Header = ({ siteMetadata }) => {
           borderRadius: `0 0 0 0.2em`,
         }}
       >
-        <TabLink to={`projects`}>Projects</TabLink>
+        <TabLink to={`/projects`}>Projects</TabLink>
+        <TabLink to={`/resume`}>Resume</TabLink>
       </ul>
       <div
         style={{
