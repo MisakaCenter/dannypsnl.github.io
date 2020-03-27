@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Notes: Ruby Conf Taiwan 2019"
-image: ../images/ruby_conf_2019/ruby-conf-tw-2019.svg
+image: ../images/ruby_conf_2019/ruby-conf-tw-2019.jpg
 categories:
   - cs
 tags:
