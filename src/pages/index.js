@@ -6,7 +6,6 @@ import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
 import Img from "gatsby-image"
 import ReactTagInput from "@pathofdev/react-tag-input"
-import "@pathofdev/react-tag-input/build/index.css"
 
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges.sort(
@@ -151,4 +150,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
