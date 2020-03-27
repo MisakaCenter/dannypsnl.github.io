@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
+import Img from "gatsby-image"
 
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges.sort(
@@ -27,6 +28,12 @@ const IndexPage = ({ data }) => {
               timeToRead={node.timeToRead}
               fileName={node.parent.name}
               excerpt={node.excerpt}
+              image={
+                node.frontmatter.image &&
+                node.frontmatter.image.childImageSharp ? (
+                  <Img fixed={node.frontmatter.image.childImageSharp.fixed} />
+                ) : null
+              }
             />
           </div>
         ))}
@@ -58,8 +65,12 @@ export const query = graphql`
           frontmatter {
             title
             image {
-              path
-              thumbnail
+              id
+              childImageSharp {
+                fixed(width: 180, height: 150) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
             }
           }
           fields {

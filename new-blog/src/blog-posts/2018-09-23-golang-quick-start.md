@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Go quick start"
-image:
-  path: /assets/images/golang/gopher.png
-  thumbnail: /assets/images/golang/gopher.png
+image: ../images/golang/gopher.png
 categories:
   - cs
 tags:

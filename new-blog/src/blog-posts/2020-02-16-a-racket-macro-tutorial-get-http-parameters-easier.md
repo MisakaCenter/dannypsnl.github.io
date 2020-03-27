@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "A Racket macro tutorial -- get HTTP parameters easier"
-image:
-  path: /assets/images/racket/sierpinski-racket-example.png
-  thumbnail: /assets/images/racket/sierpinski-racket-example.png
+image: ../images/racket/sierpinski-racket-example.png
 categories:
   - cs
 tags:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Notes: Ruby Conf Taiwan 2019"
-image:
-  path: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
-  thumbnail: /assets/images/ruby_conf_2019/ruby-conf-tw-2019.svg
+image: ../images/ruby_conf_2019/ruby-conf-tw-2019.svg
 categories:
   - cs
 tags:
@@ -150,11 +148,11 @@ Why we need compaction? Without compaction, we can have out of memory due to the
 
 This is:
 
-![](/assets/images/ruby_conf_2019/dirty_room.jpg)
+![](../images/ruby_conf_2019/dirty_room.jpg)
 
 After compaction:
 
-![](/assets/images/ruby_conf_2019/clean_room.jpeg)
+![](../images/ruby_conf_2019/clean_room.jpeg)
 
 Without compaction, we would find there still has enough space but is not contiguous space so can't allocate the object.
 

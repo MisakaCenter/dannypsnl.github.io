@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Haskell quick start"
-image:
-  path: /assets/images/haskell/haskell.png
-  thumbnail: /assets/images/haskell/haskell.png
+image: ../images/haskell/haskell.png
 categories:
   - cs
 tags:

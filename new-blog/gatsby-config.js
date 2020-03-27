@@ -33,6 +33,21 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          // for Image in Posts
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+              linkImagesToOriginal: false,
+              showCaptions: true,
+            },
+          },
+          // for GIF, SVG images
+          `gatsby-remark-static-images`,
           {
             // for LaTeX formula
             resolve: `gatsby-remark-katex`,

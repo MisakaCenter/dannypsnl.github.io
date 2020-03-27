@@ -1,9 +1,6 @@
 ---
 layout: post
 title: "Kubernetes Networking: concept and overview from underlying perspective"
-image:
-  path: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
-  thumbnail: /assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg
 categories:
   - cs
 tags:
@@ -197,7 +194,7 @@ As you thought, `br0` would get the traffic from `net0` to `net1`, now we have t
 
 ##### Figure 1.1
 
-![](/assets/images/kube-networking/bridge_mode_and_namespace.svg)
+![](../images/kube-networking/bridge_mode_and_namespace.svg)
 
 At the final of the output of `tcpdump` we can see some ARP request/reply, we would talk about it in the next section.
 
@@ -223,7 +220,7 @@ The working process is:
 
 ##### Figure 2.1
 
-![](/assets/images/kube-networking/arp_request_and_reply.svg)
+![](../images/kube-networking/arp_request_and_reply.svg)
 
 At the previous section, we can see both sides send ARP request to get another IP's information.
 
@@ -256,7 +253,7 @@ how to allow Pods on
 
 ##### Figure 3.1 two pods at the same node
 
-![](/assets/images/kube-networking/pod_to_pod_at_the_same_node.svg)
+![](../images/kube-networking/pod_to_pod_at_the_same_node.svg)
 
 #### 3.2 Pods at the different Node
 
@@ -271,7 +268,7 @@ Two **Pod** at the different **Node** won't be able to using the same bridge, wh
 
 ##### Figure 3.2 concept of nodes
 
-![](/assets/images/kube-networking/concept_of_nodes.svg)
+![](../images/kube-networking/concept_of_nodes.svg)
 
 The whole packet flow would like:
 
@@ -284,7 +281,7 @@ The whole packet flow would like:
 
 ##### Firgure 3.3 CIDR nodes with default gateway
 
-![](/assets/images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg)
+![](../images/kube-networking/pod_to_pod_at_different_node_via_default_gateway.svg)
 
 ### 4 Pod to Service
 
@@ -307,7 +304,7 @@ To get more info about `netfilter` please take a look at:
 
 ##### Figure 4.1 Pod to Service topology
 
-![](/assets/images/kube-networking/pod_to_service.svg)
+![](../images/kube-networking/pod_to_service.svg)
 
 After the destination IP be updated, the networking model would fall back to the **Pod to Pod** model.
 
