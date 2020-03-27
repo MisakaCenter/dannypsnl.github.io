@@ -5,8 +5,6 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
 
-import "katex/dist/katex.min.css"
-
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges.sort(
     (a, b) => nameToDate(b.node.parent.name) - nameToDate(a.node.parent.name)
