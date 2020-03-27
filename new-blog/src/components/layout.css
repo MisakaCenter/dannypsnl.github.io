@@ -519,6 +519,7 @@ ol li {
 }
 ul li {
   padding-left: 0;
+  margin-bottom: 0;
 }
 li > ol {
   margin-left: 1.45rem;

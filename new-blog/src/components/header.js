@@ -25,12 +25,25 @@ const Header = ({ siteMetadata }) => {
         marginBottom: `1.45rem`,
       }}
     >
+      <ul
+        style={{
+          float: `right`,
+          backgroundColor: `#635c5c`,
+          padding: `0`,
+          margin: `0`,
+          width: `5em`,
+          // left, right, bottom-right, bottom-left
+          borderRadius: `0 0 0 0.2em`,
+        }}
+      >
+        <TabLink to={`projects`}>Projects</TabLink>
+      </ul>
       <div
         style={{
           textAlign: `center`,
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
+          padding: `1.45rem 0 0 0`,
         }}
       >
         <h1
@@ -62,6 +75,28 @@ const Header = ({ siteMetadata }) => {
     </header>
   )
 }
+
+const TabLink = ({ children, to }) => (
+  <Link
+    to={to}
+    style={
+      {
+        // textDecoration: `none`,
+      }
+    }
+  >
+    <li
+      style={{
+        color: `#fff8f8`,
+        textAlign: `right`,
+        margin: `auto 0.5em auto 0.5em`,
+        borderRadius: `0.2em`,
+      }}
+    >
+      {children}
+    </li>
+  </Link>
+)
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
