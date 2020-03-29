@@ -93,5 +93,13 @@ module.exports = {
         shortname: `https-dannypsnl-github-io`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-115056015-1",
+        head: `true`,
+        cookieDomain: "dannypsnl.github.io",
+      },
+    },
   ],
 }
