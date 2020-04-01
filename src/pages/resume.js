@@ -64,7 +64,7 @@ export default ({ data }) => {
             marginTop: `1em`,
           }}
         >
-          <h2>Overview</h2>
+          <Section>Overview</Section>
           <p>
             2+ years of development work experience, including networking,
             compiler, and web application. In-depth knowledge of Kubernetes and
@@ -75,7 +75,7 @@ export default ({ data }) => {
           </p>
         </div>
         <div>
-          <h2>Projects</h2>
+          <Section>Projects</Section>
           <ul>
             {projects.map((project) => (
               <li>
@@ -85,7 +85,7 @@ export default ({ data }) => {
           </ul>
         </div>
         <div>
-          <h2>Contributions</h2>
+          <Section>Contributions</Section>
           <ul>
             {contributions.map((contribution) => (
               <li>
@@ -95,7 +95,7 @@ export default ({ data }) => {
           </ul>
         </div>
         <div>
-          <h2>Work Experience</h2>
+          <Section>Work Experience</Section>
           <div>
             <b>Glasnostic(system software engineer)</b>{" "}
             <SiteLink url={`https://glasnostic.com`} />
@@ -126,6 +126,18 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+const Section = ({ children }) => (
+  <h2
+    style={{
+      color: `#aba4a4`,
+      paddingBottom: `0.3em`,
+      borderBottom: `0.1em solid`,
+    }}
+  >
+    {children}
+  </h2>
+)
 
 export const query = graphql`
   query {
