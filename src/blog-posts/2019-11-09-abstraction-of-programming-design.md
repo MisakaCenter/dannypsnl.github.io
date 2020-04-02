@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "程式設計思考（一）核心領域"
 image: ../images/racket/racket-logo.jpg
 categories:

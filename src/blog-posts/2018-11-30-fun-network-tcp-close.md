@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "fun networking: tcp close"
 categories:
   - cs

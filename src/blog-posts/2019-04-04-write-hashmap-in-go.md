@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Write a hashmap in Go"
 categories:
   - cs

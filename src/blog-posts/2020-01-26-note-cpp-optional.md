@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: C++ optional"
 categories:
   - cs

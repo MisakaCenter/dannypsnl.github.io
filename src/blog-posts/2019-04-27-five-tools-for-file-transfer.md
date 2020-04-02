@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "5 tools for file transfer"
 categories:
   - cs

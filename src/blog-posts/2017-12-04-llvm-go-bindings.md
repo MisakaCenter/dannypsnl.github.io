@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "llvm Go bindings"
 categories:
   - cs

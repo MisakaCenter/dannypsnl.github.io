@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to use .gitignore"
 image: ../images/git/gitignore.png
 categories:

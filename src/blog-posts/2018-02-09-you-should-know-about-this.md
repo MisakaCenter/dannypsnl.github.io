@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "You should know about `this`"
 categories:
   - cs

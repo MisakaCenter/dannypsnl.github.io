@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Testing in Go"
 categories:
   - cs

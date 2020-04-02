@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Why not a big script"
 categories:
   - cs

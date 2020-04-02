@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to getting start with Rust"
 categories:
   - cs

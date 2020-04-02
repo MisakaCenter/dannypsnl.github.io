@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Should I learn?"
 categories:
   - cs

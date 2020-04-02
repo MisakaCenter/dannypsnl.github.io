@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Introduction Of Char Recognizing -- Lexer Tech"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Go quick start"
 image: ../images/golang/gopher.png
 categories:

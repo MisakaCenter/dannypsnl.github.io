@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "DPDK usertools: devbind"
 categories:
   - cs

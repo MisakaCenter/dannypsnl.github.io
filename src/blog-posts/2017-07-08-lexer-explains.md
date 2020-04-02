@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "lexer 原理解釋"
 categories:
   - cs

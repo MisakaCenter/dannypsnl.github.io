@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to disable Go test caching"
 categories:
   - cs

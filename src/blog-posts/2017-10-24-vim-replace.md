@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Vim replace"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Swift --extension概念入門"
 categories:
   - cs

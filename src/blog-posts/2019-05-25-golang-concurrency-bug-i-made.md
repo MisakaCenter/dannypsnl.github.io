@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Go concurrency bug I made"
 categories:
   - cs

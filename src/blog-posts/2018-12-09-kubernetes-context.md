@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Kubernetes context"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "OpenCV introduction"
 categories:
   - cs

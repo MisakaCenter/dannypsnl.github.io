@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Practical issue about DNS -- EDNS0"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "TDD is not silver bullet"
 categories:
   - cs

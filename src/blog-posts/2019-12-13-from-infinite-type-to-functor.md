@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "From Infinite Type to Functor"
 categories:
   - cs

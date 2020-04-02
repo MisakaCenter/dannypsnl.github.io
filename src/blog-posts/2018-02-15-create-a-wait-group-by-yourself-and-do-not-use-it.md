@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Create a WaitGroup by yourself"
 categories:
   - cs

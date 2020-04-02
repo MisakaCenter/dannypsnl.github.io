@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Some thinking from Elixir X Ruby Conf"
 categories:
   - cs

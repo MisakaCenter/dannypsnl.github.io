@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How trait with lifetime can be a trouble and how to fix it"
 categories:
   - cs

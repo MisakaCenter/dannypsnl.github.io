@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "不會騎 Gogoro 的兩個鄉巴佬"
 categories:
   - funny

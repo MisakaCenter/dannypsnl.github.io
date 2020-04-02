@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Tracing source code of Kubernetes client-go"
 categories:
   - cs

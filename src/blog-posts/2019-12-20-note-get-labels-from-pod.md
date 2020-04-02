@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: get labels from Pod"
 categories:
   - cs

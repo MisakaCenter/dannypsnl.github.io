@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: a little bit Z3 solver"
 categories:
   - cs

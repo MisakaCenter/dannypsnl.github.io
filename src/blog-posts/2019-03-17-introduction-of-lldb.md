@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Introduction of LLDB"
 categories:
   - cs

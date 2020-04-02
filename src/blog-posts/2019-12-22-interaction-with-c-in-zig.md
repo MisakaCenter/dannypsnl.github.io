@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Interaction with C in Zig"
 categories:
   - cs

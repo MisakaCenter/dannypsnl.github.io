@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Kubernetes Networking: concept and overview from underlying perspective"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to compare Go benchmark in TravisCI"
 categories:
   - cs

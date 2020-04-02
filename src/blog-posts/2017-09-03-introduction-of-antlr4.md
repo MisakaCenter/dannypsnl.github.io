@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "ANTLR v4--introduction"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: What is lambda calculus"
 categories:
   - cs

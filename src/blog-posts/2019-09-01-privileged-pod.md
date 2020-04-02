@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Privileged Pod -- Debug kubernetes node"
 categories:
   - cs

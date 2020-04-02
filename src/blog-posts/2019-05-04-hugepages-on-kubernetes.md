@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "HugePages on Kubernetes"
 categories:
   - cs

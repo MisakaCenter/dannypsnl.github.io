@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Type driven development in C++"
 categories:
   - cs

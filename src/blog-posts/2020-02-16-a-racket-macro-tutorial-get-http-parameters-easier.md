@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A Racket macro tutorial -- get HTTP parameters easier"
 image: ../images/racket/sierpinski-racket-example.png
 categories:

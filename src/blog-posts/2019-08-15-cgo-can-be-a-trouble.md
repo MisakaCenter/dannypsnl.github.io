@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "cgo can be a trouble"
 categories:
   - cs

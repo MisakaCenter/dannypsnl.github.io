@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Reflection on Working effectively with legacy code --- Part I"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "tcpdump cheat sheet"
 categories:
   - cs

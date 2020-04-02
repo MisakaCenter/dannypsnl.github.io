@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: bounded polymorphism"
 categories:
   - cs

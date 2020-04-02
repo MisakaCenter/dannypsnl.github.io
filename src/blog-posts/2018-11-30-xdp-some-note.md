@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "XDP some note"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Go Channels 入門"
 categories:
   - cs

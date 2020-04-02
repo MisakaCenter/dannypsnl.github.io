@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "戴德金分割與1為何等於0.9...(無限循環)"
 categories:
   - math

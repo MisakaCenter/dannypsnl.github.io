@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Haskell quick start"
 image: ../images/haskell/haskell.png
 categories:

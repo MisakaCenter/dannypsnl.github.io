@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Binary Encoding of Integer"
 categories:
   - cs
 tags:
   - fundamental
 ---
-
 
 $$\mathbb{Z}$$ contains positive and negative numbers, but nowdays Computer system based on binary. There only have `0` and `1` can be used. A simple solution is: **put signed symbol at the most significant bit**. For example, use 8 bits can represent:
 

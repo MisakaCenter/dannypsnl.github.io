@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Test LLVM Go binding in travis"
 categories:
   - cs

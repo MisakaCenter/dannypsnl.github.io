@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Reflection on Working effectively with legacy code --- chapter 6 to 10"
 categories:
   - cs

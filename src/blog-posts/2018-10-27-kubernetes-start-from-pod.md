@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Kubernetes 從 Pod 開始"
 categories:
   - cs

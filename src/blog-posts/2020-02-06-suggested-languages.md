@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "一些推薦去嘗試看看的程式語言"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Use httpexpect to test server"
 categories:
   - cs

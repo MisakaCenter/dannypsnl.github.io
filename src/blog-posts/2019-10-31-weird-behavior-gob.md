@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Weird behavior in Go: encoding/gob"
 categories:
   - cs

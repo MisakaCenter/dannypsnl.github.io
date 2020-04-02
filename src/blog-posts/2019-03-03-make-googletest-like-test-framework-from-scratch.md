@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Make googletest-like test framework from scratch"
 categories:
   - cs

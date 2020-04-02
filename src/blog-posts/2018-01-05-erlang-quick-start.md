@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Erlang Quick Start"
 categories:
   - cs

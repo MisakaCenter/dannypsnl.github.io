@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "A simple way to ensure interface won't be implemented accidently"
 categories:
   - cs

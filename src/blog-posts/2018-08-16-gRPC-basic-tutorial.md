@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "gRPC quick start in Go"
 categories:
   - cs

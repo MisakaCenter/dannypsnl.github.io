@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "NOTE: If we write kubernetes client in Rust"
 categories:
   - cs

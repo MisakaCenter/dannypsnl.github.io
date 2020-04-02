@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Type as Constraint: Why we need more type?"
 categories:
   - cs

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Sort by interface in Go"
 categories:
   - cs

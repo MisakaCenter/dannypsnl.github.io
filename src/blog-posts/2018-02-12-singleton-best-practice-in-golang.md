@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The best practice of Singleton in Golang"
 categories:
   - cs

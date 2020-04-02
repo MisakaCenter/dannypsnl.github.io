@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to test in Haskell: HSpec setup"
 image: ../images/haskell/haskell.png
 categories:

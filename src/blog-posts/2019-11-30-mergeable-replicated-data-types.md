@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Mergeable replicated data types"
 categories:
   - cs

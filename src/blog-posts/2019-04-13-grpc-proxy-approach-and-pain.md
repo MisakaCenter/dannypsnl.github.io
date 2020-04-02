@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "gRPC proxy: approach & pain"
 categories:
   - cs

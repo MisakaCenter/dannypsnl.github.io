@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Mark Sweep GC"
 categories:
   - cs

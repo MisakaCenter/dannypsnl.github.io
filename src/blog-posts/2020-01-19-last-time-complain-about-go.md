@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "最後一次抱怨 Go"
 categories:
   - cs
