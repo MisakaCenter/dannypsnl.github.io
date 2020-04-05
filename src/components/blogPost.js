@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { nameToYYYYMMDD } from "../utils/string-to-date"
 
 export default ({ blogURL, title, timeToRead, fileName, excerpt, image }) => (
   <div
@@ -48,5 +49,3 @@ export default ({ blogURL, title, timeToRead, fileName, excerpt, image }) => (
     <p>{excerpt}</p>
   </div>
 )
-
-const nameToYYYYMMDD = (name) => name.split(`-`).slice(0, 3).join(`-`)

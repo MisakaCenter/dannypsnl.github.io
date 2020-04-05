@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
 import Img from "gatsby-image"
+import { nameToDate } from "../utils/string-to-date"
 import ReactTagInput from "@pathofdev/react-tag-input"
 
 const IndexPage = ({ data }) => {
@@ -105,9 +106,6 @@ const matchFilter = (tags, selectedTags, categories, selectedCategories) =>
   categories.filter((e) => selectedCategories.includes(e)).length > 0 &&
   // tags is and selector, therefore, check every selected tags be contained by post's tags
   selectedTags.every((selectTag) => tags.includes(selectTag))
-
-const nameToDate = (name) => Date.parse(nameToYYYYMMDD(name))
-const nameToYYYYMMDD = (name) => name.split(`-`).slice(0, 3).join(`-`)
 
 export default IndexPage
 
