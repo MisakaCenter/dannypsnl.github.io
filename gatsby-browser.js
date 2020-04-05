@@ -5,4 +5,3 @@
  */
 require("katex/dist/katex.min.css")
 require("prismjs/themes/prism.css")
-require("@pathofdev/react-tag-input/build/index.css")

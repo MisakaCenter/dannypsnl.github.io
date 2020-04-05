@@ -6,18 +6,28 @@ import { graphql } from "gatsby"
 import BlogPost from "../components/blogPost"
 import Img from "gatsby-image"
 import { nameToDate } from "../utils/string-to-date"
-import ReactTagInput from "@pathofdev/react-tag-input"
+import ReactTags from "react-tag-autocomplete"
+
+import "../styles/tags.css"
 
 const IndexPage = ({ data }) => {
   const edges = data.allMarkdownRemark.edges.sort(
     (a, b) => nameToDate(b.node.parent.name) - nameToDate(a.node.parent.name)
   )
 
-  let set = new Set()
+  let allCategories = new Set()
+  let allTags = new Set()
   edges.forEach(({ node }) => {
-    node.frontmatter.categories.forEach((category) => set.add(category))
+    node.frontmatter.categories.forEach((category) =>
+      allCategories.add(category)
+    )
+    node.frontmatter.tags.forEach((tag) => {
+      allTags.add(tag)
+    })
   })
-  const [selectedCategories, setCategories] = useState(Array.from(set))
+  const [selectedCategories, setCategories] = useState(
+    Array.from(allCategories).map((c, index) => ({ id: index, name: c }))
+  )
   const [selectedTags, setTags] = useState([])
 
   return (
@@ -32,19 +42,23 @@ const IndexPage = ({ data }) => {
             margin: `1em`,
           }}
         >
-          <ReactTagInput
+          <Tags
             tags={selectedCategories}
-            onChange={(newCategories) => setCategories(newCategories)}
+            setTags={setCategories}
             placeholder={`by category`}
-            editable={true}
-            removeOnBackspace={true}
-          />
-          <ReactTagInput
+            suggestions={Array.from(allCategories).map((c, index) => ({
+              id: index,
+              name: c,
+            }))}
+          />{" "}
+          <Tags
             tags={selectedTags}
-            onChange={(newTags) => setTags(newTags)}
+            setTags={setTags}
             placeholder={`by tag`}
-            editable={true}
-            removeOnBackspace={true}
+            suggestions={Array.from(allTags).map((t, index) => ({
+              id: index,
+              name: t,
+            }))}
           />
         </div>
         <h4 style={{ textAlign: `center` }}>
@@ -101,11 +115,33 @@ const IndexPage = ({ data }) => {
   )
 }
 
+const Tags = ({ tags, setTags, suggestions, placeholder }) => (
+  <ReactTags
+    tags={tags}
+    suggestions={suggestions}
+    placeholder={placeholder}
+    handleValidate={(t) =>
+      // must in suggestion list
+      suggestions.map((s) => s.name).includes(t.name) &&
+      // and must not applied yet
+      !tags.map((t) => t.name).includes(t.name)
+    }
+    handleAddition={(t) => setTags([...tags, t])}
+    handleDelete={(i) => {
+      const ts = tags.slice(0)
+      ts.splice(i, 1)
+      setTags(ts)
+    }}
+    allowNew={true}
+  />
+)
+
 const matchFilter = (tags, selectedTags, categories, selectedCategories) =>
   // categories is or selector, therefore, check categories of post has intersection with user selected categories
-  categories.filter((e) => selectedCategories.includes(e)).length > 0 &&
+  categories.filter((e) => selectedCategories.map((c) => c.name).includes(e))
+    .length > 0 &&
   // tags is and selector, therefore, check every selected tags be contained by post's tags
-  selectedTags.every((selectTag) => tags.includes(selectTag))
+  selectedTags.every((selectTag) => tags.includes(selectTag.name))
 
 export default IndexPage
 
