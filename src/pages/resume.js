@@ -97,6 +97,10 @@ export default ({ data }) => {
         <div>
           <Section>Work Experience</Section>
           <div>
+            <b>Sky Mirror(software engineer)</b>{" "}
+            <SiteLink url={`https://www.skymirror.com.tw/`} />
+          </div>
+          <div>
             <b>Glasnostic(system software engineer)</b>{" "}
             <SiteLink url={`https://glasnostic.com`} />
             <p>
