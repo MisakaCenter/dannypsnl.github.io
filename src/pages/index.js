@@ -25,6 +25,15 @@ const IndexPage = ({ data }) => {
       allTags.add(tag)
     })
   })
+  const categorySuggestions = Array.from(allCategories).map((c, index) => ({
+    id: index,
+    name: c,
+  }))
+  const tagSuggestions = Array.from(allTags).map((t, index) => ({
+    id: index,
+    name: t,
+  }))
+
   const [selectedCategories, setCategories] = useState(
     Array.from(allCategories).map((c, index) => ({ id: index, name: c }))
   )
@@ -46,19 +55,13 @@ const IndexPage = ({ data }) => {
             tags={selectedCategories}
             setTags={setCategories}
             placeholder={`by category`}
-            suggestions={Array.from(allCategories).map((c, index) => ({
-              id: index,
-              name: c,
-            }))}
+            suggestions={categorySuggestions}
           />{" "}
           <Tags
             tags={selectedTags}
             setTags={setTags}
             placeholder={`by tag`}
-            suggestions={Array.from(allTags).map((t, index) => ({
-              id: index,
-              name: t,
-            }))}
+            suggestions={tagSuggestions}
           />
         </div>
         <h4 style={{ textAlign: `center` }}>
@@ -90,6 +93,18 @@ const IndexPage = ({ data }) => {
             return (
               <div key={node.id}>
                 <BlogPost
+                  categories={node.frontmatter.categories}
+                  addCategories={addTag(
+                    selectedCategories,
+                    setCategories,
+                    avoidDuplicate(categorySuggestions)
+                  )}
+                  tags={node.frontmatter.tags}
+                  addTags={addTag(
+                    selectedTags,
+                    setTags,
+                    avoidDuplicate(tagSuggestions)
+                  )}
                   blogURL={node.fields.slug}
                   title={node.frontmatter.title}
                   timeToRead={node.timeToRead}
@@ -115,26 +130,33 @@ const IndexPage = ({ data }) => {
   )
 }
 
-const Tags = ({ tags, setTags, suggestions, placeholder }) => (
+const Tags = ({ tags: selectedTags, setTags, suggestions, placeholder }) => (
   <ReactTags
-    tags={tags}
+    tags={selectedTags}
     suggestions={suggestions}
     placeholder={placeholder}
-    handleValidate={(t) =>
-      // must in suggestion list
-      suggestions.map((s) => s.name).includes(t.name) &&
-      // and must not applied yet
-      !tags.map((t) => t.name).includes(t.name)
-    }
-    handleAddition={(t) => setTags([...tags, t])}
+    handleValidate={avoidDuplicate(suggestions)(selectedTags)}
+    handleAddition={addTag(selectedTags, setTags, avoidDuplicate(suggestions))}
     handleDelete={(i) => {
-      const ts = tags.slice(0)
+      const ts = selectedTags.slice(0)
       ts.splice(i, 1)
       setTags(ts)
     }}
     allowNew={true}
   />
 )
+
+const addTag = (selectedTags, setTags, isValid) => (t) => {
+  if (isValid(selectedTags)(t)) {
+    setTags([...selectedTags, t])
+  }
+}
+
+const avoidDuplicate = (suggestions) => (selectedTags) => (t) =>
+  // must in suggestion list
+  suggestions.map((s) => s.name).includes(t.name) &&
+  // and must not applied yet
+  !selectedTags.map((t) => t.name).includes(t.name)
 
 const matchFilter = (tags, selectedTags, categories, selectedCategories) =>
   // categories is or selector, therefore, check categories of post has intersection with user selected categories
