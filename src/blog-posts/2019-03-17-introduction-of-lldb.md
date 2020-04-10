@@ -3,7 +3,9 @@ title: "Introduction of LLDB"
 categories:
   - cs
 tags:
+  - tool
   - debugger
+  - lldb
 ---
 
 Seriously, I'm not a big fan of the debugger since I never have a try at before. But this time I take a few hours to work with it and the experience is amazed. The debugger provides a way to peeking all stuff inside the program by different input, and this way is almost perfer for debugging something you don't have any idea. But on the other hands, we should create a sufficient example to determine the problem which is not so easy.
