@@ -58,11 +58,7 @@ export default ({
         {timeToRead} {" min read • "}
         {nameToYYYYMMDD(fileName)}
       </span>
-      {categories.map((category, index) => (
-        <ShowTag index={index} addTag={addCategories}>
-          {category}
-        </ShowTag>
-      ))}
+
       <p style={{ marginBottom: `0` }} />
       {tags.map((tag, index) => (
         <ShowTag index={index} addTag={addTags}>
