@@ -4,6 +4,7 @@ categories:
   - cs
 tags:
   - plt
+  - functor
   - language
   - haskell
 ---
