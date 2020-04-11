@@ -16,6 +16,10 @@ Blog posts put in `src/blog-posts/`
 
 ### NOTE
 
+#### Code block Line number
+
+[https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/#line-numbering](https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/#line-numbering)
+
 #### Render Code block
 
 - [Remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark/)
