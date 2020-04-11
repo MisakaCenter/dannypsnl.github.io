@@ -99,6 +99,9 @@ export default ({ data }) => {
           <div>
             <b>Sky Mirror(software engineer)</b>{" "}
             <SiteLink url={`https://www.skymirror.com.tw/`} />
+            <p>
+              Maintaining a future trading system.
+            </p>
           </div>
           <div>
             <b>Glasnostic(system software engineer)</b>{" "}
