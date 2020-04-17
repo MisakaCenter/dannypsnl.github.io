@@ -23,7 +23,7 @@ export default ({ data }) => {
       description: `A lightweight web framework for Go. Using the trie tree to handle HTTP request and reflect return value to make the response`,
     },
     {
-      name: `plt-researchs`,
+      name: `plt-research`,
       description: `Collections of the implementation for researching related topics in programming language theory area`,
     },
   ]

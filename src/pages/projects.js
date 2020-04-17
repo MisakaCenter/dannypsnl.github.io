@@ -7,8 +7,8 @@ import { graphql } from "gatsby"
 export default ({ data }) => {
   const code_projects = [
     {
-      link: `https://github.com/dannypsnl/plt-researchs`,
-      name: `plt-researches`,
+      link: `https://github.com/dannypsnl/plt-research`,
+      name: `plt-research`,
       description: `A collection of PLT researching`,
     },
     {
