@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { SocialIcon } from "react-social-icons"
 
 import SiteLink from "./site-link"
 import Header from "./header"
@@ -30,8 +31,22 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          ©{new Date().getFullYear()}{" "}
-          <SiteLink url={`https://github.com/dannypsnl`}>dannypsnl</SiteLink>
+          <div
+            style={{
+              marginBottom: `1.5em`,
+            }}
+          >
+            ©{new Date().getFullYear()} dannypsnl(林子篆)
+            <div
+              style={{
+                display: `inline`,
+                float: `right`,
+              }}
+            >
+              <SocialIcon url="https://github.com/dannypsnl" />
+              <SocialIcon url="https://twitter.com/dannypsnl" />
+            </div>
+          </div>
           <LicenseCC4 />
         </footer>
       </div>
