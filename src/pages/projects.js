@@ -2,49 +2,41 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SiteLink from "../components/site-link"
-import GitHubButton from "react-github-btn"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
   const code_projects = [
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/plt-research`,
       name: `plt-research`,
       description: `A collection of PLT researching`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/xnix`,
       name: `xnix`,
       description: `A unix-like system setting`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/elz`,
       name: `elz`,
       description: `A polymorphism object-oriented programming language`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/little-scheme`,
       name: `little-scheme`,
       description: `A little scheme for playing SICP`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/redux`,
       name: `redux`,
       description: `redux in Go/Rust`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/rocket`,
       name: `rocket`,
       description: `A light weight Go web framework`,
     },
     {
-      isRepo: true,
       link: `https://github.com/dannypsnl/on`,
       name: `on`,
       description: `A command line tool execute commands base on a command context to avoid duplicate typing`,
@@ -53,7 +45,6 @@ export default ({ data }) => {
 
   const contributions = [
     {
-      isRepo: true,
       link: `https://github.com/llir/llvm`,
       name: `llir/llvm`,
       description: `Library for interacting with LLVM IR in pure Go`,
@@ -114,28 +105,11 @@ const ProjectLi = ({ project }) => (
     <div
       style={{
         display: `inline`,
-        marginRight: `0.3em`,
+        marginRight: `0.2em`,
       }}
     >
       <SiteLink url={project.link}>{project.name}</SiteLink>
     </div>
-    {project.isRepo ? (
-      <div
-        style={{
-          display: `inline`,
-          marginRight: `0.3em`,
-        }}
-      >
-        <GitHubButton
-          href={project.link}
-          data-icon="octicon-star"
-          data-show-count="true"
-          aria-label="Star ntkme/github-buttons on GitHub"
-        >
-          Star
-        </GitHubButton>
-      </div>
-    ) : null}
     :
     <em
       style={{
