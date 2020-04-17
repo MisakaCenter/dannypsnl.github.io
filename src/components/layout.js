@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { SocialIcon } from "react-social-icons"
 
-import SiteLink from "./site-link"
 import Header from "./header"
 import "./layout.css"
 
