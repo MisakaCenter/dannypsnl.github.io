@@ -3,6 +3,7 @@ title: "NOTE: class member initialization order in C++"
 categories:
   - cs
 tags:
+  - note
   - cpp
   - class member
   - initialization

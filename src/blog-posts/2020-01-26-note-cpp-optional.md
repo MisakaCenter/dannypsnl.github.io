@@ -3,6 +3,7 @@ title: "NOTE: C++ optional"
 categories:
   - cs
 tags:
+  - note
   - cpp
   - language
 ---

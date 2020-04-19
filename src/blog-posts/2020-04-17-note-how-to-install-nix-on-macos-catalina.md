@@ -3,6 +3,7 @@ title: "NOTE: how to install Nix package manager on MacOS Catalina"
 categories:
   - cs
 tags:
+  - note
   - nix
   - macos
   - catalina

@@ -3,6 +3,7 @@ title: "NOTE: a little bit Z3 solver"
 categories:
   - cs
 tags:
+  - note
   - smt
   - z3
 last_modified_at: 2020-01-24T03:59:01+08:00

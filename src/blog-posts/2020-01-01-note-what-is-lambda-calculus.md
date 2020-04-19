@@ -3,7 +3,9 @@ title: "NOTE: What is lambda calculus"
 categories:
   - cs
 tags:
+  - note
   - plt
+  - utlc
 ---
 
 What is lambda-calculus? Or, more specific, what is untyped/pure lambda-calculus? To answer this, I wrote the note for myself. Lambda-calculus was a formal system invented by Alonzo Church in the 1920s, and we can enrich it in a variety of ways, for example, adding special concrete syntax like numbers, tuples, records, etc. Such extensions eventually lead to languages like ML, Haskell, or Scheme.

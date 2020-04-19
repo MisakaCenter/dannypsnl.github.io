@@ -3,6 +3,7 @@ title: "NOTE: Seven Bridges of Königsberg and Eulerian graph"
 categories:
   - math
 tags:
+  - note
   - topology
   - graph
   - Eulerian path

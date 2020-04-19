@@ -3,6 +3,7 @@ title: "NOTE: bounded polymorphism"
 categories:
   - cs
 tags:
+  - note
   - plt
   - language
   - haskell
