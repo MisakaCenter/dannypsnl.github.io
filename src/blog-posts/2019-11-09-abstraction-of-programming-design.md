@@ -32,7 +32,7 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
 (cdr '(1 2 3)) ; (2 3)
 ```
 
-可以看到跟常見的中序語法 (`1 + 2` 這種) 不同的是函數被放到了最前面
+可以看到跟常見的中序語法 (`1 + 2` 這種) 不同之處在於函數被放到了最前面
 
 接著我們看定義新的變數的方式
 
@@ -45,7 +45,7 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
 (define add (lambda (x y) (+ x y)))
 ```
 
-第一種會定義一個變數，第二第三意思是一樣的，只是直接綁定一個函數給名稱(第三個)，或是用了語法糖(第二個)
+第一種會定義一個變數，第二與第三的意思其實是一樣的，只是直接綁定一個函數給名稱(第三個)，或是用了語法糖(第二個)
 
 沒錯，我們所需要的先導知識就只有這樣，其餘的部分會在用到的時候再提
 
@@ -193,7 +193,7 @@ Scheme 是相當小巧的語言，小巧到我可以寫個 [直譯器](https://g
   list-of-test-failure)
 ```
 
-我們做了一個簡單的會簡單的回報錯誤框架 (感謝 Scheme 簡短的語法，只要 8 行就有這麼不錯的效果)，現在讓我們加入第二個測試
+我們做了一個簡單的回報錯誤框架 (感謝 Scheme 簡短的語法，只要 8 行就有這麼不錯的效果)，現在讓我們加入第二個測試
 
 ```racket
 (deposit 3000)
@@ -247,9 +247,9 @@ p.s. 事實上如果真實世界的測試寫成這樣也不可能讀得完，也
 
 p.s. 注意 `app.rkt` 也要一起修改，這裡就不多費口舌
 
-`p.s. set-tran-list!` 跟 `tran-list` 都是由 Racket 替我們生成的函數，有興趣看細節的可以看：[docs.racket-lang.org/reference/define-struct.html ](https://docs.racket-lang.org/reference/define-struct.html)這裡我就不介紹了
+`p.s. set-tran-list!` 跟 `tran-list` 都是由 Racket 替我們生成的函數，有興趣看細節的可以看：[docs.racket-lang.org/reference/define-struct.html](https://docs.racket-lang.org/reference/define-struct.html) 這裡我就不介紹了
 
-下一篇會加入使用者操作的部分，see you next time
+[下一篇](/blog/cs/abstraction-of-programming-design-2-user-interface/)會加入使用者操作的部分，see you next time
 
 參考：
 
