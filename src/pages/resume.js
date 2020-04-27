@@ -97,7 +97,13 @@ export default ({ data }) => {
         <div>
           <Section>Work Experience</Section>
           <div>
-            <b>Sky Mirror(software engineer)</b>{" "}
+            <b
+              style={{
+                color: `#6c1010`,
+              }}
+            >
+              Sky Mirror(software engineer)
+            </b>{" "}
             <SiteLink url={`https://www.skymirror.com.tw/`} />
             <p>Maintaining a future trading system.</p>
           </div>
