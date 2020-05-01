@@ -58,12 +58,12 @@ export default ({ data }) => {
 
   const notes = [
     {
-      link: `https://dannypsnl.github.io/plt-researchs/the-little-typer-note/note.html`,
+      link: `https://dannypsnl.github.io/plt-research/the-little-typer-note/note.html`,
       name: `NOTE: the little typer`,
       description: `Note for a book <<The little typer>>`,
     },
     {
-      link: `https://dannypsnl.github.io/plt-researchs/stlc/stlc.html`,
+      link: `https://dannypsnl.github.io/plt-research/stlc/stlc.html`,
       name: `STLC`,
       description: `Simply typed lambda calculus formula`,
     },
