@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { Disqus } from "gatsby-plugin-disqus"
 import SiteLink from "../components/site-link"
 
+import "../styles/code-block-theme.css"
 import "../styles/code-block-hightlight.css"
 
 export default ({ data }) => {
