@@ -27,6 +27,11 @@ export default ({ data }) => {
       description: `A little scheme for playing SICP`,
     },
     {
+      link: `https://github.com/dannypsnl/cc`,
+      name: `cc`,
+      description: `A little C turn into x64`,
+    },
+    {
       link: `https://github.com/dannypsnl/redux`,
       name: `redux`,
       description: `redux in Go/Rust`,
