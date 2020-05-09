@@ -10,7 +10,7 @@ A long long time ago, we found natural numbers can be useful in our life, and so
 
 ### Proof
 
-Suppose that $p_1 < p_2 < ... < p_n$ are all the primes. Let $P = p1 \times p2 \times ... \times pn + 1$ and let $p$ be a prime dividing $P$; then $p$ can't be any of $p_1, p_2, ..., p_n$, otherwise $p$ would divide the difference $P - p_1 \times p_2 \times ... \times p_n = 1$, which is impossible. Therefore, this prime p is not in $p_1, p_2, ..., p_n$, and $p_1, p_2, ..., p_n$ would not be all the primes.
+Suppose that $p_1 < p_2 < ... < p_n$ are all the primes. Let $P = p_1 \times p_2 \times ... \times p_n + 1$ and let $p$ be a prime dividing $P$; then $p$ can't be any of $p_1, p_2, ..., p_n$, otherwise $p$ would divide the difference $P - p_1 \times p_2 \times ... \times p_n = 1$, which is impossible. Therefore, this prime p is not in $p_1, p_2, ..., p_n$, and $p_1, p_2, ..., p_n$ would not be all the primes.
 
 ### Conclusion
 
