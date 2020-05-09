@@ -86,7 +86,69 @@ module.exports = {
       },
     },
     // for rss feed
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              const nameToYYYYMMDD = (name) =>
+                name.split(`-`).slice(0, 3).join(`-`)
+              const nameToDate = (name) => Date.parse(nameToYYYYMMDD(name))
+              return allMarkdownRemark.edges.map((edge) => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: nameToDate(edge.node.parent.name),
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                      }
+                      fields {
+                        slug
+                      }
+                      parent {
+                        ... on File {
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Dan's Blog's RSS Feed",
+          },
+        ],
+      },
+    },
     // disqus
     {
       resolve: `gatsby-plugin-disqus`,
