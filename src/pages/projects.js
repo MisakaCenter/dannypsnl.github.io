@@ -5,16 +5,11 @@ import SiteLink from "../components/site-link"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  const code_projects = [
+  const pltAndCompiler = [
     {
       link: `https://github.com/dannypsnl/plt-research`,
       name: `plt-research`,
       description: `A collection of PLT researching`,
-    },
-    {
-      link: `https://github.com/dannypsnl/xnix`,
-      name: `xnix`,
-      description: `A unix-like system setting`,
     },
     {
       link: `https://github.com/dannypsnl/elz`,
@@ -32,14 +27,16 @@ export default ({ data }) => {
       description: `A little C turn into x64`,
     },
     {
-      link: `https://github.com/dannypsnl/redux`,
-      name: `redux`,
-      description: `redux in Go/Rust`,
+      link: `https://github.com/llir/llvm`,
+      name: `llir/llvm`,
+      description: `Library for interacting with LLVM IR in pure Go`,
     },
+  ]
+  const terminal = [
     {
-      link: `https://github.com/dannypsnl/rocket`,
-      name: `rocket`,
-      description: `A light weight Go web framework`,
+      link: `https://github.com/dannypsnl/xnix`,
+      name: `xnix`,
+      description: `A unix-like system setting`,
     },
     {
       link: `https://github.com/dannypsnl/on`,
@@ -47,13 +44,26 @@ export default ({ data }) => {
       description: `A command line tool execute commands base on a command context to avoid duplicate typing`,
     },
   ]
+  const stateManagement = [
+    {
+      link: `https://github.com/dannypsnl/redux`,
+      name: `redux`,
+      description: `redux in Go/Rust`,
+    },
+  ]
+  const webRelated = [
+    {
+      link: `https://github.com/dannypsnl/rocket`,
+      name: `rocket`,
+      description: `A light weight Go web framework`,
+    },
+  ]
 
   const contributions = [
-    {
-      link: `https://github.com/llir/llvm`,
-      name: `llir/llvm`,
-      description: `Library for interacting with LLVM IR in pure Go`,
-    },
+    { category: `PLT & Compiler`, projects: pltAndCompiler },
+    { category: `Terminal`, projects: terminal },
+    { category: `State Management`, projects: stateManagement },
+    { category: `Web Related`, projects: webRelated },
   ]
 
   const notes = [
@@ -81,18 +91,17 @@ export default ({ data }) => {
           Projects
         </h1>
 
-        <h3>Code</h3>
-        <ul>
-          {code_projects.map((project) => (
-            <ProjectLi project={project} />
-          ))}
-        </ul>
-        <h4>Contribution</h4>
-        <ul>
-          {contributions.map((contribution) => (
-            <ProjectLi project={contribution} />
-          ))}
-        </ul>
+        <h3>Contribution</h3>
+        {contributions.map(({ category, projects }) => (
+          <>
+            <h4>{category}</h4>
+            <ul>
+              {projects.map((contribution) => (
+                <ProjectLi project={contribution} />
+              ))}
+            </ul>
+          </>
+        ))}
 
         <h3>NOTE</h3>
         <ul>
