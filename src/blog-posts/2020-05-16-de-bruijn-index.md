@@ -117,4 +117,4 @@ We have to record level independently since it has no relation with the substitu
 
 ### Conclusion
 
-**DBI** is a quite useful technology when implementing complicated AST conversion. It's not just easier to avoid rename conflicting, but also a less memory required form for implementations. I hope you enjoy the article and have a nice day if this even really helps you in a real task, would be awesome!
+**DBI** is a quite useful technology when implementing complicated AST conversion. It's not just easier to avoid rename conflicting, but also a less memory required form for implementations. I hope you enjoy the article and have a nice day, if this even really helps you in a real task, would be awesome!
