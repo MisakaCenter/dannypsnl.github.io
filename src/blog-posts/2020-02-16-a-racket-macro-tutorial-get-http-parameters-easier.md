@@ -4,8 +4,9 @@ image: ../images/racket/sierpinski-racket-example.png
 categories:
   - cs
 tags:
-  - metaprogramming
   - racket
+  - metaprogramming
+  - macro
 ---
 
 A few days ago, I post this [answer](https://dev.to/dannypsnl/comment/ldl8) to respond to a question about Racket's web framework. When researching on which frameworks could be used. I found no frameworks make get values from HTTP request easier. So I start to design a macro, which based on [routy](github.com/Junker/routy) and an assuming function `http-form/get`, as following shows:
