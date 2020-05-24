@@ -4,6 +4,7 @@ categories:
   - cs
 tags:
   - rust
+  - rust lifetime
 ---
 
 In my case, I have a trait called `Resource` for deserialize from bytes. Now I want to reuse a struct called `List` for others `Resource` so I write done:
