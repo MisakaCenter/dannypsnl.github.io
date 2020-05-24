@@ -147,12 +147,12 @@ which means you can't use it as <code class="language-text">case</code> of <code
 which means you can only get one message from <code class="language-text">recv()</code>, and no warning, looks like a <strong>NICE</strong> networking problem,
 but it's a bug of code actually.</p>
 <p>This bug is easy to fix, in fact, easier than previous one a lot.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">select {
-case _, closed := &lt;-ctx.Done():
-    return
-default:
-    // move job to here
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="go"><pre class="language-go"><code class="language-go"><span class="token keyword">select</span> <span class="token punctuation">{</span>
+<span class="token keyword">case</span> <span class="token boolean">_</span><span class="token punctuation">,</span> closed <span class="token operator">:=</span> <span class="token operator">&lt;-</span>ctx<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span>
+<span class="token keyword">default</span><span class="token punctuation">:</span>
+    <span class="token comment">// move job to here</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>So easy, we just based on the fact, if no case in, it would do <code class="language-text">default</code> block work</p>
 <h3>Conculsion</h3>
 <p>The bug show here might be is not hard to solve, but since everything could go wrong would go wrong,
