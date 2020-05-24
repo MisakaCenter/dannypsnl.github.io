@@ -161,7 +161,7 @@ but it's a bug of code actually.
 
 This bug is easy to fix, in fact, easier than previous one a lot.
 
-```
+```go
 select {
 case _, closed := <-ctx.Done():
     return
