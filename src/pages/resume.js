@@ -5,7 +5,7 @@ import SiteLink from "../components/site-link"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  const projects = [
+  const contributions = [
     {
       name: `elz`,
       description: `A programming language I design and implement. Focus on introduce high-level type theory into object-oriented language. Learn type theory and LLVM IR a lot`,
@@ -26,8 +26,6 @@ export default ({ data }) => {
       name: `plt-research`,
       description: `Collections of the implementation for researching related topics in programming language theory area`,
     },
-  ]
-  const contributions = [
     {
       name: `llir/llvm`,
       description: `Library for interacting with LLVM IR in pure Go`,
@@ -73,16 +71,6 @@ export default ({ data }) => {
             Programming(Rust, Go, C++ and TypeScript). A programming language
             theory lover, therefore, also know some proof assistant(Agda, Coq).
           </p>
-        </div>
-        <div>
-          <Section>Projects</Section>
-          <ul>
-            {projects.map((project) => (
-              <li>
-                {project.name}: {project.description}.
-              </li>
-            ))}
-          </ul>
         </div>
         <div>
           <Section>Contributions</Section>
