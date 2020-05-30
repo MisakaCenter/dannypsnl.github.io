@@ -42,7 +42,7 @@
 	<span class="token boolean">_</span> <span class="token operator">=</span> <span class="token function">BinarySearch</span><span class="token punctuation">(</span>sortedLst<span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre></div>
 <p>But this is a weak promise, anyone can just use <code class="language-text">SortedList{lst: lst}</code> to break it, but better than no promise and already easier to find out in code review.</p>
-<p>The problem was this is not just easy to break, but it also didn't promise enough information for us. What if we modify the list before we use <code class="language-text">BinarySearch</code>? This promise required some human work to check it. Now we want a more improved version. A promise that cannot be violated and doesn't need human work to check the mechanism. As usual, I would use pseudo-code(to get more information, ref to <a href="https://dannypsnl.github.io/docs/cs/infinite-type/">my another article</a>):</p>
+<p>The problem was this is not just easy to break, but it also didn't promise enough information for us. What if we modify the list before we use <code class="language-text">BinarySearch</code>? This promise required some human work to check it. Now we want a more improved version. A promise that cannot be violated and doesn't need human work to check the mechanism. As usual, I would use pseudo-code(to get more information, ref to <a href="/blog/cs/infinite-type/">my another article</a>):</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sort[T: comparable](list: List[T]): Output
 where
   Output = List[T] // type alias
