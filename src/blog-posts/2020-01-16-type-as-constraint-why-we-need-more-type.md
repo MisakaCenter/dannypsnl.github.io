@@ -47,7 +47,7 @@ func main() {
 
 But this is a weak promise, anyone can just use `SortedList{lst: lst}` to break it, but better than no promise and already easier to find out in code review.
 
-The problem was this is not just easy to break, but it also didn't promise enough information for us. What if we modify the list before we use `BinarySearch`? This promise required some human work to check it. Now we want a more improved version. A promise that cannot be violated and doesn't need human work to check the mechanism. As usual, I would use pseudo-code(to get more information, ref to [my another article](https://dannypsnl.github.io/docs/cs/infinite-type/)):
+The problem was this is not just easy to break, but it also didn't promise enough information for us. What if we modify the list before we use `BinarySearch`? This promise required some human work to check it. Now we want a more improved version. A promise that cannot be violated and doesn't need human work to check the mechanism. As usual, I would use pseudo-code(to get more information, ref to [my another article](/blog/cs/infinite-type/)):
 
 ```
 sort[T: comparable](list: List[T]): Output

@@ -180,7 +180,7 @@ Remember `actualReducer, initState := getReducerAndInitState(r)` this line, we g
 
 Now, when we receive a `rematch.Reducer`, `reducer` produce by `InsideReducer`, where is it? We do not see it at any user's code, right? Because it's defined at package `rematch`, export it is because reflection can only take exported member!
 
-Else it's original reducer(a normal function apply reducer required), we won't talk about it again, you can refer to [design-of-redux-go-v2](https://dannypsnl.github.io/golang/redux/2018/05/17/design-of-redux-go-v2.html) to getting more information.
+Else it's original reducer(a normal function apply reducer required), we won't talk about it again, you can refer to [design-of-redux-go-v2](/blog/cs/design-of-redux-go-v2/) to getting more information.
 
 Back to InsideReducer
 
