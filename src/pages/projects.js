@@ -22,7 +22,7 @@ export default ({ data }) => {
       description: `A little scheme for playing SICP`,
     },
     {
-      link: `https://github.com/dannypsnl/cc`,
+      link: `https://github.com/racket-tw/cc`,
       name: `cc`,
       description: `A little C turn into x64`,
     },
