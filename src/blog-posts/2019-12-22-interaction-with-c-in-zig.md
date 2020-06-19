@@ -18,8 +18,8 @@ From 1972, **C** became more and more important in the underlying world. Many pr
 
   ```c
   struct object *new_object() {
-    struct object *obj = {};
-    return obj;
+      struct object *obj = {};
+      return obj;
   }
   ```
 
