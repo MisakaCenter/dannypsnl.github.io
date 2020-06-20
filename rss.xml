@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dan's Blog's RSS Feed]]></title><description><![CDATA[Programming Language Theory • System Programming]]></description><link>https://dannypsnl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jun 2020 12:35:13 GMT</lastBuildDate><item><title><![CDATA[ANTLR v4--introduction]]></title><description><![CDATA[今天我想介紹一個強大有趣的工具--ANTLR 這個工具根據我們定義的文法產生處理原始碼的 parser，當然不只是處理程式語言，你也可以用來處理其他資料 安裝 之後會用到的通常是這支程式 因為它用來產生 parser 開始 我們需要建立一個檔案叫，而裡頭的 grammar…]]></description><link>https://dannypsnl.github.io/blog/cs/introduction-of-antlr4/</link><guid isPermaLink="false">https://dannypsnl.github.io/blog/cs/introduction-of-antlr4/</guid><pubDate>Sun, 03 Sep 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今天我想介紹一個強大有趣的工具--ANTLR&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dan's Blog's RSS Feed]]></title><description><![CDATA[Programming Language Theory • System Programming]]></description><link>https://dannypsnl.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Jun 2020 12:10:45 GMT</lastBuildDate><item><title><![CDATA[ANTLR v4--introduction]]></title><description><![CDATA[今天我想介紹一個強大有趣的工具--ANTLR 這個工具根據我們定義的文法產生處理原始碼的 parser，當然不只是處理程式語言，你也可以用來處理其他資料 安裝 之後會用到的通常是這支程式 因為它用來產生 parser 開始 我們需要建立一個檔案叫，而裡頭的 grammar…]]></description><link>https://dannypsnl.github.io/blog/cs/introduction-of-antlr4/</link><guid isPermaLink="false">https://dannypsnl.github.io/blog/cs/introduction-of-antlr4/</guid><pubDate>Sun, 03 Sep 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今天我想介紹一個強大有趣的工具--ANTLR&lt;/p&gt;
 &lt;p&gt;這個工具根據我們定義的文法產生處理原始碼的 parser，當然不只是處理程式語言，你也可以用來處理其他資料&lt;/p&gt;
 &lt;h2&gt;安裝&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; /usr/local/lib
@@ -7583,7 +7583,32 @@ cgo helps we link binary multiple times and must set up the linker flags multipl
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We use &lt;code class=&quot;language-text&quot;&gt;test.zig&lt;/code&gt; to build an executable, link to &lt;strong&gt;C&lt;/strong&gt; libraries &lt;code class=&quot;language-text&quot;&gt;c&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;nl-3&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;nl-route-3&lt;/code&gt;. Also, add an include directory for headers searching. All of them are the feature we exactly need when building a project works with &lt;strong&gt;C&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Conculsion&lt;/h3&gt;
-&lt;p&gt;Now we got the idea why &lt;strong&gt;Zig&lt;/strong&gt; is a proper replacement of &lt;strong&gt;C&lt;/strong&gt;, so we should use it right now? For me is not, it points out the way we can move to. But itself is not complete enough for a production project, for example I haven&apos;t saught a package manager for &lt;strong&gt;Zig&lt;/strong&gt;, seems like still in &lt;a href=&quot;https://github.com/ziglang/zig/issues/943&quot;&gt;discussion&lt;/a&gt;. So we can take a sit, and observe the future of &lt;strong&gt;Zig&lt;/strong&gt;. Anyway, I really hope it can be successful. How about you?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[C++ thread 基礎]]></title><description><![CDATA[使用標準庫的 thread 非常容易 1.引入標頭檔 2.宣告函式 3.建構一個物件…]]></description><link>https://dannypsnl.github.io/blog/cs/cpp-thread-basic/</link><guid isPermaLink="false">https://dannypsnl.github.io/blog/cs/cpp-thread-basic/</guid><pubDate>Mon, 26 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;使用標準庫的 thread 非常容易&lt;/p&gt;
+&lt;p&gt;Now we got the idea why &lt;strong&gt;Zig&lt;/strong&gt; is a proper replacement of &lt;strong&gt;C&lt;/strong&gt;, so we should use it right now? For me is not, it points out the way we can move to. But itself is not complete enough for a production project, for example I haven&apos;t saught a package manager for &lt;strong&gt;Zig&lt;/strong&gt;, seems like still in &lt;a href=&quot;https://github.com/ziglang/zig/issues/943&quot;&gt;discussion&lt;/a&gt;. So we can take a sit, and observe the future of &lt;strong&gt;Zig&lt;/strong&gt;. Anyway, I really hope it can be successful. How about you?&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NOTE: 演算法的量級]]></title><description><![CDATA[估算演算法的執行時間對寫出有效率的程式非常重要，而基於兩個假設我們採用了量級作為估算方式： 求精確複雜度很難 係數通常不重要 當可以求精確複雜度時，當然應該用更好的工具，並以實驗佐證。 定義 O(big O) 給定複雜度函數 f(n)，O(f(n)) 為複雜度函數 g(n…]]></description><link>https://dannypsnl.github.io/blog/cs/algorithm-order/</link><guid isPermaLink="false">https://dannypsnl.github.io/blog/cs/algorithm-order/</guid><pubDate>Sat, 20 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;估算演算法的執行時間對寫出有效率的程式非常重要，而基於兩個假設我們採用了量級作為估算方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求精確複雜度很難&lt;/li&gt;
+&lt;li&gt;係數通常不重要&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;當可以求精確複雜度時，當然應該用更好的工具，並以實驗佐證。&lt;/p&gt;
+&lt;h3&gt;定義&lt;/h3&gt;
+&lt;h4&gt;O(big O)&lt;/h4&gt;
+&lt;p&gt;給定複雜度函數 f(n)，O(f(n)) 為複雜度函數 g(n) 構成之集合。其中，對任意 g(n)，必存在正實數 c 與非負整數 N，使所有 n ≥ N，g(n) ≤ c × f(n)&lt;/p&gt;
+&lt;p&gt;這看似很難理解的定義其實在說一件很簡單的事：g(n) 會在某個點 N 落在 c × f(n) 下方&lt;/p&gt;
+&lt;p&gt;拿一些常見的 f(n) 來觀察用途非常不錯，令 f(n) 為 n²，g(n) 為 n²+20n。用 n²+20n ≤ n²+20n² = 21n² 就可以得到 c=21、N=1 證明 n²+20n ∈ O(n²)。
+很重要的關鍵就是不是只有一組條件會符合，例如說我們也可以用 n²+20n ≤ 2n² 這個不等式導出 20n ≤ n² 取 c=2、N=20 證明 n²+20n ∈ O(n²)。
+所以前面才會特別提到量級的條件寬鬆。另外就是由於太多人喜歡背誦 n² log n 之類的函數，而忽略了複雜度函數並不只有這些的事實，
+我們可以設計一個簡單的案例來破除這個迷思，n² ∈ O(n² + n) 可以取 c=1、N=0 得證。&lt;/p&gt;
+&lt;p&gt;這個案例同時也說明了 g(n) ∈ O(f(n)) ∧ f(n) ∈ O(g(n)) 完全是可能的(稍微試著證明 n²+n ∈ O(n²) 吧)&lt;/p&gt;
+&lt;p&gt;要記住 O 很寬鬆，例如說我們也可以令 f(n) = n²，g(n) = n。
+對 c=1、N=0，n ≤ n² 成立，於是得證 n 落在 O(n²) 中，但這個資訊沒什麼鳥用，我們沒辦法用過度寬鬆的上限改善演算法。
+所以才需要 Ω 這個概念&lt;/p&gt;
+&lt;h4&gt;Ω&lt;/h4&gt;
+&lt;p&gt;Ω 函數的定義正巧與 O 相反，是用來定義下限的：&lt;/p&gt;
+&lt;p&gt;給定複雜度函數 f(n)，Ω(f(n)) 為複雜度函數 g(n) 構成之集合。其中，對任意 g(n)，必存在正實數 c 與非負整數 N，使所有 n ≥ N，g(n) ≥ c × f(n)&lt;/p&gt;
+&lt;p&gt;並不偶然的是 Ω 同樣寬鬆與沒什麼用處，真正有用的是兩者的交集：Θ&lt;/p&gt;
+&lt;p&gt;而通常很多人講 big O 其實都是在說 Θ，g ∈ Θ(n²) 表示我們可以藉由某個純平方函數的倍數來描述 g 的最終上下界(實務上應該關心一下這時候 N 到底是多少會比較好 XD)，
+作為效能的依據。&lt;/p&gt;
+&lt;h4&gt;Θ&lt;/h4&gt;
+&lt;p&gt;其實我已經講了但還是寫一下：Θ(f(n)) = O(f(n)) ∩ Ω(f(n))&lt;/p&gt;</content:encoded></item><item><title><![CDATA[C++ thread 基礎]]></title><description><![CDATA[使用標準庫的 thread 非常容易 1.引入標頭檔 2.宣告函式 3.建構一個物件…]]></description><link>https://dannypsnl.github.io/blog/cs/cpp-thread-basic/</link><guid isPermaLink="false">https://dannypsnl.github.io/blog/cs/cpp-thread-basic/</guid><pubDate>Mon, 26 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;使用標準庫的 thread 非常容易&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;cpp&quot;&gt;&lt;pre class=&quot;language-cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;thread&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;iostream&gt;&lt;/span&gt;&lt;/span&gt;
 
