@@ -40,7 +40,7 @@ export default ({ data }) => {
       <SEO title={`Resume`} description={data.site.siteMetadata.title} />
       <div>
         <div>
-          <h2>林子篆(Danny)</h2>
+          <h2>Lîm Tsú-thuàn/林子篆/Danny</h2>
           <div>System Software Engineer</div>
           <div>@Taipei, Taiwan</div>
           <div>
