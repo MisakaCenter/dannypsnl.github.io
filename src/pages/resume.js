@@ -46,15 +46,6 @@ export default ({ data }) => {
           <div>
             Github: <SiteLink url={`https://github.com/dannypsnl`} />
           </div>
-          <div>
-            Linkedin:{" "}
-            <SiteLink
-              url={`https://www.linkedin.com/in/%E5%AD%90%E7%AF%86-%E6%9E%97-2a8118138/`}
-            />
-          </div>
-          <div>
-            Blog: <SiteLink url={`https://dannypsnl.github.io/`} />
-          </div>
           <div>email: dannypsnl@gmail.com</div>
         </div>
         <div
