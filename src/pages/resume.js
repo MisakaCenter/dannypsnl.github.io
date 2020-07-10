@@ -57,10 +57,8 @@ export default ({ data }) => {
           <p>
             2+ years of development work experience, including networking,
             compiler, and web application. In-depth knowledge of Kubernetes and
-            Container networking. Solid programming skill in Functional
-            Programming(Haskell, Racket, Scala and OCaml), Object-oriented
-            Programming(Rust, Go, C++ and TypeScript). A programming language
-            theory lover, therefore, also know some proof assistant(Agda, Coq).
+            Container networking. A programming language theory lover. Like
+            Racket, Haskell, OCaml, Rust, Agda, and Coq.
           </p>
         </div>
         <div>
