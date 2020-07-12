@@ -33,41 +33,50 @@ export default ({ data }) => {
         </div>
         <div>
           <Section>Work Experience</Section>
-          <div>
-            <b>Sky Mirror(software engineer)</b>{" "}
-            <SiteLink url={`https://www.skymirror.com.tw/`} />
-            <p>Maintaining a future trading system.</p>
-          </div>
-          <div>
-            <b>Glasnostic(system software engineer)</b>{" "}
-            <SiteLink url={`https://glasnostic.com`} />
-            <p>
-              Create the networking filter & analyzer which easy to use(only
-              four norms: request, bandwidth, concurrency and latency) for
-              nowadays complex backend system.
-            </p>
-          </div>
-          <div>
-            <b>AndroVideo(back-end engineer)</b>{" "}
-            <SiteLink url={`http://www.androvideo.com/`} />
-            <p>
-              Developing cloud web service with container-solution. Maintaining
-              the device(camera) HMI system by communicating with the Android
-              system.
-            </p>
-          </div>
-          <div>
-            <b>Mapacode(fullstack engineer)</b>
-            <p>
-              Developing HMI of CNC by React.js & Rust working with Rust & a
-              little C++ to interact with CNC
-            </p>
-          </div>
+          <Position
+            title={`Sky Mirror(software engineer)`}
+            companySite={`https://www.skymirror.com.tw/`}
+          >
+            Maintaining a future trading system.
+          </Position>
+          <Position
+            title={`Glasnostic(system software engineer)`}
+            companySite={`https://glasnostic.com`}
+          >
+            Create the networking filter & analyzer which easy to use(only four
+            norms: request, bandwidth, concurrency and latency) for nowadays
+            complex backend system.
+          </Position>
+          <Position
+            title={`AndroVideo(back-end engineer)`}
+            companySite={`http://www.androvideo.com/`}
+          >
+            Developing cloud web service with container-solution. Maintaining
+            the device(camera) HMI system by communicating with the Android
+            system.
+          </Position>
+          <Position title={`Mapacode(fullstack engineer)`}>
+            Developing HMI of CNC by React.js & Rust working with Rust & a
+            little C++ to interact with CNC
+          </Position>
         </div>
       </div>
     </Layout>
   )
 }
+
+const Position = ({ title, companySite, children }) => (
+  <div>
+    <b>{title}</b>
+    {companySite ? (
+      <>
+        {" "}
+        <SiteLink url={companySite} />
+      </>
+    ) : null}
+    <p>{children}</p>
+  </div>
+)
 
 const Section = ({ children }) => (
   <h2
