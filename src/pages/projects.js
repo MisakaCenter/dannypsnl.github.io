@@ -44,11 +44,16 @@ export default ({ data }) => {
       description: `A command line tool execute commands base on a command context to avoid duplicate typing`,
     },
   ]
-  const stateManagement = [
+  const forFun = [
     {
       link: `https://github.com/dannypsnl/redux`,
       name: `redux`,
       description: `redux in Go/Rust`,
+    },
+    {
+      link: `https://github.com/dannypsnl/ahapattern`,
+      name: `Aha! Pattern`,
+      description: `Another bad idea that overusing the power of reflection to involve pattern-matching into Go`,
     },
   ]
   const webRelated = [
@@ -88,7 +93,7 @@ export default ({ data }) => {
   const contributions = [
     { category: `PLT & Compiler`, projects: pltAndCompiler },
     { category: `Terminal`, projects: terminal },
-    { category: `State Management`, projects: stateManagement },
+    { category: `For Fun`, projects: forFun },
     { category: `Web Related`, projects: webRelated },
     { category: `Networking`, projects: network },
     { category: `Editor`, projects: editor },
