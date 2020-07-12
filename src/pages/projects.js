@@ -109,7 +109,7 @@ export default ({ data }) => {
   ]
 
   return (
-    <Layout>
+    <Layout pageTitle={`Projects`}>
       <SEO title={`Projects`} description={data.site.siteMetadata.title} />
       <div>
         <h3>Contribution</h3>

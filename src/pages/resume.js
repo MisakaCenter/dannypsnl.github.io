@@ -6,7 +6,7 @@ import { graphql } from "gatsby"
 
 export default ({ data }) => {
   return (
-    <Layout>
+    <Layout pageTitle={`Resume`}>
       <SEO title={`Resume`} description={data.site.siteMetadata.title} />
       <div>
         <div>

@@ -6,7 +6,7 @@ import { SocialIcon } from "react-social-icons"
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageTitle }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteMetadata={data.site.siteMetadata} />
+      <Header siteMetadata={data.site.siteMetadata} pageTitle={pageTitle} />
       <div
         style={{
           margin: `0 auto`,

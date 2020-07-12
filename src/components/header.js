@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import Img from "gatsby-image"
 
-const Header = ({ siteMetadata }) => {
+const Header = ({ siteMetadata, pageTitle }) => {
   const data = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "lambda-icon.png" }) {
@@ -17,7 +17,10 @@ const Header = ({ siteMetadata }) => {
       }
     }
   `)
-  const [dans, blog] = siteMetadata.title.split(" ")
+  let [dans, blog] = siteMetadata.title.split(" ")
+  if (pageTitle) {
+    blog = pageTitle
+  }
 
   return (
     <header
