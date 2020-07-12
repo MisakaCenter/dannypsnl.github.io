@@ -5,36 +5,6 @@ import SiteLink from "../components/site-link"
 import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  const contributions = [
-    {
-      name: `elz`,
-      description: `A programming language I design and implement. Focus on introduce high-level type theory into object-oriented language. Learn type theory and LLVM IR a lot`,
-    },
-    {
-      name: `little-scheme`,
-      description: `An interpreter of scheme language write in Haskell`,
-    },
-    {
-      name: `redux`,
-      description: `Go version redux for run. Learn how to use reflection in Go`,
-    },
-    {
-      name: `rocket`,
-      description: `A lightweight web framework for Go. Using the trie tree to handle HTTP request and reflect return value to make the response`,
-    },
-    {
-      name: `plt-research`,
-      description: `Collections of the implementation for researching related topics in programming language theory area`,
-    },
-    {
-      name: `llir/llvm`,
-      description: `Library for interacting with LLVM IR in pure Go`,
-    },
-    {
-      name: `intel-go/nff-go`,
-      description: `A set of libraries for creating and deploying cloud-native Network Functions`,
-    },
-  ]
   return (
     <Layout>
       <SEO title={`Resume`} description={data.site.siteMetadata.title} />
@@ -60,16 +30,6 @@ export default ({ data }) => {
             Container networking. A programming language theory lover. Like
             Racket, Haskell, OCaml, Rust, Agda, and Coq.
           </p>
-        </div>
-        <div>
-          <Section>Contributions</Section>
-          <ul>
-            {contributions.map((contribution) => (
-              <li>
-                {contribution.name}: {contribution.description}.
-              </li>
-            ))}
-          </ul>
         </div>
         <div>
           <Section>Work Experience</Section>

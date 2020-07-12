@@ -58,12 +58,41 @@ export default ({ data }) => {
       description: `A light weight Go web framework`,
     },
   ]
+  const network = [
+    {
+      link: `https://github.com/intel-go/nff-go`,
+      name: `intel-go/nff-go`,
+      description: `A set of libraries for creating and deploying cloud-native Network Functions`,
+    },
+  ]
+  const editor = [
+    {
+      link: `https://github.com/racket-tw/intellij-racket`,
+      name: `intellij-racket`,
+      description: `Support Racket language in Intellij IDE`,
+    },
+  ]
+  const tutorial = [
+    {
+      link: `https://llir.github.io/document/`,
+      name: `llir/llvm Document`,
+      description: `llir/llvm tutorials`,
+    },
+    {
+      link: `https://racket-tw.github.io/`,
+      name: `racket.tw`,
+      description: `在台灣推廣 racket`,
+    },
+  ]
 
   const contributions = [
     { category: `PLT & Compiler`, projects: pltAndCompiler },
     { category: `Terminal`, projects: terminal },
     { category: `State Management`, projects: stateManagement },
     { category: `Web Related`, projects: webRelated },
+    { category: `Networking`, projects: network },
+    { category: `Editor`, projects: editor },
+    { category: `Tutorial`, projects: tutorial },
   ]
 
   const notes = [
@@ -83,14 +112,6 @@ export default ({ data }) => {
     <Layout>
       <SEO title={`Projects`} description={data.site.siteMetadata.title} />
       <div>
-        <h1
-          style={{
-            textAlign: `center`,
-          }}
-        >
-          Projects
-        </h1>
-
         <h3>Contribution</h3>
         {contributions.map(({ category, projects }) => (
           <>
