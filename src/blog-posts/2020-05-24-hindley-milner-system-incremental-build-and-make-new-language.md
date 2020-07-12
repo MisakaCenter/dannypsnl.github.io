@@ -22,7 +22,7 @@ This syntax bind `list-length` to a type `(All (A) (-> (List A) Integer))`, or w
 
 #### Why Polymorphism
 
-In [simply typed lambda calculus (STLC)](/blog/cs/note-stlc/), asking **e : T** make sense because we already give `e` a type `K`, check `T` is `K` is all we need. All type in STLC is a `T` or `T -> T` and `T` will not from another type. This feature, however, makes inconvenience when writing a program, for example:
+In [simply typed lambda calculus (STLC)](/blog/2020/03/08/cs/note-stlc/), asking **e : T** make sense because we already give `e` a type `K`, check `T` is `K` is all we need. All type in STLC is a `T` or `T -> T` and `T` will not from another type. This feature, however, makes inconvenience when writing a program, for example:
 
 ```racket
 (define id
@@ -258,7 +258,7 @@ Wait, we use variable then must somewhere we define it, where is it? Therefore, 
 
 #### Lambda
 
-Things are getting more complex, get really to understand what we need to do? Lambda in the HM system well not have type annotation for parameters, it causes the same problem just like what `list` gives us. This means we need to bind a `freevar` with parameters as variables into a **new environment**. At here, since the multiple parameters are valid in this language, I introduce type `pair` to abstraction on this rather than extend type definition. Then, we use this new environment to infer the type of body, and produce arrow type(If you don't understand arrow type, I suggest you read [STLC](/blog/cs/note-stlc/) for explanation) via the inferred result. Now, it's time for some program:
+Things are getting more complex, get really to understand what we need to do? Lambda in the HM system well not have type annotation for parameters, it causes the same problem just like what `list` gives us. This means we need to bind a `freevar` with parameters as variables into a **new environment**. At here, since the multiple parameters are valid in this language, I introduce type `pair` to abstraction on this rather than extend type definition. Then, we use this new environment to infer the type of body, and produce arrow type(If you don't understand arrow type, I suggest you read [STLC](/blog/2020/03/08/cs/note-stlc/) for explanation) via the inferred result. Now, it's time for some program:
 
 ##### Bind variable
 

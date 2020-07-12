@@ -9,15 +9,15 @@ tags:
   - haskell
 ---
 
-Last time we introduce [Functor](/blog/cs/from-infinite-type-to-functor/), a [Functor](/blog/cs/from-infinite-type-to-functor/)
-is a container which provide a function can help another function operating the [Functor](/blog/cs/from-infinite-type-to-functor/).
+Last time we introduce [Functor](/blog/2019/12/13/cs/from-infinite-type-to-functor/), a [Functor](/blog/2019/12/13/cs/from-infinite-type-to-functor/)
+is a container which provide a function can help another function operating the [Functor](/blog/2019/12/13/cs/from-infinite-type-to-functor/).
 This function has a name `fmap` in **Haskell**. Therefore, a function take a type `a` as parameter(`a -> b`) can be lifted by `fmap`
 to handle `M a`, if `M` provided a `fmap`. For example, `Maybe` is a `Functor`, `(+1)` has the type `Int -> Int`, `fmap (+1) (Just 10)`
 get a result: `Just 11`.
 
 ### Limitation of Functor
 
-Oh, [Functor](/blog/cs/from-infinite-type-to-functor/) seems so powerful, but programming is simple, life is hard!
+Oh, [Functor](/blog/2019/12/13/cs/from-infinite-type-to-functor/) seems so powerful, but programming is simple, life is hard!
 In the real world, a common situation is there has many `M` have to handle. For example:
 
 ```hs{numberLines: true}
@@ -40,6 +40,7 @@ Now `liftMaybe2 repliacte a b` can work just as expected. Sounds great? How abou
 How about make a lift to another `M`, e.g. `List`? `liftList`? It seems like boilerplate code, right?
 
 Now we have two problems:
+
 1. `liftMaybe_n` problem, how to handle `liftMaybe` for all `n`.
 2. `liftM` problem, how to handle `lift` for different `M`.
 

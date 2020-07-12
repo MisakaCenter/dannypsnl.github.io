@@ -249,7 +249,7 @@ p.s. 注意 `app.rkt` 也要一起修改，這裡就不多費口舌
 
 `p.s. set-tran-list!` 跟 `tran-list` 都是由 Racket 替我們生成的函數，有興趣看細節的可以看：[docs.racket-lang.org/reference/define-struct.html](https://docs.racket-lang.org/reference/define-struct.html) 這裡我就不介紹了
 
-[下一篇](/blog/cs/abstraction-of-programming-design-2-user-interface/)會加入使用者操作的部分，see you next time
+[下一篇](/blog/2020/04/25/cs/abstraction-of-programming-design-2-user-interface/)會加入使用者操作的部分，see you next time
 
 參考：
 

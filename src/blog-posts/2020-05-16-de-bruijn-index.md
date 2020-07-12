@@ -8,7 +8,7 @@ tags:
   - racket
 ---
 
-At the beginning of learning PLT, everyone would likely be confused by some program that didn't have a variable! Will, I mean they didn't use `String`, `Text` or something like that to define a variable. A direct mapping definition of lambda calculus(we would use **LC** as the short name in the following context, and if you unfamiliar with **LC**, you can read [this article](/blog/cs/note-what-is-lambda-calculus/) first) usually looks like this:
+At the beginning of learning PLT, everyone would likely be confused by some program that didn't have a variable! Will, I mean they didn't use `String`, `Text` or something like that to define a variable. A direct mapping definition of lambda calculus(we would use **LC** as the short name in the following context, and if you unfamiliar with **LC**, you can read [this article](/blog/2020/01/01/cs/note-what-is-lambda-calculus/) first) usually looks like this:
 
 ```racket
 #lang typed/racket

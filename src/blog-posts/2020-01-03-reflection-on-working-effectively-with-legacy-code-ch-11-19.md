@@ -7,7 +7,7 @@ tags:
   - testing
 ---
 
-At [ch6-10](/blog/cs/reflection-on-working-effectively-with-legacy-code-ch-6-10/) we know why adding test is so hard, and how to get over it. As usual, we overview what is going to be mentioned in this article:
+At [ch6-10](/blog/2019/12/07/cs/reflection-on-working-effectively-with-legacy-code-ch-6-10/) we know why adding test is so hard, and how to get over it. As usual, we overview what is going to be mentioned in this article:
 
 - Chapter 11: I Need to Make a Change. What Methods Should I Test?
 - Chapter 12: I Need to Make Many Changes in One Area. Do I Have to Break Dependencies for All the Classes Involved?
