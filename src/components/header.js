@@ -34,11 +34,12 @@ const Header = ({ siteMetadata, pageTitle }) => {
           backgroundColor: `#635c5c`,
           padding: `0`,
           margin: `0`,
-          width: `5em`,
+          width: `6.6em`,
           // left, right, bottom-right, bottom-left
           borderRadius: `0 0 0 0.2em`,
         }}
       >
+        <TabLink to={`/recommend`}>Recommend</TabLink>
         <TabLink to={`/projects`}>Projects</TabLink>
         <TabLink to={`/resume`}>Resume</TabLink>
       </ul>
@@ -92,7 +93,7 @@ const TabLink = ({ children, to }) => (
     <li
       style={{
         color: `#fff8f8`,
-        textAlign: `right`,
+        textAlign: `left`,
         margin: `auto 0.5em auto 0.5em`,
         borderRadius: `0.2em`,
       }}
