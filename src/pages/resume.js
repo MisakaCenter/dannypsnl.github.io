@@ -12,7 +12,7 @@ export default ({ data }) => {
         <div>
           <h2>Lîm Tsú-thuàn/林子篆/Danny</h2>
           <div>System Software Engineer</div>
-          <div>@Taipei, Taiwan</div>
+          <div>@Tainan, Taiwan</div>
           <div>
             Github: <SiteLink url={`https://github.com/dannypsnl`} />
           </div>
