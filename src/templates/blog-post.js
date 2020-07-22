@@ -10,6 +10,29 @@ import { LicenseCC4 } from "../components/licensecc4"
 import { BuyMeACoffee } from "../components/buy-me-a-coffe"
 
 export default ({ data }) => {
+  const FooterSection = ({ children }) => (
+    <p
+      style={{
+        marginBottom: `0`,
+      }}
+    >
+      {children}
+    </p>
+  )
+  const ShowTag = ({ children }) => (
+    <em
+      style={{
+        margin: `0.2em`,
+        padding: `0.1em`,
+        color: `#aba4a4`,
+        border: `solid 0.3px`,
+        textAlign: `center`,
+      }}
+    >
+      {children}
+    </em>
+  )
+
   const post = data.markdownRemark
   const disqusConfig = {
     url: `${data.site.siteMetadata.siteUrl + post.slug}`,
@@ -44,30 +67,6 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-const FooterSection = ({ children }) => (
-  <p
-    style={{
-      marginBottom: `0`,
-    }}
-  >
-    {children}
-  </p>
-)
-
-const ShowTag = ({ children }) => (
-  <em
-    style={{
-      margin: `0.2em`,
-      padding: `0.1em`,
-      color: `#aba4a4`,
-      border: `solid 0.3px`,
-      textAlign: `center`,
-    }}
-  >
-    {children}
-  </em>
-)
 
 export const query = graphql`
   query($slug: String!) {
