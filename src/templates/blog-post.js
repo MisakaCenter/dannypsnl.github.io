@@ -8,7 +8,6 @@ import "../styles/code-block-theme.css"
 import "../styles/code-block-hightlight.css"
 import { LicenseCC4 } from "../components/licensecc4"
 import { BuyMeACoffee } from "../components/buy-me-a-coffe"
-import Header from "../components/header"
 
 export default ({ data }) => {
   const FooterSection = ({ children }) => (
