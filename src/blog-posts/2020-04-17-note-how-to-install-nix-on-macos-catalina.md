@@ -13,7 +13,7 @@ Since MacOS Catalina adds some new rules, root path cannot be used by applicatin
 
 From [zetavg's comment](https://github.com/NixOS/nix/issues/2925?fbclid=IwAR1Sjr2TbcbtBxoMGFNe2jvl_sRKubUwlbY4rfOjIHLX-9idnD37-Crxxwk#issuecomment-593066225):
 
-```shell script
+```shell
 # Create a volume for the nix store and configure it to mount at /nix.
 wget https://raw.githubusercontent.com/LnL7/nix/darwin-10.15-install/scripts/create-darwin-volume.sh
 bash create-darwin-volume.sh

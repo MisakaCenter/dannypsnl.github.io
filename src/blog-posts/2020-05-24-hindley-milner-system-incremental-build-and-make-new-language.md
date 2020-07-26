@@ -56,7 +56,7 @@ I hope I convince you that, take your time to understand its detail of this syst
 
 This section helps you get a project would be modified in the following part:
 
-```sh
+```shell
 raco pkg new hindley-milner
 cd hindley-milner
 raco pkg install --auto
