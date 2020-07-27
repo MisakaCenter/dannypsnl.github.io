@@ -77,8 +77,8 @@ $$
 With `mk` we can have `mult` by a different way.
 
 $$
-mkmult' \doteq \lambda n . \lambda m . if \; (iszero \; n) \; 0 \; (add \; m \; (t \; (predecessor \; n) \; m))
-mult \doteq (mk mkmult')
+mkmult' \doteq \lambda n . \lambda m . if \; (iszero \; n) \; 0 \; (add \; m \; (t \; (predecessor \; n) \; m)) \\
+mult \doteq (mk \; mkmult')
 $$
 
 `mk` can find out fixed point of any function. Which means `M (mk M) = (mk M)`. `mk` is not the only fixed point, the most famous fixed point is Y combinator, but I'm not going to talk about it here. At the end, thanks for the read and have a nice day.
